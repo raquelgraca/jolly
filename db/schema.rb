@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_154759) do
+ActiveRecord::Schema.define(version: 2020_03_05_180415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "play_space_id"
+    t.integer "minimum_capacity"
+    t.integer "maximum_capacity"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["play_space_id"], name: "index_appointments_on_play_space_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "play_session_id"
+    t.bigint "user_id"
+    t.string "name_of_kid"
+    t.string "gender_of_kid"
+    t.integer "age_of_kid"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["play_session_id"], name: "index_bookings_on_play_session_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "play_sessions", force: :cascade do |t|
+    t.bigint "appointment_id"
+    t.bigint "user_id"
+    t.string "name"
+    t.text "description"
+    t.text "requirements"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["appointment_id"], name: "index_play_sessions_on_appointment_id"
+    t.index ["user_id"], name: "index_play_sessions_on_user_id"
+  end
+
+  create_table "play_spaces", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "street"
+    t.string "street_number"
+    t.string "neighbourhood"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.text "facilities"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_play_spaces_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,4 +89,10 @@ ActiveRecord::Schema.define(version: 2020_03_05_154759) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "play_spaces"
+  add_foreign_key "bookings", "play_sessions"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "play_sessions", "appointments"
+  add_foreign_key "play_sessions", "users"
+  add_foreign_key "play_spaces", "users"
 end

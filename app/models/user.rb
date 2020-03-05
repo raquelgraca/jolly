@@ -4,14 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-validates  :role, presence: true
-validates  :first_name, presence: true
-validates  :last_name, presence: true
-validates  :street, presence: true
-validates  :street_number, presence: true
-validates  :neighbourhood, presence: true
-validates  :city, presence: true
-validates  :state, presence: true
-validates  :zip_code, presence: true
-validates  :avatar, presence: true
+  has_many :play_spaces
+  has_many :play_sessions
+  has_many :bookings
+
+  validates  :role, presence: true
+  validates  :first_name, presence: true
+  validates  :last_name, presence: true
+  validates  :street, presence: true
+  validates  :street_number, presence: true
+  validates  :neighbourhood, presence: true
+  validates  :city, presence: true
+  validates  :state, presence: true
+  validates  :zip_code, presence: true
+  validates  :avatar, presence: true
 end

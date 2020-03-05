@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_180028) do
+ActiveRecord::Schema.define(version: 2020_03_05_180415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 2020_03_05_180028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["play_space_id"], name: "index_appointments_on_play_space_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "play_session_id"
+    t.bigint "user_id"
+    t.string "name_of_kid"
+    t.string "gender_of_kid"
+    t.integer "age_of_kid"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["play_session_id"], name: "index_bookings_on_play_session_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "play_sessions", force: :cascade do |t|
@@ -77,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_180028) do
   end
 
   add_foreign_key "appointments", "play_spaces"
+  add_foreign_key "bookings", "play_sessions"
+  add_foreign_key "bookings", "users"
   add_foreign_key "play_sessions", "appointments"
   add_foreign_key "play_sessions", "users"
   add_foreign_key "play_spaces", "users"

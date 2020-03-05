@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :play_spaces
+  has_many :play_sessions
+  has_many :bookings
 
   validates  :role, presence: true
   validates  :first_name, presence: true

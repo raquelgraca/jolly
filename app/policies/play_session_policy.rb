@@ -22,7 +22,7 @@ class PlaySessionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    false
   end
 
 end

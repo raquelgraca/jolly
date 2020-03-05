@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'appointments/bookings'
+  get 'appointments/play_sessions'
+  get 'appointments/play_spaces'
+  get 'appointments/users'
   devise_for :users
   root to: 'pages#home'
 

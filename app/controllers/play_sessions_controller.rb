@@ -1,0 +1,2 @@
+class PlaySessionsController < ApplicationController
+end

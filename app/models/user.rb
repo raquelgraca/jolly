@@ -19,5 +19,12 @@ class User < ApplicationRecord
   validates  :city, presence: true
   validates  :state, presence: true
   validates  :zip_code, presence: true
-  validates  :avatar, presence: true
+  validate   :avatar_presence
+
+  private
+  def avatar_presence
+    if avatar.attached? == false
+      errors.add(:avatar, "Photo required.")
+    end
+  end
 end

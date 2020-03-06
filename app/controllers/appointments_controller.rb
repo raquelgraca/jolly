@@ -1,11 +1,11 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointments, only: [:show, :edit, :update, :destroy]
+
   def index
     @appointments = policy_scope(Appointment)
   end
 
   def show
-    @appointment = Appointment.find(params[:id])
-    authorize @appointment
   end
 
   def new
@@ -19,13 +19,10 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-    @appointment = Appointment.find(params[:id])
-    authorize @appointment
   end
 
   def update
    @appointment.update(appointments_params)
-   authorize @appointment
     if @appointment.save
       redirect_to appointments_path
     else
@@ -35,11 +32,17 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    authorize @appointment
     redirect_to appointments_path
   end
 
+  private
+
   def appointment_params
     params.require(:appointment).permit(:minimum_capacity, :maximum_capacity, :start_time, :end_time)
+  end
+
+  def set_appointments
+    @appointment = Appointment.find(params[:id])
+    authorize @appointment
   end
 end

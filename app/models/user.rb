@@ -11,6 +11,9 @@ class User < ApplicationRecord
   ROLE = ['parent', 'recreation worker', 'play space owner']
 
   validates  :role, presence: true, inclusion: { in: ROLE }
+  
+  has_one_attached :avatar
+  
   validates  :first_name, presence: true
   validates  :last_name, presence: true
   validates  :street, presence: true
@@ -19,7 +22,5 @@ class User < ApplicationRecord
   validates  :city, presence: true
   validates  :state, presence: true
   validates  :zip_code, presence: true
-  validates  :avatar, presence: true
-
 
 end

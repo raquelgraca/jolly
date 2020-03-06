@@ -28,5 +28,9 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
+#authentication
 gem 'devise'
+
+#authorisation
 gem 'pundit'
+gem 'cloudinary', '~> 1.12.0'

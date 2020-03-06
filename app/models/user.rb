@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :play_sessions
   has_many :bookings
 
+  has_one_attached :photo
+
   validates  :role, presence: true
   validates  :first_name, presence: true
   validates  :last_name, presence: true

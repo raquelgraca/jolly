@@ -1,11 +1,11 @@
 <div class="container m-6">
   <div class="card p-4">
-    <h2 class="text-center"> <%= @play_spaces.name.capitalize %> </h2>
+    <h2 class="text-center"> <%= @play_space.name.capitalize %> </h2>
     <div class="info-playspace">
-      <p><%= @play_spaces.street %>,<%= @play_spaces.street_number %> - <%= @play_spaces.neighbourhood %></p>
-      <p><%= @play_spaces.city %>-<%= @play_spaces.state %></p>
-      <p><%= @play_spaces.zip_code %></p>
+      <p><%= @play_space.street %>,<%= @play_space.street_number %> - <%= @play_space.neighbourhood %></p>
+      <p><%= @play_space.city %>-<%= @play_space.state %></p>
+      <p><%= @play_space.zip_code %></p>
     </div>
-      <p class="facilities-playspace"><%= @play_spaces.facilities %></p>
+      <p class="facilities-playspace"><%= @play_space.facilities %></p>
     </div>
 </div>

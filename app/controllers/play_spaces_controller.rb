@@ -10,7 +10,7 @@ class PlaySpacesController < ApplicationController
   end
 
   def new
-    @Play_space = PlaySpace.new
+    @play_space = PlaySpace.new
     authorize @play_space
   end
 

@@ -1,9 +1,11 @@
-  <div class="container m-6">
-    <div class="card p-4">
-      <h2 class="text-center"> Dear <%= @play_spaces.user.name.capitalize %> </h2>
-      <h1 class="text-center"> Thank you for your purchase </h1>
-      <div class="text-center"><i class="far fa-check-circle"></i></div>
-      <p class="purchase-name"><big><%= @purchase.hair.user.name.capitalize %> will get in touch with you to arrange the
-        payment and delivery of their hair an email was send to <%= @purchase.user.email.capitalize %>.</big></p>
+<div class="container m-6">
+  <div class="card p-4">
+    <h2 class="text-center"> <%= @play_spaces.name.capitalize %> </h2>
+    <div class="info-playspace">
+      <p><%= @play_spaces.street %>,<%= @play_spaces.street_number %> - <%= @play_spaces.neighbourhood %></p>
+      <p><%= @play_spaces.city %>-<%= @play_spaces.state %></p>
+      <p><%= @play_spaces.zip_code %></p>
     </div>
-  </div>
+      <p class="facilities-playspace"><%= @play_spaces.facilities %></p>
+    </div>
+</div>

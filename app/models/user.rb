@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :play_sessions
   has_many :bookings
 
-  validates  :role, presence: true
+  ROLE = ['parent', 'recreation worker', 'play space owner']
+
+  validates  :role, presence: true, inclusion: { in: ROLE }
   validates  :first_name, presence: true
   validates  :last_name, presence: true
   validates  :street, presence: true
@@ -18,4 +20,6 @@ class User < ApplicationRecord
   validates  :state, presence: true
   validates  :zip_code, presence: true
   validates  :avatar, presence: true
+
+
 end

@@ -1,0 +1,19 @@
+<%= simple_form_for(@play_space) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :street %>
+  <%= f.input :street_number %>
+  <%= f.input :neighbourhood %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip_code %>
+  <%= f.input :facilities %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <% if params[:action] == "edit" %>
+    <%= f.submit "Update #{@play_space.name}" %>
+  <% else %>
+    <%= f.submit "Add this play space" %>
+  <% end %>
+<% end %>
+

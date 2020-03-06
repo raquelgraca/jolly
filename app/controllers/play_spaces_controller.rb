@@ -10,12 +10,12 @@ class PlaySpacesController < ApplicationController
   end
 
   def new
-    @Play_space = PlaySpace.new
+    @play_space = PlaySpace.new
     authorize @play_space
   end
 
   def create
-    @play_space = PlaySpace.new(play_spaces_params)
+    @play_space = PlaySpace.new(play_space_params)
     @play_space.user = current_user
     authorize @play_space
     if @play_space.save
@@ -28,8 +28,8 @@ class PlaySpacesController < ApplicationController
   def show
     @play_space = PlaySpace.find(params[:id])
     authorize @play_space
-    @booking = Purchase.new
-    authorize @booking
+    # @booking = Purchase.new
+    # authorize @booking
   end
 
   def edit

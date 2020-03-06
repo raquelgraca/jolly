@@ -10,4 +10,10 @@
   <%= f.input :zip_code %>
   <%= f.input :facilities %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <% if params[:action] == "edit" %>
+    <%= f.submit "Update #{@play_space.name}" %>
+  <% else %>
+    <%= f.submit "Add this play space" %>
+  <% end %>
 <% end %>
+

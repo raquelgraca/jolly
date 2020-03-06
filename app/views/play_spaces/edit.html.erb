@@ -1,1 +1,5 @@
-edit.html.erb
+<h1>Edit <%= @play_space.name %></h1>
+
+<%= render 'form', play_space: @play_space %>
+
+<%= link_to 'Cancel', @play_space %>

@@ -97,9 +97,9 @@ puts "Creating 4 Playspaces..."
     )
   file3 = URI.open('https://redtricom.files.wordpress.com/2017/11/img_0730.jpg?w=605&h=454')
   file4 = URI.open('https://redtricom.files.wordpress.com/2013/09/kids-island-sand.jpg')
-  play_space01.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
-  play_space01.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
-  play_space01.save!
+  play_space02.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
+  play_space02.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
+  play_space02.save!
 
   play_space03 = PlaySpace.new(
     name: "Fun Time",

@@ -23,7 +23,9 @@ class AppointmentsController < ApplicationController
 
   def update
    @appointment.update(appointments_params)
-    if @appointment.save
+    if @appointment.sa    <%= f.input :, required: false, collection: PlaySpace:: %>
+        <%= f.input :, required: false, collection: PlaySpace:: %>
+        <%= f.input :, required: false, collection: PlaySpace:: %>ve
       redirect_to appointments_path
     else
       render :edit

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'appointments/play_spaces'
   get 'appointments/users'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'play_spaces#index'
 
   resources :play_spaces
   resources :appointments

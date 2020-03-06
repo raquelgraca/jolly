@@ -4,16 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :play_spaces
+  has_many :play_spaces, dependent: :destroy
   has_many :play_sessions
   has_many :bookings
 
   ROLE = ['parent', 'recreation worker', 'play space owner']
 
   validates  :role, presence: true, inclusion: { in: ROLE }
-  
+
   has_one_attached :avatar
-  
+
   validates  :first_name, presence: true
   validates  :last_name, presence: true
   validates  :street, presence: true

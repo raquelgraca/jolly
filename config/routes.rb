@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'play_spaces#index'
 
-  resources :play_spaces
-  resources :appointments
+  resources :play_spaces do
+    resources :appointments, only: [:new, :create]
+  end
+  resources :appointments, except: [:new, :create]
   resources :play_sessions do
     collection do
       get "my_play_sessions"

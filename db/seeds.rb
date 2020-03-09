@@ -140,3 +140,44 @@ puts "Creating 4 Playspaces..."
   play_space04.save!
 
   puts "Finished!"
+
+  Appointment.destroy_all
+
+  play_space_1 = PlaySpace.find_by(name: "Big and Tiny")
+  play_space_2 = PlaySpace.find_by(name: "Kids Island")
+  time_1 = DateTime.now + 24.hours
+  time_2 = DateTime.now + 26.hours
+  time_3 = DateTime.now + 36.hours
+  time_4 = DateTime.now + 38.hours
+
+  puts "Creating 4 Appointments..."
+  Appointment.create!(
+    minimum_capacity: 5,
+    maximum_capacity: 7,
+    start_time: time_1,
+    end_time: time_2,
+    play_space_id: play_space_1.id,
+    )
+  Appointment.create!(
+    minimum_capacity: 5,
+    maximum_capacity: 7,
+    start_time: time_3,
+    end_time: time_4,
+    play_space_id: play_space_1.id,
+    )
+  Appointment.create!(
+    minimum_capacity: 10,
+    maximum_capacity: 12,
+    start_time: time_1,
+    end_time: time_2,
+    play_space_id: play_space_2.id,
+    )
+  Appointment.create!(
+    minimum_capacity: 10,
+    maximum_capacity: 12,
+    start_time: time_3,
+    end_time: time_4,
+    play_space_id: play_space_2.id,
+    )
+  puts "Finished!"
+

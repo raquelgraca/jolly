@@ -6,15 +6,15 @@ class AppointmentPolicy < ApplicationPolicy
   end
 
   def create?
-    play_space.user == user
+    record.play_space.user == user
   end
 
   def index?
-    user.role == 'recreation worker' || record.user == user
+    user.role == 'recreation worker' || record.play_space.user == user
   end
 
   def show?
-    user.role == 'recreation worker' || record.user == user
+    user.role == 'recreation worker' || record.play_space.user == user
   end
 
   def update?

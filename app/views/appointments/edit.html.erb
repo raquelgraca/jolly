@@ -1,0 +1,10 @@
+<%= simple_form_for @appointments do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :min_capacity %>
+  <%= f.input :max_capacity %>
+  <%= f.input :owner_fee_per_child %>
+  <%= f.submit "Update" %>
+<% end %>

@@ -4,7 +4,16 @@ class PlaySessionsController < ApplicationController
 
 
   def index
-    @play_sessions = policy_scope(PlaySession)
+    @play_sessions = policy_scope(PlaySession).where("appointment.starts_time >", DateTime.now).order(start_time: :asc)
+    @filtered_play_sessions = []
+
+    if params[:time].present?
+      @filtered_play_sessions << @play_sessions.where("appointment.start_time >", "%#{params[:time]}%")
+    elsif params[:hood].present?
+      @filtered_play_sessions << @play_sessions.where("appointment.play_space.neighbourhood =" , "%#{params[:hood]}%")
+    else
+      @play_sessions
+    end
   end
 
   def show

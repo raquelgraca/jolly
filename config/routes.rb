@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       collection do
         get "my_play_sessions"
       end
+
       resources :bookings, only: [:new, :create]
 
     end

@@ -1,21 +1,12 @@
 <div class="container m-6">
-  <h1>Create a Play Session for <%= @play_space.name %></h1>
-  <p>You are creating a play session for this appointment:</p>
-  <div class="card">
-    <p> Minimum capacity: <%= @appointment.minimum_capacity %>
-    <p> Maximum capacity: <%= @appointment.maximum_capacity %> </p>
-    <p> Start time: <%= @appointment.start_time %></p>
-    <p> End time: <%= @appointment.end_time %></p>
-    <p> Playspace Owner fee per kid: <%= humanized_money_with_symbol(@appointment.owner_fee_per_kid_cents) %></p>
-  </div>
-  <br>
+
   <h2> Describe your Play Session:</h2>
   <%= simple_form_for [@appointment, @play_session] do |f| %>
     <%= f.error_notification %>
-
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :requirements %>
-    <%= f.submit "Submit" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Add a Play Session" %>
   <% end %>
 </div>

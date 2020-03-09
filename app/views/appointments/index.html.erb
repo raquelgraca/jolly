@@ -1,14 +1,13 @@
 
   <div class="container m-8">
-
-  <%= simple_form_for :search, url: appointments_path, method: "GET" do |f| %>
-  <div class="bottom d-flex justify-content-between align-items-center">
-    <p> Appointments: </p>
-        <%= f.submit "Search", class: "btn btn-warning" %>
-        <%= link_to 'Reset', appointments_path %>
+     <% @appointments.each do |appointment|%>
+      <%= appointment.play_space.name.capitalize %>
+      <p> Minimum capacity: <%= appointment.minimum_capacity %> <p>
+      <p> Maximum capacity: <%= appointment.maximum_capacity %> </p>
+      <p> Start time: <%= appointment.start_time %></p>
+      <p> End time: <%= appointment.start_time %></p>
+     <p> Fee per kid: <%= humanized_money_with_symbol(appointment.owner_fee_per_kid_cents) %></p>
     <% end %>
   </div>
-    <div id="play_spaces">
-      <%= render 'form', appointments: @appointments %>
-    </div>
-    </div>
+
+

@@ -1,15 +1,10 @@
-<div class="container col-6">
-  <h1 class="text-center">Edit Appointment</h1>
+<%= simple_form_for @appointments do |f| %>
+  <%= f.error_notification %>
 
-  <%= simple_form_for @appointment do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
-    <%= f.input :minimum_capacity %>
-    <%= f.input :maximum_capacity %>
-    <%= f.submit "Edit", class: "btn btn-warning btn-block" %>
-    <br>
-    <br>
-  <% end %>
-
-</div>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :min_capacity %>
+  <%= f.input :max_capacity %>
+  <%= f.input :owner_fee_per_kid_cents %>
+  <%= f.submit "Update" %>
+<% end %>

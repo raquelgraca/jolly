@@ -1,3 +1,6 @@
+<div class="container m-6">
+<h1>Create an appointment for <%= @play_space.name %></h1>
+<p>This appointment will be available for recreation workers offer playsessions in your space.</p>
 <%= simple_form_for [@play_space, @appointment] do |f| %>
   <%= f.error_notification %>
 
@@ -8,3 +11,4 @@
   <%#= f.input :owner_fee_per_child %>
   <%= f.submit "Submit" %>
 <% end %>
+</div>

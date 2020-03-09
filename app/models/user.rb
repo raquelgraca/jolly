@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :play_spaces, dependent: :destroy
-  has_many :play_sessions
-  has_many :bookings
+  has_many :play_sessions, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   ROLE = ['parent', 'recreation worker', 'play space owner']
 

@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :play_space
-  has_one :play_session
+  has_one :play_session, dependent: :destroy
 
   validates :start_time, presence: true
   validates :end_time, presence: true

@@ -14,7 +14,7 @@ private
 
   def photos_presence_format
     if photos.attached? == false
-      errors.add(:photos, "Photos required.")
+      errors.add(:photos, "required.")
     end
   end
 

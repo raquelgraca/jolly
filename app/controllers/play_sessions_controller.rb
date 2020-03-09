@@ -13,7 +13,7 @@ class PlaySessionsController < ApplicationController
   def new
     @play_session = PlaySession.new
     @play_session.appointment = @appointment
-
+    @play_space = @appointment.play_space
     authorize @play_session
   end
 
@@ -24,7 +24,7 @@ class PlaySessionsController < ApplicationController
     authorize @play_session
 
     if @play_session.save
-      redirect_to play_session_path(@play_session)
+      redirect_to play_sessions_path(@play_session.id)
     else
       render :new
     end
@@ -66,4 +66,5 @@ class PlaySessionsController < ApplicationController
   def set_appointment
     @appointment = Appointment.find(params[:appointment_id])
   end
+
 end

@@ -6,7 +6,11 @@ class PlaySessionPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == 'recreation worker'
+    user.role == 'recreation worker'
+  end
+
+  def new?
+    user.role == 'recreation worker'
   end
 
   def index?
@@ -23,6 +27,10 @@ class PlaySessionPolicy < ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def my_play_sessions?
+    user.role == 'recreation worker'
   end
 
 end

@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointments, only: [:show, :edit, :update, :destroy]
+  before_action :set_play_space, only: [:new, :create]
 
   def index
     @appointments = policy_scope(Appointment)
@@ -10,12 +11,22 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @appointment.play_space = @play_space
+
     authorize @appointment
   end
 
   def create
-    @appointment = Appointment.create(appointment_params)
+    @appointment = Appointment.new(appointment_params)
+    @appointment.play_space = @play_space
+
     authorize @appointment
+
+    if @appointment.save
+      redirect_to appointment_path(@appointment)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,9 +34,7 @@ class AppointmentsController < ApplicationController
 
   def update
    @appointment.update(appointments_params)
-    if @appointment.sa    <%= f.input :, required: false, collection: PlaySpace:: %>
-        <%= f.input :, required: false, collection: PlaySpace:: %>
-        <%= f.input :, required: false, collection: PlaySpace:: %>ve
+    if @appointment.save
       redirect_to appointments_path
     else
       render :edit
@@ -46,5 +55,9 @@ class AppointmentsController < ApplicationController
   def set_appointments
     @appointment = Appointment.find(params[:id])
     authorize @appointment
+  end
+
+  def set_play_space
+    @play_space = PlaySpace.find(params[:play_space_id])
   end
 end

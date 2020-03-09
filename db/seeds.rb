@@ -179,5 +179,71 @@ puts "Creating 4 Playspaces..."
     end_time: time_4,
     play_space_id: play_space_2.id,
     )
+
   puts "Finished!"
+
+  worker = User.find_by(role: "recreation worker")
+
+  puts "Creating 4 Play_sessions..."
+    play_session01 = PlaySession.new(
+    name: "Afternoon Reading",
+    description: "Afternoon reading for under 10s",
+    requirements: "Under 10",
+    user_id: worker.id
+    worker_fee_per_kid: "20",
+    status: "confirmed",
+    appointments_id: "",
+    )
+    play_session02 = PlaySession.new(
+    name: "Tuesday Swimming",
+    description: "Two hours supervised swimming",
+    requirements: "Armbands needed",
+    user_id: worker.id,
+    worker_fee_per_kid: "35",
+    status: "cancelled",
+    appointments_id: "",
+    )
+    play_session03 = PlaySession.new(
+    name: "Creative Arts Play",
+    description: "Colouring, clay play, drawings",
+    requirements: "Aged 4 - 11",
+    user_id: worker.id,
+    worker_fee_per_kid: "20",
+    status: "confirmed",
+    appointments_id: "",
+    )
+    play_session04 = PlaySession.new(
+    name: "Toy and object play",
+    description: "Group session with a variety of toys",
+    requirements: "Aged 4-11",
+    user_id: worker.id,
+    worker_fee_per_kid: "25",
+    status: "pending",
+    appointment_id:
+    )
+  file10 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
+  file11 = URI.open('')
+  file12 = URI.open('https://www.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-around-636281354')
+  file13 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
+
+  play_session01.photos.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
+  play_session02.photos.attach(io: file11, filename: "play_session02", content_type: "image/jpg")
+  play_session03.photos.attach(io: file12, filename: "play_session03", content_type: "image/jpg")
+  play_session04.photos.attach(io: file13, filename: "play_session04", content_type: "image/jpg")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

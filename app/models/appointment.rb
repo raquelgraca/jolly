@@ -18,7 +18,8 @@ class Appointment < ApplicationRecord
   private
   def two_hour_validation
     if end_time < start_time + 2.hours
-      errors[:base] << "Appointments must be at least 2 hours"
+      # errors[:base] << "Appointments must be at least 2 hours"
+      errors.add(:end_time, "Appointments must be at least 2 hours")
     end
   end
 

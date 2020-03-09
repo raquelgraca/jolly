@@ -1,6 +1,6 @@
 class PlaySpace < ApplicationRecord
   belongs_to :user
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
   has_many_attached :photos
 
   validates :name, presence: true

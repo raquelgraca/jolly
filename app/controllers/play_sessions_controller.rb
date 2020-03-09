@@ -36,7 +36,7 @@ class PlaySessionsController < ApplicationController
   def update
     @play_session.update(play_session_params)
     if @play_session.save
-      redirect_to my_play_sessions_path
+      redirect_to my_play_sessions_play_sessions_path
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class PlaySessionsController < ApplicationController
 
   def destroy
     @play_session.destroy
-    redirect_to my_play_sessions_path
+    redirect_to my_play_sessions_play_sessions_path
   end
 
   def my_play_sessions

@@ -1,0 +1,52 @@
+<div class="container m-6">
+  <h1 class="ml-5 mt-5">Overview</h1>
+  <div class="d-flex justify-content-around">
+    <div class="purchase-item">
+      <div class="card">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <%= cl_image_tag @appointment.photos.first.key, :class => "d-block w-100" %>
+              </div>
+              <% @appointment.photos.each do |photo| %>
+                <% if photo != @appointment.photos.first %>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key, :class => "d-block w-100" %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <div class="card-infos">
+            <p> Will start at <%= @appointment.start_time %> and finish at <%= @appointment.end_time %> in case minimum capacity of <%= @appointment.minimum_capacity %> is not reach will be cancelled also maximum capacity is  <%= @appointment.maximum_capacity %> . Thanks you very much. </p>
+        </div>
+      </div>
+    </div>
+    <div class="purchase-item">
+      <div class="container m-4">
+        <p class="row" >This session is host in <%= @appointment.play_space.name %> </p>
+        <p class="row" >the adress will be <%= @appointment.play_space.street %> <%= @hair.play_space.city%> <%= @hair.play_space.zip_code%> </p>
+        <br>
+        <br>
+        <br>
+        <p class="row" >Make your reservation now!</p>
+        <div class="row" >
+          <%= simple_form_for @booking, :url => appointment_purchases_path(@appointment.id) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :comment %>
+            <%= f.button :submit, "Booking", id: "booking-btn", class: 'btn btn-warning'%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,14 @@
-
-  <div id="appointments">
+  <div id="play_spaces">
     <div  class="card-columns">
-      <% @appointments.each do |appointment|%>
-        <div class="card" id="appointment-id-<%= appointment.id %>">
+      <% hairs.each do |play_space|%>
+        <div class="card" id="play_space-id-<%= play_space.id %>">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                      <%= cl_image_tag appointment.photos.first.key, :class => "d-block w-100" %>
+                      <%= cl_image_tag play_space.photos.first.key, :class => "d-block w-100" %>
                   </div>
-                  <% appointment.photos.each do |photo| %>
-                    <% if photo != appointment.photos.first %>
+                  <% play_space.photos.each do |photo| %>
+                    <% if photo != play_space.photos.first %>
                       <div class="carousel-item">
                         <%= cl_image_tag photo.key, :class => "d-block w-100" %>
                       </div>
@@ -28,9 +27,10 @@
             </div>
           <div class="card-infos">
             <div>
-              <p> minimum capacity <%= appointment.minimum_capacity %> maximum capacity <%= appointment.maximum_capacity %> starts at <%= appointment.start_time %> and finish at <%= appointment.end_time %>  </p>
+               <p> <%= play_space_name %> is located at <%= play_space.play_space_neighbourhood %> , <%= play_space.street_number %> number <%= play_space.street %> street </p>
+              <p> <%= play_space.city %> city <%= play_space.state %> state <%= play_space.zip_code %> zip code <%= play_space.facilities %> has facilities </p>
             </div>
-            <%= link_to 'Booking Now!', appointment_path(appointment.id), class: 'btn btn-warning' %>
+            <%= link_to 'Purchase Now!', play_space_path(play_space.id), class: 'btn btn-warning' %>
           </div>
         </div>
       <% end %>

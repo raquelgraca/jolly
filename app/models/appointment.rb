@@ -6,7 +6,8 @@ class Appointment < ApplicationRecord
   validates :end_time, presence: true
   validates :minimum_capacity, presence: true
   validates :maximum_capacity, presence: true
-  #validates :owner_fee_per_child, presence: true
+  monetize :owner_fee_per_kid_cents
+  validates :owner_fee_per_kid_cents, presence: true
 
   validate :two_hour_validation
 

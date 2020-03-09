@@ -5,6 +5,8 @@
       <p> Maximum capacity: <%= @appointment.maximum_capacity %> </p>
       <p> Start time: <%= @appointment.start_time %></p>
       <p> End time: <%= @appointment.start_time %></p>
+      <p> Fee per kid: <%= humanized_money_with_symbol(@appointment.owner_fee_per_kid_cents) %></p>
+
     </div>
 </div>
 

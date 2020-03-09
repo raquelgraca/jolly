@@ -1,11 +1,22 @@
 <div class="container m-6">
   <div class="card p-4">
-    <h2 class="text-center"> <%= @play_space.name.capitalize %> </h2>
+    <div class="d-flex">
+    <% @play_space.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+    </div>
+  </div>
+    <h2 class="text-center mt-4"> <%= @play_space.name.capitalize %> </h2>
     <div class="info-playspace">
       <p><%= @play_space.street %>,<%= @play_space.street_number %> - <%= @play_space.neighbourhood %></p>
       <p><%= @play_space.city %>-<%= @play_space.state %></p>
       <p><%= @play_space.zip_code %></p>
-    </div>
       <p class="facilities-playspace"><%= @play_space.facilities %></p>
     </div>
 </div>
+    <div class="text-center links">
+      <%= link_to "Edit", play_space_path(@play_space.id), class: "btn" %>
+      <%= link_to "Delete", play_space_path(@play_space.id), method: :delete, remote: true, class: "btn" %>
+      <%= link_to "New appointment", new_play_space_appointment_path(@play_space.id), class: "btn"  %>
+    </div>
+

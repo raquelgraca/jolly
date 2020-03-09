@@ -49,7 +49,7 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:minimum_capacity, :maximum_capacity, :start_time, :end_time)
+    params.require(:appointment).permit(:minimum_capacity, :maximum_capacity, :start_time, :end_time, :owner_fee_per_kid_cents)
   end
 
   def set_appointments

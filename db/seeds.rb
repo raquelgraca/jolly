@@ -186,18 +186,18 @@ puts "Creating 4 Playspaces..."
 
 
   puts "Creating 4 Play_sessions..."
-    play_session01 = PlaySession.new(
-    name: "Afternoon Reading",
-    description: "Afternoon reading for under 10s",
-    requirements: "Under 10",
-    user_id: worker.id,
-    status: "confirmed",
-    appointment_id: appointment_1.id,
-    )
+  #   play_session01 = PlaySession.new(
+  #   name: "Afternoon Reading",
+  #   description: "Afternoon reading for under 10s",
+  #   requirements: "Under 10",
+  #   user_id: worker.id,
+  #   status: "confirmed",
+  #   appointment_id: appointment_1.id,
+  #   )
 
-  file10 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
-  play_session01.photo.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
-  play_session01.save!
+  # file10 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
+  # play_session01.photo.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
+  # play_session01.save!
 
 
     play_session02 = PlaySession.new(

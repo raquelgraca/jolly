@@ -18,7 +18,7 @@
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
     <% if user_signed_in? && current_user.role == "parent" %>
-            <%= link_to 'Book this session', new_play_session_booking_path(play_session.id), class: "btn btn-secondary" %>
+            <%= link_to 'Book this session', new_play_session_booking_path(@play_session.id), class: "btn btn-secondary" %>
     <% end %>
   </div>
 </div>

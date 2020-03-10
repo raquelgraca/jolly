@@ -184,6 +184,7 @@ puts "Creating 4 Playspaces..."
 
   worker = User.find_by(role: "recreation worker")
 
+  PlaySession.destroy_all
 
   puts "Creating 4 Play_sessions..."
 
@@ -243,11 +244,49 @@ puts "Creating 4 Playspaces..."
 
   puts "Finished!"
 
+  Booking.destroy_all
 
+  parent = User.find_by(role: "parent")
 
+  puts "Creating 4 Bookings..."
 
+    booking01 = Booking.create!(
+    name_of_kid: "Joseph",
+    gender_of_kid: "Male",
+    age_of_kid: 7,
+    comment: "He can't eat seafood",
+    play_session_id: play_session01.id,
+    user_id: parent.id,
+    )
 
+    booking02 = Booking.create!(
+    name_of_kid: "Mario",
+    gender_of_kid: "Male",
+    age_of_kid: 5,
+    comment: "He likes everything except play videogames",
+    play_session_id: play_session02.id,
+    user_id: parent.id,
+    )
 
+    booking03 = Booking.create!(
+    name_of_kid: "Elisa",
+    gender_of_kid: "Female",
+    age_of_kid: 9,
+    comment: "She tried to kill me once",
+    play_session_id: play_session03.id,
+    user_id: parent.id,
+    )
+
+    booking04 = Booking.create!(
+    name_of_kid: "Julia",
+    gender_of_kid: "Female",
+    age_of_kid: 8,
+    comment: "She loves to take a nap after lunch",
+    play_session_id: play_session04.id,
+    user_id: parent.id,
+    )
+
+    puts "Finished!"
 
 
 

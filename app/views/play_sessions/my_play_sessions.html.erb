@@ -5,6 +5,7 @@
       <%= cl_image_tag play_session.photo.key, height: 300, width: 400, crop: :fill %>
       <div class= "d-flex-columns m-auto">
         <h2> <%= link_to play_session.name.capitalize, play_session_path(play_session) %></h2>
+        <h4> Provided by <%= play_session.user.first_name %> <%= cl_image_tag  play_session.user.avatar.key, class: "avatar" %> </h4>
         <p>How this play session will be: <%= play_session.description %></p>
         <p>Requirements: <%= play_session.requirements %></p>
         <p>Status: <%= play_session.status %></p>

@@ -186,6 +186,7 @@ puts "Creating 4 Playspaces..."
 
 
   puts "Creating 4 Play_sessions..."
+
     play_session01 = PlaySession.new(
     name: "Afternoon Reading",
     description: "Afternoon reading for under 10s",

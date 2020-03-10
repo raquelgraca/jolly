@@ -6,7 +6,19 @@ class PlaySessionsController < ApplicationController
 
 
   def index
-    @play_sessions = policy_scope(PlaySession)
+    @play_sessions = policy_scope(PlaySession).joins(:appointment).where("appointments.start_time > ?", DateTime.now).order("appointments.start_time asc")
+
+    if params[:search].present?
+      if params[:search][:time].present?
+        @play_sessions = @play_sessions.joins(:appointment).where("appointments.start_time > ?", "%#{params[:search][:time]}%")
+      end
+
+      if params[:search][:hood].present?
+        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:hood]})
+      end
+    end
+
+  @play_sessions
   end
 
   def show

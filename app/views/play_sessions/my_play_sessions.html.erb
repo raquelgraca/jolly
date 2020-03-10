@@ -4,7 +4,7 @@
     <div class="d-flex bg-light p-4 mb-10">
       <%= cl_image_tag play_session.photo.key, height: 300, width: 400, crop: :fill %>
       <div class= "d-flex-columns m-auto">
-        <h2> <%= play_session.name.capitalize %> </h2>
+        <h2> <%= link_to play_session.name.capitalize, play_session_path(play_session) %></h2>
         <p>How this play session will be: <%= play_session.description %></p>
         <p>Requirements: <%= play_session.requirements %></p>
         <p>Status: <%= play_session.status %></p>

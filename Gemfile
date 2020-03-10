@@ -37,3 +37,4 @@ gem 'cloudinary', '~> 1.12.0'
 
 #for adding price and currency
 gem 'money-rails'
+gem 'stripe'

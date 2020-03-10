@@ -1,0 +1,24 @@
+<%= simple_form_for @user, :html => {:class => 'step-form', :id => "payment-form"} do |f| %>
+<%= f.fields_for [@user, @booking] do |b| %>
+<table class="table table-bordered">
+ <thead>
+ <tr>
+   <th>Slots In The User's Time Zone</th>
+   <th>Price</th>
+   <th>Service Provider</th>
+   <th>Booking Button</th>
+ </tr>
+ </thead>
+ <tbody>
+ <% @bookings.each do |booking| %>
+ <% unless schedule.title == 'Booked' %>
+   <tr>
+     <td><%= local_time(booking.start, format: '%e %b, %Y - %H:%M %P') %></td>
+     <td>$<%= @play_session.price_by_kid %> USD</td>
+     <td><%= booking.user.name %></td>
+     <td><%= b.radio_button :schedule_id, booking.id, required: true %> <i class="fa fa-calendar-plus-o"></i> Book This!</td>
+   </tr>
+   <% end %>
+ <% end %>
+ </tbody>
+</table>

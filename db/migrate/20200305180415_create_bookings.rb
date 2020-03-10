@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.string :gender_of_kid
       t.integer :age_of_kid
       t.text :comment
+      t.monetize :amount, currency: { present: false }
 
       t.timestamps
     end

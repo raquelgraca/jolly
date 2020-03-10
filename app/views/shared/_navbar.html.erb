@@ -7,26 +7,27 @@
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <% if user_signed_in? %>
-          <li class="nav-item active h5 mr-3">
-            <%= link_to "Play Sessions", play_spaces_path, class: "nav-link" %>
-          </li>
+
           <% if @current_user.role == 'play space owner' %>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "New Playspace", new_play_space_path, class: "nav-link" %>
+              <%= link_to "New play space", new_play_space_path, class: "nav-link" %>
             </li>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
+              <%= link_to "My play spaces", play_spaces_path, class: "nav-link" %>
             </li>
           <% end %>
           <% if @current_user.role == 'recreation worker' %>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
+              <%= link_to "Available appointments", appointments_path, class: "nav-link" %>
             </li>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "My Play Sessions", my_play_sessions_appointment_play_sessions_path(:appointment_id), class: "nav-link" %>
+              <%= link_to "My play sessions", my_play_sessions_appointment_play_sessions_path(:appointment_id), class: "nav-link" %>
             </li>
           <% end %>
           <% if @current_user.role == 'parent' %>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "Play sessions", play_spaces_path, class: "nav-link" %>
+            </li>
             <li class="nav-item active h5 mr-3">
               <%= link_to "My Bookings", '#', class: "nav-link" %>
             </li>

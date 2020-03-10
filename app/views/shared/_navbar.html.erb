@@ -7,7 +7,6 @@
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <% if user_signed_in? %>
-
           <% if @current_user.role == 'play space owner' %>
             <li class="nav-item active h5 mr-3">
               <%= link_to "New play space", new_play_space_path, class: "nav-link" %>
@@ -29,7 +28,7 @@
               <%= link_to "Play sessions", play_spaces_path, class: "nav-link" %>
             </li>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "My Bookings", '#', class: "nav-link" %>
+              <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
             </li>
           <% end %>
           <li class="nav-item mr-3">

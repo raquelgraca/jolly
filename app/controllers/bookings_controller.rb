@@ -11,13 +11,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @play_session = @booking.play_session
+    @booking.play_session = @play_session
+
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @play_session = @booking.play_session
+    @booking.play_session = @play_session
+    @booking.user = current_user
+
     authorize @booking
 
     if @booking.save

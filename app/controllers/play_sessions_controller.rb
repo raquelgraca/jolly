@@ -13,6 +13,8 @@ class PlaySessionsController < ApplicationController
     if params[:hood].present?
       @play_sessions = @play_sessions.joins(:appointment).joins(:play_space).where("appointments.play_spaces.neighbourhood = ?" , "%#{params[:hood]}%")
     end
+
+  @play_sessions
   end
 
   def show

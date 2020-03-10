@@ -157,6 +157,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_1,
     end_time: time_2,
     play_space_id: play_space_1.id,
+    owner_fee_per_kid_cents: 20,
     )
   appointment_2 = Appointment.create!(
     minimum_capacity: 5,
@@ -164,6 +165,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_3,
     end_time: time_4,
     play_space_id: play_space_1.id,
+    owner_fee_per_kid_cents: 15,
     )
   appointment_3 = Appointment.create!(
     minimum_capacity: 10,
@@ -171,6 +173,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_1,
     end_time: time_2,
     play_space_id: play_space_2.id,
+    owner_fee_per_kid_cents: 10,
     )
   appointment_4 = Appointment.create!(
     minimum_capacity: 10,
@@ -178,6 +181,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_3,
     end_time: time_4,
     play_space_id: play_space_2.id,
+    owner_fee_per_kid_cents: 16,
     )
 
   puts "Finished!"
@@ -192,6 +196,7 @@ puts "Creating 4 Playspaces..."
     name: "Afternoon Reading",
     description: "Afternoon reading for under 10s",
     requirements: "Under 10",
+    worker_fee_per_kid_cents: 10,
     user_id: worker.id,
     status: "confirmed",
     appointment_id: appointment_1.id,
@@ -206,6 +211,7 @@ puts "Creating 4 Playspaces..."
     name: "Tuesday Swimming",
     description: "Two hours supervised swimming",
     requirements: "Armbands needed",
+    worker_fee_per_kid_cents: 40,
     user_id: worker.id,
     status: "cancelled",
     appointment_id: appointment_2.id,
@@ -219,6 +225,7 @@ puts "Creating 4 Playspaces..."
     name: "Creative Arts Play",
     description: "Colouring, clay play, drawings",
     requirements: "Aged 4 - 11",
+    worker_fee_per_kid_cents: 15,
     user_id: worker.id,
     status: "confirmed",
     appointment_id: appointment_3.id,
@@ -233,6 +240,7 @@ puts "Creating 4 Playspaces..."
     name: "Toy and object play",
     description: "Group session with a variety of toys",
     requirements: "Aged 4-11",
+    worker_fee_per_kid_cents: 10,
     user_id: worker.id,
     status: "pending",
     appointment_id: appointment_4.id,

@@ -26,7 +26,7 @@ class PlaySessionsController < ApplicationController
 
   def new
     @play_session = PlaySession.new
-    @appointment = @play_session.appointment
+    @play_session.appointment = @appointment
     authorize @play_session
   end
 
@@ -37,7 +37,7 @@ class PlaySessionsController < ApplicationController
     authorize @play_session
 
     if @play_session.save
-      redirect_to my_play_sessions_appointment_play_sessions_path(@appointment.id)
+      redirect_to my_play_sessions_path
     else
       render :new
     end

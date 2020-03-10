@@ -20,7 +20,7 @@
         <p><%= play_space.street %>,<%= play_space.street_number %> - <%= play_space.neighbourhood %></p>
         <p><%= play_space.city %> - <%= play_space.state %> <%= play_space.zip_code %> </p>
         <p class="facilities-playspace"><%= play_space.facilities %></p>
-       <%= link_to 'Offer this play space', "#", class: "btn btn-secondary" %>
+          <%= link_to 'Offer this play space', new_play_space_appointment_path(play_space.id), class: "btn btn-secondary" %>
       </div>
     </div>
   <% end %>

@@ -2,11 +2,9 @@ class Booking < ApplicationRecord
   belongs_to :play_session
   belongs_to :user
 
-  # state:string
-  # teddy_sku:string
-  # amount:monetize
-  # checkout_session_id:string
-  # user:references
-  # teddy:references
-
+  validates :name_of_kid, presence: true
+  validates :gender_of_kid , presence: true
+  validates :age_of_kid, presence: true
+  validates :comment, presence: true
 end
+

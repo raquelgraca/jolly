@@ -1,5 +1,5 @@
 <div class="container m-auto">
-  <%= link_to "New Play Session", new_appointment_play_session_path, class: "btn"  %>
+  <%= link_to "New Play Session", appointments_path, class: "btn"  %>
   <% @play_sessions.each do |play_session| %>
     <div class="d-flex bg-light p-4 mb-10">
       <%= cl_image_tag play_session.photo.key, height: 300, width: 400, crop: :fill %>

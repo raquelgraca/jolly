@@ -23,7 +23,7 @@
               <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
             </li>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "My Play Sessions", my_play_sessions_appointment_play_sessions_path(:appointment_id), class: "nav-link" %>
+              <%= link_to "My Play Sessions", my_play_sessions_path, class: "nav-link" %>
             </li>
           <% end %>
           <% if @current_user.role == 'parent' %>

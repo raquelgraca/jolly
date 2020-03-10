@@ -71,7 +71,7 @@ class PlaySessionsController < ApplicationController
   end
 
   def my_play_sessions
-    @play_sessions = current_user.play_sessions
+    @play_sessions = PlaySession.where(user: current_user)
     authorize @play_sessions
   end
 

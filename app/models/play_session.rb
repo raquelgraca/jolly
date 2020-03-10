@@ -12,7 +12,7 @@ class PlaySession < ApplicationRecord
   validates :worker_fee_per_kid_cents, presence: true
 
   def sum_fee
-    self.play_session.worker_fee_per_kid_cents + self.appointment.owner_fee_per_kid_cents
+    self.worker_fee_per_kid_cents + self.appointment.owner_fee_per_kid_cents
   end
 
   private

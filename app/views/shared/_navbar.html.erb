@@ -3,7 +3,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-  <%= image_tag "Jolly-13.png", alt: "Jolly logo", width: 100, class: "navbar-brand" %>
+  <%=link_to( image_tag("Jolly-13.png", alt: "Jolly logo", width: 100,), play_sessions_path, class: "navbar-brand") %>
+
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <% if user_signed_in? %>
           <li class="nav-item active h5 mr-3">
@@ -22,7 +23,7 @@
               <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
             </li>
             <li class="nav-item active h5 mr-3">
-              <%= link_to "My Play Sessions", my_play_sessions_appointment_play_sessions_path(appointment.id), class: "nav-link" %>
+              <%= link_to "My Play Sessions", my_play_sessions_appointment_play_sessions_path(:appointment_id), class: "nav-link" %>
             </li>
           <% end %>
           <% if @current_user.role == 'parent' %>
@@ -30,11 +31,11 @@
               <%= link_to "My Bookings", '#', class: "nav-link" %>
             </li>
           <% end %>
-          <li class="nav-item h5 mr-3">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "log_out nav-link" %>
-          </li>
           <li class="nav-item mr-3">
               <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+          </li>
+          <li class="nav-item h5 mr-3">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item active mr-3">

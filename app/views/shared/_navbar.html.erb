@@ -5,15 +5,42 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
   <%= image_tag "Jolly-13.png", alt: "Jolly logo", width: 100, class: "navbar-brand" %>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <%= link_to "Home", play_spaces_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign-in", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign-out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
+        <% if user_signed_in? %>
+          <li class="nav-item active h5 mr-3">
+            <%= link_to "Play Sessions", play_spaces_path, class: "nav-link" %>
+          </li>
+          <% if @current_user.role == 'play space owner' %>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "New Playspace", new_play_space_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if @current_user.role == 'recreation worker' %>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "List Playspaces", play_spaces_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "My Play Sessions", my_play_sessions_appointment_play_sessions_path(appointment.id), class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if @current_user.role == 'parent' %>
+            <li class="nav-item active h5 mr-3">
+              <%= link_to "My Bookings", '#', class: "nav-link" %>
+            </li>
+          <% end %>
+          <li class="nav-item h5 mr-3">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "log_out nav-link" %>
+          </li>
+          <li class="nav-item mr-3">
+              <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+          </li>
+        <% else %>
+          <li class="nav-item active mr-3">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
     </ul>
   </div>
 </nav>

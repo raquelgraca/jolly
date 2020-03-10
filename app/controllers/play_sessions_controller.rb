@@ -32,6 +32,12 @@ class PlaySessionsController < ApplicationController
   end
 
   def edit
+    if play_session.appointment.start_time - 3.hours > DateTime.now
+      @play_session.edit
+      redirect_to edit_play_sessions_path(@play_session)
+    else
+      puts "Sorry but it's to late."
+    end
   end
 
   def update
@@ -44,8 +50,12 @@ class PlaySessionsController < ApplicationController
   end
 
   def destroy
+    if play_session.created_at - 15.minutes > DateTime.now
     @play_session.destroy
     redirect_to my_play_sessions_play_sessions_path
+    else
+      puts "Sorry it's to late but you can still edit your booking."
+    end
   end
 
   def my_play_sessions

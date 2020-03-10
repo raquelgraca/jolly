@@ -4,9 +4,13 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
-
+#need to fix create and new
   def create?
-    record.user == 'parent'
+    true
+  end
+
+  def new?
+   true
   end
 
   def index?

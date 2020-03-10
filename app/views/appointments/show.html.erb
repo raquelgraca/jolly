@@ -10,3 +10,8 @@
     </div>
 </div>
 
+<div class="text-center links">
+      <%= link_to "Edit", appointment_path(@appointment.id), class: "btn" %>
+      <%= link_to "Delete", appointment_path(@appointment.id), method: :delete, remote: true, class: "btn" %>
+</div>
+

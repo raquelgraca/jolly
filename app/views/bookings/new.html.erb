@@ -1,1 +1,13 @@
-new.html.erb
+<div class="container m-6">
+
+  <h2> Provide details for your booking </h2>
+  <%= simple_form_for [@play_session, @booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name_of_kid %>
+    <%= f.input :gender_of_kid %>
+    <%= f.input :age_of_kid %>
+    <%= f.input :comment %>
+    <%= f.submit "Confirm your Booking" %>
+  <% end %>
+</div>
+

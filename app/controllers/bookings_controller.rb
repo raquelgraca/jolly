@@ -11,13 +11,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @play_session = @booking.play_session
+    @booking.play_session = @play_session
+
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @play_session = @booking.play_session
+    @booking.play_session = @play_session
+    @booking.user = current_user
+
     authorize @booking
 
     if @booking.save
@@ -27,6 +30,7 @@ class BookingsController < ApplicationController
     end
   end
 
+  
   def edit
   end
 
@@ -43,6 +47,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to bookings_path
+
   end
 
   private

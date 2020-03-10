@@ -24,5 +24,4 @@ class Appointment < ApplicationRecord
   end
 
 
-
 end

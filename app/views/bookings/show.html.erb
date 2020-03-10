@@ -1,30 +1,16 @@
 <div class="container m-6">
-  <h1 class="ml-5 mt-5">Overview</h1>
-  <div class="d-flex justify-content-around">
-    <div class="purchase-item">
-      <div class="card">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="card-infos">
-            <p> <%= @booking.name_of_kid %>   <%= @booking.gender_of_kid %> number <%= @booking.age_of_kid %> hair of <%= @booking.comment %> in </p>
-        </div>
-      </div>
-    </div>
-  <!--   <div class="purchase-item">
-      <div class="container m-4">
-        <p class="row" >This item is offered by <%= @booking.user.%> </p>
-        <p class="row" >It will be sent to you from <%= @booking.user.city %> <%= @booking.user.country%> </p>
-        <br>
-        <br>
-        <br>
-        <p class="row" >Place your order now!</p> -->
-        <div class="row" >
-          <%= simple_form_for @booking, :url => bookings_path(@booking.id) do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :comment %>
-            <%= f.button :submit, "Purchase", id: "purchase-btn", class: 'btn btn-warning'%>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <div class="card p-4">
+      <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> </h2>
+      <h1 class="text-center"> Thank you for your booking </h1>
+      <div class="text-center"><i class="far fa-check-circle"></i></div>
+     <div class="info-booking">
+    <p><%= @booking.play_session.description %></p>
+    <br>
+    <p> The requirements for this booking: <%= @booking.play_session.requirements %></p>
+    <p> Time: <%= @booking.play_session.appointment.start_time %> - <%= @booking.play_session.appointment.end_time %></p>
+    <p> Location: <%= @booking.play_session.appointment.play_space.street %> <%= @booking.play_session.appointment.play_space.street_number %> <%= @booking.play_session.appointment.play_space.neighbourhood %> </p>
+    <p> Cost: <%= @booking.play_session.worker_fee_per_kid_cents %></p>
+    <p> Capacity: <%= @booking.play_session.appointment.minimum_capacity %> - <%= @booking.play_session.appointment.maximum_capacity %> kids </p>
+    <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
   </div>
-</div>
+  </div>

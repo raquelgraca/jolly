@@ -2,6 +2,8 @@ class PlaySessionsController < ApplicationController
   before_action :set_play_session, only: [:show, :edit, :update, :destroy]
   before_action :set_appointment, only: [:new, :create]
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     @play_sessions = policy_scope(PlaySession).joins(:appointment).where("appointments.start_time > ?", DateTime.now).order("appointments.start_time asc")
@@ -22,8 +24,7 @@ class PlaySessionsController < ApplicationController
 
   def new
     @play_session = PlaySession.new
-    @play_session.appointment = @appointment
-
+    @appointment = @play_session.appointment
     authorize @play_session
   end
 
@@ -34,7 +35,7 @@ class PlaySessionsController < ApplicationController
     authorize @play_session
 
     if @play_session.save
-      redirect_to play_session_path(@play_session)
+      redirect_to my_play_sessions_appointment_play_sessions_path(@appointment.id)
     else
       render :new
     end
@@ -65,7 +66,7 @@ class PlaySessionsController < ApplicationController
   private
 
   def play_session_params
-    params.require(:play_session).permit(:name, :description, :requirements)
+    params.require(:play_session).permit(:name, :description, :requirements, :photo)
   end
 
   def set_play_session
@@ -76,4 +77,5 @@ class PlaySessionsController < ApplicationController
   def set_appointment
     @appointment = Appointment.find(params[:appointment_id])
   end
+
 end

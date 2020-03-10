@@ -1,6 +1,6 @@
 class PlaySpacesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   before_action :set_play_space, only: [:show, :edit, :update, :destroy]
 

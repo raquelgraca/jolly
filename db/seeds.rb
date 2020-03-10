@@ -4,7 +4,7 @@ User.destroy_all
 
 puts "Creating 3 users..."
   parent_user01 = User.new(
-    first_name: "Marina",
+    first_name: "Mariana",
     last_name: "Barreiras",
     email: "mariana_b@email.com",
     password: "123456",
@@ -186,18 +186,19 @@ puts "Creating 4 Playspaces..."
 
 
   puts "Creating 4 Play_sessions..."
-  #   play_session01 = PlaySession.new(
-  #   name: "Afternoon Reading",
-  #   description: "Afternoon reading for under 10s",
-  #   requirements: "Under 10",
-  #   user_id: worker.id,
-  #   status: "confirmed",
-  #   appointment_id: appointment_1.id,
-  #   )
 
-  # file10 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
-  # play_session01.photo.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
-  # play_session01.save!
+    play_session01 = PlaySession.new(
+    name: "Afternoon Reading",
+    description: "Afternoon reading for under 10s",
+    requirements: "Under 10",
+    user_id: worker.id,
+    status: "confirmed",
+    appointment_id: appointment_1.id,
+    )
+
+  file10 = URI.open('https://image.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-600w-704737204.jpg')
+  play_session01.photo.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
+  play_session01.save!
 
 
     play_session02 = PlaySession.new(
@@ -209,7 +210,7 @@ puts "Creating 4 Playspaces..."
     appointment_id: appointment_2.id,
     )
 
-  file11 = URI.open('https://www.shutterstock.com/image-photo/happy-children-kids-group-swimming-pool-386461774')
+  file11 = URI.open('https://image.shutterstock.com/z/stock-photo-happy-children-kids-group-at-swimming-pool-class-learning-to-swim-386461774.jpg')
   play_session02.photo.attach(io: file11, filename: "play_session02", content_type: "image/jpg")
   play_session02.save!
 
@@ -222,7 +223,7 @@ puts "Creating 4 Playspaces..."
     appointment_id: appointment_3.id,
     )
 
-  file12 = URI.open('https://www.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-around-636281354')
+  file12 = URI.open('https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-600w-636281354.jpg')
   play_session03.photo.attach(io: file12, filename: "play_session03", content_type: "image/jpg")
   play_session03.save!
 
@@ -236,7 +237,7 @@ puts "Creating 4 Playspaces..."
     appointment_id: appointment_4.id,
     )
 
-  file13 = URI.open('https://www.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-704737204')
+  file13 = URI.open('https://image.shutterstock.com/image-photo/beautiful-african-american-toddler-playing-600w-1571530021.jpg')
   play_session04.photo.attach(io: file13, filename: "play_session04", content_type: "image/jpg")
   play_session04.save!
 

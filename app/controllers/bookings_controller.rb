@@ -28,4 +28,3 @@ class BookingsController < ApplicationController
     # params.require(:booking).permit(:comment)
   end
 end
-end

@@ -13,12 +13,16 @@
   <% @play_sessions.each do |play_session| %>
     <div class="card" >
       <%= cl_image_tag play_session.photo.key %>
+      <br>
       <h2> <%= play_session.name.capitalize %> </h2>
-      <h3> Provided by <%= play_session.user.first_name %> <%= cl_image_tag  play_session.user.avatar.key %> </h3>
+      <h3> Provided by <%= play_session.user.first_name %> <%= cl_image_tag  play_session.user.avatar.key, class: "avatar" %> </h3>
       <h4> in <%= play_session.appointment.play_space.neighbourhood %> </h4>
       <p> This play session takes place on <%= play_session.appointment.start_time %></p>
-      <p>Requirements: <%= play_session.requirements %></p>
-      <p>Status: <%= play_session.status %></p>
+      <p> Requirements: <%= play_session.requirements %></p>
+      <p> Status: <%= play_session.status %></p>
+      <%= link_to 'Book this session', "#", class: "btn btn-secondary" %>
+      <br>
+      <br>
     </div>
   <% end %>
 </div>

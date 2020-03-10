@@ -1,1 +1,30 @@
-show.html.erb
+<div class="container m-6">
+  <h1 class="ml-5 mt-5">Overview</h1>
+  <div class="d-flex justify-content-around">
+    <div class="purchase-item">
+      <div class="card">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="card-infos">
+            <p> <%= @booking.name_of_kid %>   <%= @booking.gender_of_kid %> number <%= @booking.age_of_kid %> hair of <%= @booking.comment %> in </p>
+        </div>
+      </div>
+    </div>
+  <!--   <div class="purchase-item">
+      <div class="container m-4">
+        <p class="row" >This item is offered by <%= @booking.user.%> </p>
+        <p class="row" >It will be sent to you from <%= @booking.user.city %> <%= @booking.user.country%> </p>
+        <br>
+        <br>
+        <br>
+        <p class="row" >Place your order now!</p> -->
+        <div class="row" >
+          <%= simple_form_for @booking, :url => bookings_path(@booking.id) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :comment %>
+            <%= f.button :submit, "Purchase", id: "purchase-btn", class: 'btn btn-warning'%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

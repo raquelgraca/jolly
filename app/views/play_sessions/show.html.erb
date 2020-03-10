@@ -1,3 +1,21 @@
-show.html.erb
-<!-- <p> Fee per kid: <%=# humanized_money_with_symbol(@appointment.worker_fee_per_kid_cents) %></p>
- -->
+
+<div class="container m-6">
+    <div class="d-flex">
+      <%= cl_image_tag @play_session.photo.key, height: 300, width: 400, crop: :fill%>
+    </div>
+
+  <h2 class="text-center mt-4"> <%= @play_session.name.capitalize %> </h2>
+  <div class="info-playsession">
+    <p><%= @play_session.description %></p>
+    <br>
+    <p> The requirements for this play session are: <%= @play_session.requirements %></p>
+    <p> Time: <%= @play_session.appointment.start_time %> - <%= @play_session.appointment.end_time %></p>
+    <p> Location: <%= @play_session.appointment.play_space.street %> <%= @play_session.appointment.play_space.street_number %> <%= @play_session.appointment.play_space.neighbourhood %> </p>
+    <p> Cost: <%= @play_session.worker_fee_per_kid_cents %></p>
+    <p> Capacity: <%= @play_session.appointment.minimum_capacity %> - <%= @play_session.appointment.maximum_capacity %> kids </p>
+    <p> Provided by: <%= @play_session.user.first_name %> </p>
+    <% @play_session.appointment.play_space.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+</div>

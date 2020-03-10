@@ -157,6 +157,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_1,
     end_time: time_2,
     play_space_id: play_space_1.id,
+    owner_fee_per_kid_cents: 20,
     )
   appointment_2 = Appointment.create!(
     minimum_capacity: 5,
@@ -164,6 +165,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_3,
     end_time: time_4,
     play_space_id: play_space_1.id,
+    owner_fee_per_kid_cents: 15,
     )
   appointment_3 = Appointment.create!(
     minimum_capacity: 10,
@@ -171,6 +173,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_1,
     end_time: time_2,
     play_space_id: play_space_2.id,
+    owner_fee_per_kid_cents: 10,
     )
   appointment_4 = Appointment.create!(
     minimum_capacity: 10,
@@ -178,6 +181,7 @@ puts "Creating 4 Playspaces..."
     start_time: time_3,
     end_time: time_4,
     play_space_id: play_space_2.id,
+    owner_fee_per_kid_cents: 16,
     )
 
   puts "Finished!"
@@ -192,12 +196,13 @@ puts "Creating 4 Playspaces..."
     name: "Afternoon Reading",
     description: "Afternoon reading for under 10s",
     requirements: "Under 10",
+    worker_fee_per_kid_cents: 10,
     user_id: worker.id,
     status: "confirmed",
     appointment_id: appointment_1.id,
     )
 
-  file10 = URI.open('https://image.shutterstock.com/image-photo/kindergarten-students-sitting-on-floor-600w-704737204.jpg')
+  file10 = URI.open('https://images.unsplash.com/photo-1554721299-e0b8aa7666ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60')
   play_session01.photo.attach(io: file10, filename: "play_session01", content_type: "image/jpg")
   play_session01.save!
 
@@ -206,12 +211,13 @@ puts "Creating 4 Playspaces..."
     name: "Tuesday Swimming",
     description: "Two hours supervised swimming",
     requirements: "Armbands needed",
+    worker_fee_per_kid_cents: 40,
     user_id: worker.id,
     status: "cancelled",
     appointment_id: appointment_2.id,
     )
 
-  file11 = URI.open('https://image.shutterstock.com/z/stock-photo-happy-children-kids-group-at-swimming-pool-class-learning-to-swim-386461774.jpg')
+  file11 = URI.open('https://images.unsplash.com/flagged/photo-1578467992042-7e2e9650cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
   play_session02.photo.attach(io: file11, filename: "play_session02", content_type: "image/jpg")
   play_session02.save!
 
@@ -219,12 +225,14 @@ puts "Creating 4 Playspaces..."
     name: "Creative Arts Play",
     description: "Colouring, clay play, drawings",
     requirements: "Aged 4 - 11",
+    worker_fee_per_kid_cents: 15,
     user_id: worker.id,
     status: "confirmed",
     appointment_id: appointment_3.id,
     )
 
-  file12 = URI.open('https://image.shutterstock.com/image-photo/group-kindergarten-kids-friends-arm-600w-636281354.jpg')
+  file12 = URI.open('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80')
+  #senjuti-kundu-JfolIjRnveY-unsplash.jpg
   play_session03.photo.attach(io: file12, filename: "play_session03", content_type: "image/jpg")
   play_session03.save!
 
@@ -233,12 +241,13 @@ puts "Creating 4 Playspaces..."
     name: "Toy and object play",
     description: "Group session with a variety of toys",
     requirements: "Aged 4-11",
+    worker_fee_per_kid_cents: 10,
     user_id: worker.id,
     status: "pending",
     appointment_id: appointment_4.id,
     )
 
-  file13 = URI.open('https://image.shutterstock.com/image-photo/beautiful-african-american-toddler-playing-600w-1571530021.jpg')
+  file13 = URI.open('https://images.unsplash.com/photo-1484820540004-14229fe36ca4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60')
   play_session04.photo.attach(io: file13, filename: "play_session04", content_type: "image/jpg")
   play_session04.save!
 

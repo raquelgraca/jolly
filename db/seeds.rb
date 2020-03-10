@@ -4,7 +4,7 @@ User.destroy_all
 
 puts "Creating 3 users..."
   parent_user01 = User.new(
-    first_name: "Marina",
+    first_name: "Mariana",
     last_name: "Barreiras",
     email: "mariana_b@email.com",
     password: "123456",

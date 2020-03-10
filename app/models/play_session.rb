@@ -7,6 +7,8 @@ class PlaySession < ApplicationRecord
   validates :description, presence: true
   validates :requirements, presence: true
   validate :photo_presence
+  monetize :worker_fee_per_kid_cents
+  validates :worker_fee_per_kid_cents, presence: true
 
   private
 

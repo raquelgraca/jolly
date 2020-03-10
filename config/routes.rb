@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'appointments/play_spaces'
   get 'appointments/users'
   devise_for :users
-  root to: 'play_spaces#index'
+
+  root to: 'play_sessions#index'
 
   resources :play_spaces do
     resources :appointments, only: [:new, :create]

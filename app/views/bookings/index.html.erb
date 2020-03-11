@@ -6,15 +6,17 @@
       <div class= "d-flex-columns p-4">
         <h1><%= booking.play_session.name %></h1>
         <p><%= booking.play_session.description %></p>
-        <p>Requirements: <%= booking.play_session.requirements  %></p>
-        <h2>Booking details</h2>
+        <p>Payment status: <%= booking.status %></p>
+        <p>Scheduled at <%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
         <p>This booking is for: <%= booking.name_of_kid %></p>
-        <p>Age: <%= booking.age_of_kid %></p>
-        <p>Comments: <%= booking.comment %></p>
+        <p>Play Session status: <%= booking.play_session.status %></p>
+        <p>Total fee per kid: <%= booking.play_session.sum_fee %></p>
+        <p>Provided by: <%= booking.play_session.user.first_name %> </p>
+        <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-primary" %>
       </div>
       <div class="d-flex-columns">
         <%= link_to "Edit booking", edit_booking_path(booking.id), class: "btn" %>
-        <%= link_to "Cancel booking", bookings_path(booking.id), method: :delete, remote: true, class: "btn" %>
+        <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, class: "btn" %>
       </div>
     </div>
   <% end %>

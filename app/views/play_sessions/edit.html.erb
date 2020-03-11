@@ -1,1 +1,13 @@
-edit.html.erb
+<div class="container m-6">
+  <h2> Update your Play Session:</h2>
+  <%= simple_form_for [@appointment, @play_session] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :requirements %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :worker_fee_per_kid_cents, label: "Your fee per kid" %>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>
+

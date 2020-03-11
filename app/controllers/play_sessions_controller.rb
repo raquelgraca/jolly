@@ -13,8 +13,8 @@ class PlaySessionsController < ApplicationController
         @play_sessions = @play_sessions.joins(:appointment).where("appointments.start_time > ?", "%#{params[:search][:time]}%")
       end
 
-      if params[:search][:hood].present?
-        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:hood]})
+      if params[:search][:neighbourhood].present?
+        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:neighbourhood]})
       end
     end
 

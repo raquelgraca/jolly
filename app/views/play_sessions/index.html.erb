@@ -1,13 +1,11 @@
-
 <div class="container m-auto">
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
-    <div class="bottom d-flex justify-content-between align-items-center">
-      <p> Find a play session for your kid:</p>
-
-      <%= f.input :time, required: false, as: :datetime, html5: true %>
-      <%= f.input :hood, required: false %>
-      <%= f.submit "Filter"%>
-      <%= link_to 'Reset', play_sessions_path %>
+    <h1> Find a play session for your kid:</h1>
+    <%= f.input :time, required: false, as: :datetime %>
+    <%= f.input :neighbourhood, required: false, collection: PlaySpace::NEIGHBOURHOOD, prompt: :translate %>
+    <div class="bottom d-flex justify-content-center align-items-center">
+      <%= f.submit "filter", class: "button_1" %>
+      <%= link_to "reset", play_sessions_path, class: "button_2" %>
     </div>
   <% end %>
 

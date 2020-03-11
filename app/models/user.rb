@@ -9,17 +9,19 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   ROLE = ['parent', 'recreation worker', 'play space owner']
+  NEIGHBOURHOOD = ["Arpoador", "Botafogo", "Catete", "Copacabana", "Cosme Velho", "Flamengo", "Gávea" ,"Glória", "Humaitá", "Ipanema", "Jardim Botanico", "Lagoa", "Laranjeiras", "Leblon", "Leme", "Santa Teresa", "São Conrado", "Urca"]
+  CITY = ["Rio de Janeiro"]
 
-  validates  :role, presence: true, inclusion: { in: ROLE }
 
   has_one_attached :avatar
 
   validates  :first_name, presence: true
   validates  :last_name, presence: true
+  validates  :role, presence: true, inclusion: { in: ROLE }
   validates  :street, presence: true
   validates  :street_number, presence: true
-  validates  :neighbourhood, presence: true
-  validates  :city, presence: true
+  validates :neighbourhood, presence: true, inclusion: { in: NEIGHBOURHOOD }
+  validates :city, presence: true, inclusion: { in: CITY }
   validates  :state, presence: true
   validates  :zip_code, presence: true
 

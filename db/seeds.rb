@@ -12,7 +12,7 @@ puts "Creating 3 users..."
     role: "parent",
     street: "Rua das Palmeiras",
     street_number: "20",
-    neighbourhood: 'Laranjeiras',
+    neighbourhood: 'Catete',
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "21200021",
@@ -50,7 +50,7 @@ puts "Creating 3 users..."
     role: "recreation worker",
     street: "Rua Bela",
     street_number: "200",
-    neighbourhood: "São Cristóvão",
+    neighbourhood: "Flamengo",
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "21999001",
@@ -71,9 +71,9 @@ puts "Creating 4 Playspaces..."
     name: "Big and Tiny",
     street: "Rua da diversão",
     street_number: "46",
-    neighbourhood: "Barra da Tijuca",
-    city: "Campo Grande",
-    state: "Rio de Janeiro",
+    neighbourhood: "Flamengo",
+    city: "Rio de Janeiro",
+    state: "RJ",
     zip_code: "27000210",
     facilities: "Natural playground",
     user_id: owner.id
@@ -88,9 +88,9 @@ puts "Creating 4 Playspaces..."
     name: "Kids Island",
     street: "Rua da risada",
     street_number: "98",
-    neighbourhood: "Jardim Gramacho",
-    city: "Duque de Caxias",
-    state: "Rio de Janeiro",
+    neighbourhood: "Copacabana",
+    city: "Rio de Janeiro",
+    state: "RJ",
     zip_code: "99008675",
     facilities: "Special place for little kids",
     user_id: owner.id
@@ -105,7 +105,7 @@ puts "Creating 4 Playspaces..."
     name: "Fun Time",
     street: "Rua da Felicidade",
     street_number: "22",
-    neighbourhood: "Méier",
+    neighbourhood: "Catete",
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "20210021",
@@ -261,18 +261,20 @@ puts "Creating 4 Playspaces..."
 
     booking01 = Booking.create!(
     name_of_kid: "Joseph",
-    gender_of_kid: "Male",
+    gender_of_kid: "M",
     age_of_kid: 7,
     comment: "He can't eat seafood",
+    status: "confirmed",
     play_session_id: play_session01.id,
     user_id: parent.id,
     )
 
     booking02 = Booking.create!(
     name_of_kid: "Mario",
-    gender_of_kid: "Male",
+    gender_of_kid: "M",
     age_of_kid: 5,
     comment: "He likes everything except play videogames",
+    status: "cancelled",
     play_session_id: play_session02.id,
     user_id: parent.id,
     )
@@ -282,15 +284,17 @@ puts "Creating 4 Playspaces..."
     gender_of_kid: "Female",
     age_of_kid: 9,
     comment: "She tried to kill me once",
+    status: "confirmed",
     play_session_id: play_session03.id,
     user_id: parent.id,
     )
 
     booking04 = Booking.create!(
     name_of_kid: "Julia",
-    gender_of_kid: "Female",
+    gender_of_kid: "F",
     age_of_kid: 8,
     comment: "She loves to take a nap after lunch",
+    status: "pending",
     play_session_id: play_session04.id,
     user_id: parent.id,
     )

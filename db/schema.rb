@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_202851) do
     t.string "gender_of_kid"
     t.integer "age_of_kid"
     t.text "comment"
+    t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status", default: "pending", null: false

@@ -9,12 +9,12 @@ class PlaySessionsController < ApplicationController
     @play_sessions = policy_scope(PlaySession).joins(:appointment).where("appointments.start_time > ?", DateTime.now).order("appointments.start_time asc")
 
     if params[:search].present?
-      if params[:search][:time].present?
-        @play_sessions = @play_sessions.joins(:appointment).where("appointments.start_time > ?", "%#{params[:search][:time]}%")
+      if params[:search][:date_and_start_time].present?
+        @play_sessions = @play_sessions.joins(:appointment).where("appointments.start_time > ?", "%#{params[:search][:date_and_start_time]}%".to_datetime)
       end
 
-      if params[:search][:hood].present?
-        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:hood]})
+      if params[:search][:neighbourhood].present?
+        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:neighbourhood]})
       end
     end
 

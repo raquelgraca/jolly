@@ -1,1 +1,52 @@
-<%= render 'shared/banner' %>
+<div class="top-page">
+  <%= image_tag "Jolly-07.png", width: 100, class: "logo" %>
+  <div class="top-links">
+    <%= link_to "Login", new_user_session_path, class: "login" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "login button_2" %>
+  </div>
+</div>
+
+  <%= render 'shared/banner' %>
+
+<h2>Enabling fun and social after-school activities for kids</h2>
+
+<div class="features-flow">
+  <div class="features-img">
+    <%= image_tag "computers.png", width: 300 %>
+  </div>
+  <div class="features-text">
+    <div class="features-item">
+      <h4 class="features-topic">Search for Play Sessions</h4>
+      <p class="features-description">Filter activities by date or location.</p>
+    </div>
+    <div class="features-item">
+      <h4 class="features-topic">Check details</h4>
+      <p class="features-description">See photos, reviews, curriculum and ratings from the Spaces and recreation workers.</p>
+    </div>
+    <div class="features-item">
+      <h4 class="features-topic">Book a Play Session</h4>
+      <p class="features-description">The recreation worker will receive your booking confirmation.</p>
+    </div>
+     <div class="features-item">
+      <h4 class="features-topic">Pay online</h4>
+      <p class="features-description">Using credit card or Bank slip. If something happen, you can cancel your book 2 days before it happens.</p>
+    </div>
+  </div>
+</div>
+
+<div class="network">
+  <div class="network-img">
+    <h2>Join Jolly Network!</h2>
+    <div class="network-cards">
+      <div class="network-card parent">
+        <p>Extra activities for children</p>
+      </div>
+      <div class="network-card worker">
+        <p>Extra freelance jobs.</p>
+      </div>
+      <div class="network-card owner">
+        <p>Expand their incomes</p>
+      </div>
+    </div>
+  </div>
+</div>

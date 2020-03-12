@@ -1,6 +1,3 @@
-
-
-
 .card {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -11,7 +8,10 @@
 .card-header {
   height: 200px;
   width: 100%;
-  background-size: auto;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card .card-infos{
@@ -20,6 +20,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  text-decoration: none;
 }
 
 
@@ -31,6 +32,13 @@
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.card:hover{
+  box-shadow: 0px 0px 52px 0px rgba(0,0,0,0.49);
+  outline: none;
+  text-decoration: none;
+
 }
 
 

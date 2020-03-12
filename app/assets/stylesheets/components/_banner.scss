@@ -1,0 +1,22 @@
+.banner {
+  background-size: cover;
+  background-position: 35% 50%;
+  padding: 150px 0;
+  height: 600px;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('homeimg.jpeg');
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 26px;
+  color: white;
+  opacity: .9 ;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

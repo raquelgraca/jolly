@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'play_sessions#index'
+  root to: 'pages#home'
 
   resources :play_spaces do
     resources :appointments, only: [:new, :create]
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :play_sessions, except: [:new, :create] do
     resources :bookings, only: [:new, :create]
   end
-  
+
   resources :bookings, except: [:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

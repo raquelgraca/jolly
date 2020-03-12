@@ -6,5 +6,10 @@ class Booking < ApplicationRecord
   validates :gender_of_kid , presence: true
   validates :age_of_kid, presence: true
   validates :comment, presence: true
+  validates :status, inclusion: {in: ["pending", "confirmed", "cancelled"]}
+
+
+  GENDER = [ 'F', 'M', 'Other']
+
 end
 

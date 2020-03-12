@@ -6,5 +6,8 @@ class Booking < ApplicationRecord
   validates :gender_of_kid , presence: true
   validates :age_of_kid, presence: true
   validates :comment, presence: true
+
+  GENDER = [ 'F', 'M', 'Other']
+
 end
 

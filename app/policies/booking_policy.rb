@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      user.bookings
     end
   end
 #need to fix create and new
@@ -13,10 +13,6 @@ class BookingPolicy < ApplicationPolicy
    true
   end
 
-  def index?
-    record.user == user || record.play_session.user == user
-  end
-
   def show?
     record.user == user || record.play_session.user == user
   end
@@ -26,7 +22,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user && record.play_session.created_at - 15.minutes > DateTime.now
+    record.user == user && record.play_session.appointment.start_time - 2.minutes > DateTime.now
   end
 
 end

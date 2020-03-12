@@ -1,10 +1,39 @@
-.navbar {
-  background: #9A50A2;
+.navbar-lewagon {
   justify-content: space-between;
-
+  background: #9A50A2;
+  padding-right: 60px;
+  padding-left: 60px;
+  vertical-align: center;
 }
 
-.nav-link{
- text-decoration: none;
- color: white;
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 100px;
+}
+
+.nav-link {
+  font-size: 18px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:hover {
+  color: #EE862F;
+}
+
+.fas {
+  font-size: 24px;
+  color: #EE862F;
+}
+
+.user-section {
+  margin-top: 30px;
+}
+
+.user-section .nav-link {
+  color: #CDCDCD;
 }

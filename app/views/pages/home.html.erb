@@ -1,1 +1,31 @@
-<%= render 'shared/banner' %>
+<div class="top-page">
+  <%= image_tag "Jolly-07.png", width: 100, class: "logo" %>
+  <%= link_to "Login", new_user_session_path, class: "login" %>
+</div>
+  <%= render 'shared/banner' %>
+
+  <h1>Enabling fun and social after-school activities for kids</h1>
+
+<div class="features-flow col-12">
+  <div class="features-img">
+    <%= image_tag "computers.png", width: 300 %>
+  </div>
+  <div class="features-text">
+    <div class="features-item">
+      <h3 class="features-topic">Search for Play Sessions near you.</h3>
+      <p class="features-description">Filter by date or category of activity.</p>
+    </div>
+    <div class="features-item">
+      <h3 class="features-topic">Check details about the space and the recreation worker.</h3>
+      <p class="features-description">See photos, reviews, curriculum and ratings.</p>
+    </div>
+    <div class="features-item">
+      <h3 class="features-topic">Book a Play Session</h3>
+      <p class="features-description">The recreation worker will take care of your child base on the details you choose to give.</p>
+    </div>
+     <div class="features-item">
+      <h3 class="features-topic">Pay using your credit card or boleto.</h3>
+      <p class="features-description">If something happen, you can cancel your book 2 days before it happens.</p>
+    </div>
+  </div>
+</div>

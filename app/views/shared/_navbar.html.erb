@@ -31,13 +31,13 @@
           <li class="nav-item">
             <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
           </li>
+        <% end %>
           <li>
             <%= link_to "Profile",edit_user_registration_path, class: "user-section nav-link" %>
           </li>
           <li>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "user-section nav-link" %>
           </li>
-        <% end %>
       <% else %>
         <li class="nav-item active">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>

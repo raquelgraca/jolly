@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+.top-page {
+  background-color: transparent;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.login {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-align: center;
+  margin: 40px;
+}
+
+.features-flow {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-img {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.features-item {
+  text-align: center;
+}
+

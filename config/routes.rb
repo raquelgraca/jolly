@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'play_sessions#index'
-  root to: 'appointments#index'
-  resources :appointments, only: [:index, :show]
+
+  root to: 'pages#home'
+
 
   resources :play_spaces do
     resources :appointments, only: [:new, :create]

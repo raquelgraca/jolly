@@ -8,10 +8,16 @@ class Booking < ApplicationRecord
   validates :gender_of_kid , presence: true
   validates :age_of_kid, presence: true
   validates :comment, presence: true
+  validates :status, inclusion: {in: ["pending", "confirmed", "cancelled"]}
+
+  GENDER = [ 'F', 'M', 'Other']
 
   def sum_fees
     self.sum_fee_cents = self.play_session.worker_fee_per_kid_cents + self.play_session.appointment.owner_fee_per_kid_cents
   end
+
+
+
 
 end
 

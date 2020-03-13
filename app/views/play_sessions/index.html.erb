@@ -1,34 +1,32 @@
-
-<div class="container m-auto">
+<div class="container mt-4">
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
-    <div class="bottom d-flex justify-content-between align-items-center">
-      <p> Find a play session for your kid:</p>
-
-      <%= f.input :time, required: false, as: :datetime, html5: true %>
-      <%= f.input :hood, required: false %>
-      <%= f.submit "Filter"%>
-      <%= link_to 'Reset', play_sessions_path %>
+    <h1> Find a play session for your kid:</h1>
+    <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
+    <%= f.input :neighbourhood, required: false, collection: PlaySpace::NEIGHBOURHOOD, prompt: :translate %>
+    <div class="bottom d-flex justify-content-center align-items-center">
+      <%= f.submit "filter", class: "button_1" %>
+      <%= link_to "reset", play_sessions_path, class: "button_2" %>
     </div>
   <% end %>
 
-  <div  class="card-columns">
-    <% @play_sessions.each do |play_session| %>
-      <div class="card" >
-        <%= cl_image_tag play_session.photo.key, class: "d-block w-100"  %>
-        <div class="card-infos">
-          <h3> <%= link_to play_session.name.capitalize, play_session_path(play_session) %> </h3>
-          <h4> Provided by <%= play_session.user.first_name %> <%= cl_image_tag  play_session.user.avatar.key, class: "avatar" %> </h4>
-          <h5> in <%= play_session.appointment.play_space.neighbourhood %> </h5>
-          <p> This play session takes place on <%= play_session.appointment.start_time %></p>
-          <p> Requirements: <%= play_session.requirements %></p>
-          <p> Status: <%= play_session.status %></p>
-          <p>Total fee per kid: <%= play_session.sum_fees %></p>
-          <% if user_signed_in? && current_user.role == "parent" %>
-            <%= link_to 'Book this session', new_play_session_booking_path(play_session.id), class: "btn btn-secondary" %>
-          <% end %>
-          <br>
+
+    <div class ="cards">
+      <% @play_sessions.each do |play_session| %>
+        <%= link_to play_session_path(play_session), {:style=>"text-decoration: none; color: black;"} do %>
+        <div class="card my-4" >
+          <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            <h2> <%= play_session.name.capitalize %> </h2>
+          </div>
+            <div class="card-infos">
+              <div class="card-details">
+                <p> <i class="far fa-clock"></i>   <%= play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
+                <p>  <i class="fas fa-map-pin"></i>   <%= play_session.appointment.play_space.neighbourhood %> </p>
+              </div>
+              <%= cl_image_tag play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
+              <h4> R$<%= play_session.sum_fee %></h4>
+            </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

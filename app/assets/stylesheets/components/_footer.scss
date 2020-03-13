@@ -1,0 +1,21 @@
+.footer-container {
+  background-color: gray;
+  color: white;
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  height:100px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: inline;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-links i {
+  font-size: 26px;
+  margin-left: 30px;
+  color: white;
+}

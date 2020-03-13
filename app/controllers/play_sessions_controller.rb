@@ -22,6 +22,7 @@ class PlaySessionsController < ApplicationController
   end
 
   def show
+    @booking = @play_session.bookings.new
   end
 
   def new

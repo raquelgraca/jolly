@@ -10,7 +10,7 @@
         <p>Scheduled at <%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
         <p>This booking is for: <%= booking.name_of_kid %></p>
         <p>Play Session status: <%= booking.play_session.status %></p>
-        <p>Total fee per kid: <%= booking.play_session.sum_fee %></p>
+        <p>Total fee per kid: <%= booking.play_session.sum_fees %></p>
         <p>Provided by: <%= booking.play_session.user.first_name %> </p>
         <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-primary" %>
       </div>

@@ -45,8 +45,5 @@
 </a>
 </div>
 
-<div class="container">
-  <div class= "text-center mb-4">
-  <%= link_to 'book this session', new_play_session_booking_path(@play_session.id), class: "button_1" %>
-  </div>
-</div>
+
+<%= render "shared/new_booking_form" %>

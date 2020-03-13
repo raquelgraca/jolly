@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   resources :bookings, except: [:new, :create]
 
   resources :orders, only: [:show, :create] do
-  resources :payments, only: :new
-end
+    resources :payments, only: :new
+  end
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

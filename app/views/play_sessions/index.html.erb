@@ -23,7 +23,7 @@
                 <p>  <i class="fas fa-map-pin"></i>   <%= play_session.appointment.play_space.neighbourhood %> </p>
               </div>
               <%= cl_image_tag play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
-              <h4> R$<%= play_session.sum_fee %></h4>
+              <h4> R$<%= play_session.sum_fees %></h4>
             </div>
         </div>
       <% end %>

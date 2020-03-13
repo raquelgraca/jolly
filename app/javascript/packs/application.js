@@ -3,6 +3,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/material_green.css"
 
 flatpickr(".datepicker", {
+  disableMobile: "true",
   enableTime: true,
   dateFormat: "d/m/Y H:i",
   time_24hr: true,

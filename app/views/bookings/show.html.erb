@@ -1,17 +1,33 @@
-<div class="container m-6">
-    <div class="card p-4">
-      <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> </h2>
-      <h1 class="text-center"> Thank you for your booking </h1>
-      <div class="text-center"><i class="far fa-check-circle"></i></div>
-      <div class="info-booking">
-        <p><%= @booking.play_session.description %></p>
+<div class="booking-background py-5">
+
+
+  <div class="d-flex justify-content-center py-5">
+    <i class="fas fa-calendar-check"></i>
+    <div class="info-box p-5">
+
         <br>
-        <p> Status: <%= @booking.status %></p>
-        <p> The requirements for this booking: <%= @booking.play_session.requirements %></p>
-        <p> Time: <%= @booking.play_session.appointment.start_time %> - <%= @booking.play_session.appointment.end_time %></p>
-        <p> Location: <%= @booking.play_session.appointment.play_space.street %> <%= @booking.play_session.appointment.play_space.street_number %> <%= @booking.play_session.appointment.play_space.neighbourhood %> </p>
-        <p> Cost: <%= @booking.play_session.sum_fee %></p>
-        <p> Capacity: <%= @booking.play_session.appointment.minimum_capacity %> - <%= @booking.play_session.appointment.maximum_capacity %> kids </p>
-        <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
-      </div>
+        <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> <%= @booking.user.last_name.capitalize %> </h2>
+        <br>
+        <h1 class="text-center"> Thank you for your booking </h1>
+
+        <div class="info-booking">
+          <p> Status: <%= @booking.status %></p>
+          <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
+          <%= link_to play_session_path(@booking.play_session), {:style=>"text-decoration: none; color: black;"} do %>
+          <div class="card my-4" >
+            <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path @booking.play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+              <h2> <%= @booking.play_session.name.capitalize %> </h2>
+            </div>
+              <div class="card-infos">
+                <div class="card-details">
+                  <p> <i class="far fa-clock"></i>   <%= @booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
+                  <p>  <i class="fas fa-map-pin"></i>   <%= @booking.play_session.appointment.play_space.neighbourhood %> </p>
+                </div>
+                <%= cl_image_tag @booking.play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
+                <h4> R$<%= @booking.play_session.sum_fee %></h4>
+              </div>
+          </div>
+        <% end %>
+    </div>
   </div>
+</div>

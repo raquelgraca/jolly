@@ -27,12 +27,12 @@
 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
 <div class="carousel-inner">
   <div class="carousel-item active">
-     <div style="background-size: cover; background-position: center; width: 100%;  height: 400px; background-image: url(<%= cl_image_path @play_session.appointment.play_space.photos.first.key %>)"> </div>
+     <div style="background-size: cover; background-position: center; width: 100%;  height: 500px; background-image: url(<%= cl_image_path @play_session.appointment.play_space.photos.first.key %>)"> </div>
   </div>
   <% @play_session.appointment.play_space.photos.each do |photo| %>
     <% if photo != @play_session.appointment.play_space.photos.first %>
       <div class="carousel-item">
-        <div style="background-size: cover; background-position: center; width: 100%;  height: 400px; background-image: url(<%= cl_image_path photo.key %>)"> </div>
+        <div style="background-size: cover; background-position: center; width: 100%;  height: 500px; background-image: url(<%= cl_image_path photo.key %>)"> </div>
       </div>
     <% end %>
   <% end %>

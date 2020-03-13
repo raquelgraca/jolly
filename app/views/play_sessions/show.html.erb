@@ -1,26 +1,25 @@
 
-<div style="background-size: cover; background-position: center; width: 100%;  height: 400px; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(<%= cl_image_path @play_session.photo.key %>)"> </div>
-<div class="container m-6">
-  <h1 class="text-center mt-4"> <%= @play_session.name.capitalize %> </h1>
-  <h2 class="text-center mt-4" ><%= @play_session.description %></h2>
-  <p class="text-justify"> The requirements for this play session are: <%= @play_session.requirements %></p>
-
-  <div class="info-box">
-  <p> <i class="far fa-clock"></i>   <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>
-  <p> <i class="fas fa-map-pin"></i>  <%= @play_session.appointment.play_space.street %> <%= @play_session.appointment.play_space.street_number %> <%= @play_session.appointment.play_space.neighbourhood %> </p>
-  <p> <i class="fas fa-dollar-sign"></i>  <%= @play_session.worker_fee_per_kid_cents %></p>
-  <p> <i class="fas fa-child"></i> <%= @play_session.appointment.minimum_capacity %> - <%= @play_session.appointment.maximum_capacity %> kids </p>
-  </div>
-  <div class="d-flex my-4">
-      <div class= "d-flex align-items-center">
-        <%= cl_image_tag @play_session.user.avatar.key, class:"avatar-bordered" %>
-      </div>
-    <div class="pr-2">
-        <h2 class="text-right"> Provided by: <%= @play_session.user.first_name %> </h2>
-        <p class="text-right"> <%= @play_session.user.bio %> </p>
+<div style="background-size: cover; background-position: center; width: 100%;  height: 400px; background-image: url(<%= cl_image_path @play_session.photo.key %>)"> </div>
+<div class="p-4">
+  <h1 class="text-center pt-2"> <%= @play_session.name.capitalize %> </h1>
+  <h2 class="text-center pt-2" ><%= @play_session.description %></h2>
+  <p class="text-justify p-4"> The requirements for this play session are: <%= @play_session.requirements %></p>
+  <div class="d-flex justify-content-between p-4">
+    <div>
+        <h2 class="pr-4"> Provided by: <%= @play_session.user.first_name %> </h2>
+        <p class="pr-4"> <%= @play_session.user.bio %> </p>
     </div>
+    <%= cl_image_tag @play_session.user.avatar.key, class:"avatar-bordered" %>
+  </div>
+  <div class="info-box p-4">
+    <p> <i class="far fa-clock"></i> &nbsp; &nbsp; <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>
+    <p> <i class="fas fa-map-pin"></i> &nbsp; &nbsp; <%= @play_session.appointment.play_space.street %> <%= @play_session.appointment.play_space.street_number %> <%= @play_session.appointment.play_space.neighbourhood %> </p>
+    <p> <i class="fas fa-dollar-sign"></i> &nbsp; &nbsp; <%= @play_session.worker_fee_per_kid_cents %></p>
+    <p> <i class="fas fa-child"></i> &nbsp; &nbsp; <%= @play_session.appointment.minimum_capacity %> - <%= @play_session.appointment.maximum_capacity %> kids </p>
   </div>
 </div>
+
+
 
 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
 <div class="carousel-inner">
@@ -44,6 +43,5 @@
   <span class="sr-only">Next</span>
 </a>
 </div>
-
 
 <%= render "shared/new_booking_form" %>

@@ -6,12 +6,13 @@
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584046280/homeimg.jpg');
 }
 
-.container {
+.container-banner {
   display: block;
   flex-direction: columns;
   height: 300px;
   text-align: left;
   padding-top: 50px;
+  margin: 0 60px;
 }
 .banner h1 {
   margin: 0;

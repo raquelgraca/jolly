@@ -22,7 +22,7 @@
           <p> This play session takes place on <%= play_session.appointment.start_time %></p>
           <p> Requirements: <%= play_session.requirements %></p>
           <p> Status: <%= play_session.status %></p>
-          <p>Total fee per kid: <%= play_session.sum_fee %></p>
+          <p>Total fee per kid: <%= play_session.sum_fees %></p>
           <% if user_signed_in? && current_user.role == "parent" %>
             <%= link_to 'Book this session', new_play_session_booking_path(play_session.id), class: "btn btn-secondary" %>
           <% end %>

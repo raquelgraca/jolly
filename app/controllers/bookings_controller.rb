@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = current_user.bookings.find(params[:id])
   end
 
   def new
@@ -16,21 +17,30 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def create
-    @booking = Booking.new(booking_params)
-    @booking.play_session = @play_session
-    @booking.user = current_user
 
-    authorize @booking
+ def create
+  @play_session = PlaySession.find(params[:play_session_id])
+  # booking  = Booking.create!(user: current_user, name_of_kid: 'uan', gender_of_kid: 'male', age_of_kid:, :comment 'dasdas')
 
-    if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render :new
-    end
+
+  session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+      name: booking.play_session.appointment.play_space.name,
+      images: [booking.play_session.appointment.play_space.photo],
+      price_cents: booking.sum_fee_cents,
+      currency: 'brl',
+      quantity: 1,
+    }],
+    success_url: order_url(order),
+    cancel_url: order_url(order),
+  )
+
+  order.update(checkout_session_id: session.id)
+  redirect_to new_order_payment_path(order)
   end
 
-  
+
   def edit
   end
 

@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = current_user.bookings.find(params[:id])
   end
 
   def new
@@ -16,14 +17,28 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+
   def create
     @booking = Booking.new(booking_params)
     @booking.play_session = @play_session
     @booking.user = current_user
 
-    authorize @booking
-
     if @booking.save
+      session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          line_items: [{
+            name: @booking.play_session.name,
+            images: [ActionController::Base.helpers.cl_image_path(@booking.play_session.photo.key)],
+            amount: @booking.sum_fee_cents,
+            currency: 'brl',
+            quantity: 1,
+          }],
+        success_url: booking_url(@booking),
+        cancel_url: booking_url(@booking),
+      )
+
+      @booking.update(checkout_session_id: session.id)
+
       redirect_to booking_path(@booking)
     else
       render :new
@@ -35,7 +50,7 @@ class BookingsController < ApplicationController
   end
 
   def update
-   @booking.update(booking_params)
+    @booking.update(booking_params)
 
     if @booking.save
       redirect_to bookings_path
@@ -47,7 +62,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking.update(status: "canceled")
     redirect_to bookings_path
-
   end
 
   private

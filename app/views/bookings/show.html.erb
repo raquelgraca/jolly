@@ -5,8 +5,13 @@
       <br>
       <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> <%= @booking.user.last_name.capitalize %> </h2>
       <br>
-      <h1 class="text-center"> Thank you for your booking </h1>
-
+      <% if @booking.status == "pending" %>
+        <button id="pay" class="button_1"> Proceed to payment </button>
+      <% elsif @booking.status == "cancelled" %>
+        <h1 class="text-center"> Booking cancelled </h1>
+      <% else %>
+        <h1 class="text-center"> Booking confirmed - Ready to play! </h1>
+      <% end %>
       <div class="info-booking">
         <p> Status: <%= @booking.status %></p>
         <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
@@ -21,10 +26,23 @@
                 <p>  <i class="fas fa-map-pin"></i>   <%= @booking.play_session.appointment.play_space.neighbourhood %> </p>
               </div>
               <%= cl_image_tag @booking.play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
-              <h4> R$<%= @booking.play_session.sum_fee %></h4>
+              <h4> R$ <%= @booking.play_session.sum_fees %></h4>
             </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const paymentButton = document.getElementById('pay');
+  if (paymentButton) {
+    paymentButton.addEventListener('click', () => {
+      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+      stripe.redirectToCheckout({
+        sessionId: '<%= @booking.checkout_session_id %>'
+      });
+    });
+  }
+</script>

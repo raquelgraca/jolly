@@ -9,38 +9,42 @@
 
 <div class="container m-auto">
   <% @play_spaces.each do |play_space| %>
-    <div class="card p-4">
-      <div class="carouselControls" class="carousel slide" data-ride="carousel">
-        <div class ="carousel-inner"></div>
-        <div class="carousel-item active">
-          <%= cl_image_tag play_space.photos.first.key, :class => "d-block w-100" %>
-        </div>
-      <% play_space.photos.each do |photo| %>
-        <% if photo != play_space.photos.first %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.key, :class => "d-block w-100" %>
+    <div class="card">
+      <div class="card-header">
+        <div class="carouselControls" class="carousel slide" data-ride="carousel">
+          <div class ="carousel-inner"></div>
+          <div class="carousel-item active">
+            <%= cl_image_tag play_space.photos.first.key, :class => "d-block w-100" %>
           </div>
+        <% play_space.photos.each do |photo| %>
+          <% if photo != play_space.photos.first %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, :class => "d-block w-100" %>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
+
+
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+             <span class="sr-only">Previous</span>
+         </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+        </div>
       </div>
-
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-       <span class="sr-only">Previous</span>
-   </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-  </div>
-
     <h2 class="text-center mt-4"> <%= play_space.name.capitalize %> </h2>
+    <div class="card-infos">
       <div class="info-playspace">
-        <p><%= play_space.street %>,<%= play_space.street_number %> - <%= play_space.neighbourhood %></p>
-        <p><%= play_space.city %> - <%= play_space.state %> <%= play_space.zip_code %> </p>
-        <p class="facilities-playspace"><%= play_space.facilities %></p>
-          <%= link_to 'Offer this play space', new_play_space_appointment_path(play_space.id), class: "btn btn-secondary" %>
+        <p><i class="fas fa-map-pin"></i><%= play_space.street %>,<%= play_space.street_number %> - <%= play_space.neighbourhood %></p>
+        <p> <%= play_space.city %> - <%= play_space.state %> <%= play_space.zip_code %> </p>
+        <p class="facilities-playspace"><i class="fas fa-info-circle"></i><%= play_space.facilities %></p>
+        <br>
+          <%= link_to 'Offer this play space', new_play_space_appointment_path(play_space.id), class: "button_1"%>
+      </div>
       </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

@@ -13,7 +13,7 @@
     <div class ="cards">
       <% @play_sessions.each do |play_session| %>
         <%= link_to play_session_path(play_session), {:style=>"text-decoration: none; color: black;"} do %>
-        <div class="card my-4" >
+        <div class="card" >
           <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <h2> <%= play_session.name.capitalize %> </h2>
           </div>

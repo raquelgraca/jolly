@@ -1,23 +1,28 @@
-<div class="container m-auto">
-  <%= link_to "New Booking", play_sessions_path, class: "btn"  %>
-  <% @bookings.each do |booking| %>
-    <div class="d-flex d-flex justify-content-around bg-light p-4">
-      <%= cl_image_tag booking.play_session.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class= "d-flex-columns p-4">
-        <h1><%= booking.play_session.name %></h1>
-        <p><%= booking.play_session.description %></p>
-        <p>Payment status: <%= booking.status %></p>
-        <p>Scheduled at <%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
-        <p>This booking is for: <%= booking.name_of_kid %></p>
-        <p>Play Session status: <%= booking.play_session.status %></p>
-        <p>Total fee per kid: <%= booking.play_session.sum_fees %></p>
-        <p>Provided by: <%= booking.play_session.user.first_name %> </p>
-        <%= link_to "Booking details", booking_path(booking.id), class: "btn btn-primary" %>
+<div class="container">
+  <div class= "text-center m-4">
+    <%= link_to "New Booking", play_sessions_path, class: "button_1"  %>
+  </div>
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path booking.play_session.photo.key%>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+          <h2><%= booking.play_session.name %></h2>
+        </div>
+        <div class="card-infos">
+          <div class="card-details">
+            <p><i class="far fa-clock"></i>  &nbsp; &nbsp;  <%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
+            <p><i class="fas fa-child"></i> &nbsp; &nbsp; <%= booking.name_of_kid %></p>
+            <p><i class="fas fa-money-check-alt"></i> &nbsp; &nbsp; <%= booking.status %></p>
+            <p><i class="far fa-check-circle"></i> &nbsp; &nbsp; <%= booking.play_session.status %></p>
+          </div>
+          <div class= "text-right">
+              <%= link_to "View", booking_path(booking.id), class:"button_2"%>
+              <br>
+              <br>
+              <%= link_to "Edit", edit_booking_path(booking.id), class:"button_2" %>
+          </div>
+        </div>
       </div>
-      <div class="d-flex-columns">
-        <%= link_to "Edit booking", edit_booking_path(booking.id), class: "btn" %>
-        <%= link_to "Cancel booking", booking_path(booking.id), method: :delete, class: "btn" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

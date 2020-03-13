@@ -1,4 +1,4 @@
-<div class="container m-auto">
+<div class="container mt-4">
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
     <h1> Find a play session for your kid:</h1>
     <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
@@ -8,12 +8,13 @@
       <%= link_to "reset", play_sessions_path, class: "button_2" %>
     </div>
   <% end %>
+
     <div class ="cards">
       <% @play_sessions.each do |play_session| %>
         <%= link_to play_session_path(play_session), {:style=>"text-decoration: none; color: black;"} do %>
         <div class="card my-4" >
           <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-            <h2 slyle="position: absolute; bottom:0px;"> <%= play_session.name.capitalize %> </h2>
+            <h2> <%= play_session.name.capitalize %> </h2>
           </div>
             <div class="card-infos">
               <div class="card-details">

@@ -6,3 +6,21 @@
     margin-bottom: 1em;
   }
 }
+
+.booking-background {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('homeimg.jpeg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  .info-box {
+    width: 350px;
+    border-radius: 10px;
+  }
+}
+
+.fa-calendar-check {
+  font-size: 100px;
+  position: absolute;
+  top: 50px;
+}

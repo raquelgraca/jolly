@@ -10,7 +10,7 @@
         <p>Requirements: <%= play_session.requirements %></p>
         <p>Status: <%= play_session.status %></p>
         <p>Your fee per kid: <%= play_session.worker_fee_per_kid_cents %></p>
-        <p>Total fee per kid: <%= play_session.sum_fee %></p>
+        <p>Total fee per kid: <%= booking.sum_fee %></p>
       </div>
       <div class="links">
         <%= link_to "Edit", play_session_path(play_session.id), class: "btn" %>

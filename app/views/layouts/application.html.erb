@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet"><link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
@@ -25,8 +23,6 @@
     <meta name="keywords" content="Play space,play session,Rio,after-school,kids,play,daycare,childcare">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Jolly | Find a play session for your kid in Rio Brazil</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -42,5 +38,6 @@
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
   </body>
 </html>

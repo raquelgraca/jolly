@@ -1,7 +1,7 @@
 <div class="booking-background py-5">
   <div class="d-flex justify-content-center py-5">
     <i class="fas fa-calendar-check"></i>
-    <div class="info-box p-5">
+    <div class="info-box">
       <br>
       <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> <%= @booking.user.last_name.capitalize %> </h2>
       <br>
@@ -13,7 +13,7 @@
         <h1 class="text-center"> Booking confirmed - Ready to play! </h1>
       <% end %>
       <div class="info-booking">
-        <p> Status: <%= @booking.status %></p>
+        <p> Payment Status: <%= @booking.status %></p>
         <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
         <%= link_to play_session_path(@booking.play_session), {:style=>"text-decoration: none; color: black;"} do %>
         <div class="card my-4" >

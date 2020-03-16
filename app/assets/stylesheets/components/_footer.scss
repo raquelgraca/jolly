@@ -5,11 +5,13 @@
   padding: 10px;
   justify-content: space-around;
   height:100px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 .footer-links {
   display: flex;
-  flex-direction: inline;
   justify-content: space-around;
   align-items: center;
 }

@@ -1,6 +1,6 @@
 import "bootstrap";
 import flatpickr from "flatpickr";
-import "flatpickr/dist/themes/material_green.css"
+// import "flatpickr/dist/themes/material_green.css"
 
 flatpickr(".datepicker", {
   disableMobile: "true",

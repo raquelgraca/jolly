@@ -2,7 +2,7 @@ require "open-uri"
 
 User.destroy_all
 
-puts "Creating 3 users..."
+puts "Creating 5 users..."
   parent_user01 = User.new(
     first_name: "Mariana",
     last_name: "Barreiras",
@@ -21,6 +21,25 @@ puts "Creating 3 users..."
   file = URI.open('https://i2.wp.com/www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg')
   parent_user01.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
   parent_user01.save!
+
+    parent_user02 = User.new(
+    first_name: "Juana",
+    last_name: "Miranda",
+    email: "juana@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "parent",
+    street: "Rua das Palmeiras",
+    street_number: "20",
+    neighbourhood: 'Catete',
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "21200021",
+    bio: "I love my life",
+    )
+  file = URI.open('https://i2.wp.com/www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg')
+  parent_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
+  parent_user02.save!
 
   owner_user02 = User.new(
     first_name: "Fernanda",
@@ -59,6 +78,25 @@ puts "Creating 3 users..."
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
   worker_user03.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
   worker_user03.save!
+
+  worker_user04 = User.new(
+    first_name: "Juan",
+    last_name: "Souza",
+    email: "juan_s@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "recreation worker",
+    street: "Rua Bela",
+    street_number: "200",
+    neighbourhood: "Flamengo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "21999001",
+    bio: "I've been a recreation worker since 2015.",
+    )
+  file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
+  worker_user04.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
+  worker_user04.save!
 
   puts "Finished!"
 
@@ -197,7 +235,7 @@ puts "Creating 4 Playspaces..."
     description: "Afternoon reading for under 10s",
     requirements: "Under 10",
     worker_fee_per_kid_cents: 1000,
-    user_id: worker.id,
+    user_id: worker_user04.id,
     status: "confirmed",
     appointment_id: appointment_1.id,
     )
@@ -212,7 +250,7 @@ puts "Creating 4 Playspaces..."
     description: "Two hours supervised swimming",
     requirements: "Armbands needed",
     worker_fee_per_kid_cents: 4000,
-    user_id: worker.id,
+    user_id: worker_user03.id,
     status: "cancelled",
     appointment_id: appointment_2.id,
     )
@@ -226,7 +264,7 @@ puts "Creating 4 Playspaces..."
     description: "Colouring, clay play, drawings",
     requirements: "Aged 4 - 11",
     worker_fee_per_kid_cents: 1500,
-    user_id: worker.id,
+    user_id: worker_user03.id,
     status: "confirmed",
     appointment_id: appointment_3.id,
     )
@@ -242,7 +280,7 @@ puts "Creating 4 Playspaces..."
     description: "Group session with a variety of toys",
     requirements: "Aged 4-11",
     worker_fee_per_kid_cents: 1000,
-    user_id: worker.id,
+    user_id: worker_user04.id,
     status: "pending",
     appointment_id: appointment_4.id,
     )
@@ -299,9 +337,41 @@ puts "Creating 4 Playspaces..."
     user_id: parent.id,
     )
 
-    puts "Finished!"
+  puts "Finished!"
 
+  Review.destroy_all
 
+  puts "Creating 4 reviews"
+
+    review01 = Review.create!(
+      content: "Such a great place",
+      stars: 5,
+      reviewer_id: parent_user01.id,
+      reviewee_id: worker_user03.id,
+      )
+
+    review02 = Review.create!(
+      content: "Nice ammenities but the recreational worker could be better",
+      stars: 4,
+      reviewer_id: parent_user02.id,
+      reviewee_id: worker_user03.id,
+      )
+
+    review03 = Review.create!(
+      content: "Such an old place",
+      stars: 2,
+      reviewer_id: parent_user02.id,
+      reviewee_id: worker_user03.id,
+      )
+
+    review04 = Review.create!(
+      content: "Lovely place",
+      stars: 5,
+      reviewer_id: parent_user01.id,
+      reviewee_id: worker_user03.id,
+      )
+
+  puts "Finished!"
 
 
 

@@ -1,2 +1,9 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container m-6">
+  <h1> Describe your Play Session:</h1>
+  <%= simple_form_for [@reviewee, @review] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :stars, collection: Review::STARS, prompt: :translate %>
+    <%= f.input :content %>
+    <%= f.submit "Review #{@reviewee.first_name}", class: "button_1" %>
+  <% end %>
+</div>

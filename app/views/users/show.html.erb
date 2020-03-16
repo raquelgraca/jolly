@@ -1,8 +1,8 @@
 <div class="container">
   <div class="d-flex justify-content-between p-4">
     <div>
-      <h2 class="pr-4"> Provided by: <%= @user.first_name %> </h2>
-      <p class="pr-4"> <%= @user.bio %> </p>
+      <h2> Provided by: <%= @user.first_name %> </h2>
+      <p> <%= @user.bio %> </p>
       <% if @user.average_stars.negative? %>
         <p> Has no reviews yet </p>
       <% else %>
@@ -17,22 +17,32 @@
     </div>
     <%= cl_image_tag @user.avatar.key, class:"avatar-bordered" %>
   </div>
-  <h3 class="p-4"> These are <%= @user.first_name %>'s reviews </h3>
-  <div class ="cards">
-    <% @user.received_reviews.each do |review| %>
-      <div class="card p-4">
-          <p> <%= review.reviewer.first_name %> rated <%= review.stars %> stars on <%= review.created_at.strftime("%d/%m/%Y - %H:%M") %> </p>
-          <br>
-          <p>
-          <% @user.average_stars.times do  %>
-             <i class="fas fa-star"></i>
-          <% end %>
-          <% @user.blank_stars.times do %>
-            <i class="far fa-star"></i>
-          <% end %> </p>
-          <br>
-          <p> <%= review.content %> </p>
-      </div>
-    <% end %>
+  <div class="p-4">
+    <h3> These are <%= @user.first_name %>'s reviews </h3>
+      <br>
+       <%= link_to "Add a review", new_user_review_path(@user.id), class:"button_2"%>
+       <br>
+        <br>
+    <div class ="cards">
+      <% @user.received_reviews.each do |review| %>
+        <div class="card p-4">
+            <p> <%= review.reviewer.first_name %> rated <%= review.stars %> stars on <%= review.created_at.strftime("%d/%m/%Y - %H:%M") %> </p>
+            <br>
+            <p>
+            <% review.stars.times do  %>
+               <i class="fas fa-star"></i>
+            <% end %>
+            <% review.blank_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %> </p>
+            <br>
+            <p> <%= review.content %> </p>
+            <% if review.reviewer == current_user %>
+              <br>
+              <p> <%= link_to "Edit", edit_review_path(review.id), class:"button_2"%> </p>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
-  devise_for :users
+  devise_for :users, :paths => 'users'
+
+  resources :users, only: [:show] do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, only: [:show, :edit]
 
 
   root to: 'pages#home'
@@ -22,7 +28,7 @@ Rails.application.routes.draw do
   resources :bookings, except: [:new, :create]
 
   resources :orders, only: [:show, :create] do
-    resources :payments, only: :new
+    resources :payments, only: [:new]
   end
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

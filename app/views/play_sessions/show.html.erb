@@ -6,10 +6,23 @@
   <p class="text-justify p-4"> The requirements for this play session are: <%= @play_session.requirements %></p>
   <div class="d-flex justify-content-between p-4">
     <div>
-        <h2 class="pr-4"> Provided by: <%= @play_session.user.first_name %> </h2>
-        <p class="pr-4"> <%= @play_session.user.bio %> </p>
+      <h2 class="pr-4"> Provided by: <%= @play_session.user.first_name %> </h2>
+      <p class="pr-4"> <%= @play_session.user.bio %> </p>
+
+      <% if @play_session.user.average_stars.negative? %>
+        <p> Has no reviews yet </p>
+      <% else %>
+        <h4> Rating: <%= @play_session.user.average_stars %> stars </h4>
+        <% @play_session.user.average_stars.times do  %>
+           <i class="fas fa-star"></i>
+        <% end %>
+        <% @play_session.user.blank_stars.times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+        <%= link_to "View reviews", user_path(@play_session.user.id), class:"button_2"%>
+      <% end %>
     </div>
-    <%= cl_image_tag @play_session.user.avatar.key, class:"avatar-bordered" %>
+    <%= cl_image_tag @play_session.user.avatar.key, class:"avatar-bordered" %> </p>
   </div>
   <div class="info-box p-4">
     <p> <i class="far fa-clock"></i> &nbsp; &nbsp; <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>

@@ -28,8 +28,6 @@ class PlaySpacesController < ApplicationController
   def show
     @play_space = PlaySpace.find(params[:id])
     authorize @play_space
-    # @booking = Purchase.new
-    # authorize @booking
   end
 
   def edit

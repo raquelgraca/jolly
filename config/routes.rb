@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :reviews, only: [:show, :edit]
+  resources :reviews, only: [:show, :edit, :update]
 
 
   root to: 'pages#home'

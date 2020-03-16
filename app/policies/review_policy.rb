@@ -18,7 +18,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.reviewer == user
   end
 
   def update?

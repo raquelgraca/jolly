@@ -10,29 +10,31 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.reviewer = current_user
+    @review.reviewee = @reviewee
     authorize @review
 
     if @review.save
-      redirect_to users_path(@reviewee.id)
+      redirect_to user_path(@reviewee.id)
     else
       render :new
     end
   end
 
   def show
-
   end
 
   def edit
+    @review = Review.find(params[:id])
     authorize @review
   end
 
   def update
+    @review = Review.find(params[:id])
     @review.update(review_params)
     authorize @review
 
     if @review.save
-      redirect_to users_path(@reviewee.id)
+      redirect_to user_path(@review.reviewee.id)
     else
       render :new
     end

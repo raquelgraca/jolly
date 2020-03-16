@@ -22,13 +22,13 @@ puts "Creating 5 users..."
   parent_user01.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
   parent_user01.save!
 
-    parent_user02 = User.new(
+    worker_user02 = User.new(
     first_name: "Juana",
     last_name: "Miranda",
     email: "juana@email.com",
     password: "123456",
     password_confirmation: "123456",
-    role: "parent",
+    role: "recreation worker",
     street: "Rua das Palmeiras",
     street_number: "20",
     neighbourhood: 'Catete',
@@ -38,10 +38,10 @@ puts "Creating 5 users..."
     bio: "I love my life",
     )
   file = URI.open('https://i2.wp.com/www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg')
-  parent_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
-  parent_user02.save!
+  worker_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
+  worker_user02.save!
 
-  owner_user02 = User.new(
+  owner_user03 = User.new(
     first_name: "Fernanda",
     last_name: "Tuxi",
     email: "fernanda_t@email.com",
@@ -57,10 +57,10 @@ puts "Creating 5 users..."
     bio: "My place is very cool!",
     )
   file = URI.open('https://janecanblogdotcom.files.wordpress.com/2014/09/ashley-square-profile.jpg')
-  owner_user02.avatar.attach(io: file, filename: "owner_photo.jpg", content_type: "image/jpg")
-  owner_user02.save!
+  owner_user03.avatar.attach(io: file, filename: "owner_photo.jpg", content_type: "image/jpg")
+  owner_user03.save!
 
-  worker_user03 = User.new(
+  worker_user04 = User.new(
     first_name: "Pedro Henrique",
     last_name: "Souza",
     email: "pedro_s@email.com",
@@ -76,10 +76,10 @@ puts "Creating 5 users..."
     bio: "I've been a recreation worker since 2015. I studied Terapeutic art and I'm also a professional actor.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
-  worker_user03.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
-  worker_user03.save!
+  worker_user04.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
+  worker_user04.save!
 
-  worker_user04 = User.new(
+  worker_user05 = User.new(
     first_name: "Juan",
     last_name: "Souza",
     email: "juan_s@email.com",
@@ -95,8 +95,8 @@ puts "Creating 5 users..."
     bio: "I've been a recreation worker since 2015.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
-  worker_user04.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
-  worker_user04.save!
+  worker_user05.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
+  worker_user05.save!
 
   puts "Finished!"
 
@@ -104,7 +104,7 @@ PlaySpace.destroy_all
 
 owner = User.find_by(role: "play space owner")
 
-puts "Creating 4 Playspaces..."
+puts "Creating 8 Playspaces..."
   play_space01 = PlaySpace.new(
     name: "Big and Tiny",
     street: "Rua da diversão",
@@ -174,8 +174,67 @@ puts "Creating 4 Playspaces..."
   play_space04.photos.attach(io: file7, filename: "space04_1.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file8, filename: "space04_2.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file9, filename: "space04_3.jpg", content_type: "image/jpg")
-
   play_space04.save!
+
+  play_space05 = PlaySpace.new(
+    name: "Power Play Kids",
+    street: "Rua da Alegria",
+    street_number: "32",
+    neighbourhood: "Botafogo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "220003021",
+    facilities: "Playspace indoor for teenagers",
+    user_id: owner.id
+    )
+  file10 = URI.open('https://www.mygrandeprairienow.com/wp-content/uploads/2018/01/36682860954_1025c65b11_b.jpg')
+  file11 = URI.open('https://main-cdn.grabone.co.nz/goimage/fullsize/1e9bc2257fab9d2cb3e538eee3983470bce1c969.jpg')
+  file12 = URI.open('https://bloximages.chicago2.vip.townnews.com/billingsgazette.com/content/tncms/assets/v3/editorial/b/40/b40d5956-3113-5171-bdae-e13e853312bb/576d9c6db1027.image.jpg')
+
+  play_space05.photos.attach(io: file10, filename: "space05_1.jpg", content_type: "image/jpg")
+  play_space05.photos.attach(io: file11, filename: "space05_2.jpg", content_type: "image/jpg")
+  play_space05.photos.attach(io: file12, filename: "space05_3.jpg", content_type: "image/jpg")
+  play_space05.save!
+
+  play_space06 = PlaySpace.new(
+    name: "Power Play Kids",
+    street: "Rua da Alegria",
+    street_number: "32",
+    neighbourhood: "Botafogo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "220003021",
+    facilities: "Playspace indoor for teenagers",
+    user_id: owner.id
+    )
+  file13 = URI.open('https://www.mygrandeprairienow.com/wp-content/uploads/2018/01/36682860954_1025c65b11_b.jpg')
+  file14 = URI.open('https://main-cdn.grabone.co.nz/goimage/fullsize/1e9bc2257fab9d2cb3e538eee3983470bce1c969.jpg')
+  file15 = URI.open('https://bloximages.chicago2.vip.townnews.com/billingsgazette.com/content/tncms/assets/v3/editorial/b/40/b40d5956-3113-5171-bdae-e13e853312bb/576d9c6db1027.image.jpg')
+
+  play_space06.photos.attach(io: file13, filename: "space06_1.jpg", content_type: "image/jpg")
+  play_space06.photos.attach(io: file14, filename: "space06_2.jpg", content_type: "image/jpg")
+  play_space06.photos.attach(io: file15, filename: "space06_3.jpg", content_type: "image/jpg")
+  play_space06.save!
+
+  play_space07 = PlaySpace.new(
+    name: "Power Play Kids",
+    street: "Rua da Alegria",
+    street_number: "32",
+    neighbourhood: "Botafogo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "220003021",
+    facilities: "Playspace indoor for teenagers",
+    user_id: owner.id
+    )
+  file16 = URI.open('https://www.mygrandeprairienow.com/wp-content/uploads/2018/01/36682860954_1025c65b11_b.jpg')
+  file17 = URI.open('https://main-cdn.grabone.co.nz/goimage/fullsize/1e9bc2257fab9d2cb3e538eee3983470bce1c969.jpg')
+  file18 = URI.open('https://bloximages.chicago2.vip.townnews.com/billingsgazette.com/content/tncms/assets/v3/editorial/b/40/b40d5956-3113-5171-bdae-e13e853312bb/576d9c6db1027.image.jpg')
+
+  play_space07.photos.attach(io: file16, filename: "space07_1.jpg", content_type: "image/jpg")
+  play_space07.photos.attach(io: file17, filename: "space07_2.jpg", content_type: "image/jpg")
+  play_space07.photos.attach(io: file18, filename: "space07_3.jpg", content_type: "image/jpg")
+  play_space07.save!
 
   puts "Finished!"
 

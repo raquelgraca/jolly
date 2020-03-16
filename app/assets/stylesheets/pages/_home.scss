@@ -9,7 +9,7 @@
   }
 
 .logo {
-  width: 100px;
+  width: 120px;
 }
 
 .button_3 {
@@ -17,6 +17,10 @@
   text-decoration: none;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 18px;
+}
+
+.button_3:hover {
+  text-decoration: none;
 }
 
 .top-links {
@@ -28,16 +32,23 @@
 .top-phrase {
   text-align: center;
   margin: 40px;
+  background-color: white;
 }
 
-.h2 {
-  font-size: 38px;
+.middle-block {
+  background-color: white;
+}
+
+.icon-img{
+  height:200px;
 }
 
 .text-box {
   display: flex;
   flex-wrap: wrap;
   padding: 50px;
+  justify-content: center;
+
 }
 
 .icon {
@@ -50,7 +61,6 @@
   color: #707070;
   font-size: 18px;
 }
-
 
 .network {
   background-size: cover;
@@ -70,6 +80,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 100px 0;
 }
 
 .network-card {

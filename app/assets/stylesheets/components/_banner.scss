@@ -4,15 +4,20 @@
   padding: 220px 0;
   height: 800px;
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584046280/homeimg.jpg');
+
 }
 
 .container-banner {
   display: block;
   flex-direction: columns;
-  text-align: left;
-  padding-top: 50px;
-  margin-left:: 50px;
+  padding: 50px;
 }
+
+.banner-button {
+  display: flex;
+  justify-content: center;
+}
+
 .banner h1 {
   margin: 0;
   color: white;
@@ -20,6 +25,7 @@
   font-size: 42px;
   font-weight: bold;
   font-family: Comfortaa;
+  text-align: center;
 }
 
 .banner p {
@@ -28,6 +34,7 @@
   opacity: .9 ;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   padding-bottom: 30px;
+  text-align: center;
 }
 
 .button_home {

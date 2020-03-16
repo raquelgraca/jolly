@@ -2,7 +2,7 @@ require "open-uri"
 
 User.destroy_all
 
-puts "Creating 6 users..."
+puts "Creating 5 users..."
   parent_user01 = User.new(
     first_name: "Mariana",
     last_name: "Barreiras",
@@ -235,7 +235,7 @@ puts "Creating 4 Playspaces..."
     description: "Afternoon reading for under 10s",
     requirements: "Under 10",
     worker_fee_per_kid_cents: 1000,
-    user_id: worker.id,
+    user_id: worker_user04.id,
     status: "confirmed",
     appointment_id: appointment_1.id,
     )
@@ -250,7 +250,7 @@ puts "Creating 4 Playspaces..."
     description: "Two hours supervised swimming",
     requirements: "Armbands needed",
     worker_fee_per_kid_cents: 4000,
-    user_id: worker.id,
+    user_id: worker_user03.id,
     status: "cancelled",
     appointment_id: appointment_2.id,
     )
@@ -264,7 +264,7 @@ puts "Creating 4 Playspaces..."
     description: "Colouring, clay play, drawings",
     requirements: "Aged 4 - 11",
     worker_fee_per_kid_cents: 1500,
-    user_id: worker.id,
+    user_id: worker_user03.id,
     status: "confirmed",
     appointment_id: appointment_3.id,
     )
@@ -280,7 +280,7 @@ puts "Creating 4 Playspaces..."
     description: "Group session with a variety of toys",
     requirements: "Aged 4-11",
     worker_fee_per_kid_cents: 1000,
-    user_id: worker.id,
+    user_id: worker_user04.id,
     status: "pending",
     appointment_id: appointment_4.id,
     )

@@ -60,6 +60,25 @@ puts "Creating 5 users..."
   owner_user02.avatar.attach(io: file, filename: "owner_photo.jpg", content_type: "image/jpg")
   owner_user02.save!
 
+   owner_user02 = User.new(
+    first_name: "Emilie",
+    last_name: "Tuxi",
+    email: "emilie_t@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "play space owner",
+    street: "Rua Banbina",
+    street_number: "23",
+    neighbourhood: "Botafogo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "2150021",
+    bio: "My place is very cool!",
+    )
+  file = URI.open('https://janecanblogdotcom.files.wordpress.com/2014/09/ashley-square-profile.jpg')
+  owner_user02.avatar.attach(io: file, filename: "owner_photo.jpg", content_type: "image/jpg")
+  owner_user02.save!
+
   worker_user03 = User.new(
     first_name: "Pedro Henrique",
     last_name: "Souza",
@@ -94,8 +113,8 @@ puts "Creating 5 users..."
     zip_code: "21999001",
     bio: "I've been a recreation worker since 2015.",
     )
-  file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
-  worker_user04.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
+  file = URI.open('https://images.unsplash.com/photo-1441622915984-05d13dfb3d8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+  worker_user04.avatar.attach(io: file, filename: "worker2_photo.jpg", content_type: "image/jpg")
   worker_user04.save!
 
   puts "Finished!"
@@ -183,10 +202,10 @@ puts "Creating 4 Playspaces..."
 
   play_space_1 = PlaySpace.find_by(name: "Big and Tiny")
   play_space_2 = PlaySpace.find_by(name: "Kids Island")
-  time_1 = DateTime.now + 24.hours
-  time_2 = DateTime.now + 26.hours
-  time_3 = DateTime.now + 36.hours
-  time_4 = DateTime.now + 38.hours
+  time_1 = DateTime.now + 2.hours
+  time_2 = 1.day.from_now
+  time_3 = DateTime.now + 1.houts
+  time_4 = DateTime.now + 0.5.hours
 
   puts "Creating 4 Appointments..."
   appointment_1 = Appointment.create!(

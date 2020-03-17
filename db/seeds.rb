@@ -56,7 +56,9 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "2150021",
-    bio: "My place is very cool!",
+    bio: "I have 10 years of experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
+Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
+I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-06.jpg')
   owner_user03.avatar.attach(io: file, filename: "owner03_photo.jpg", content_type: "image/jpg")

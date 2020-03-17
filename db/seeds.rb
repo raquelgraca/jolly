@@ -35,7 +35,9 @@ puts "Creating 5 users..."
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "21200021",
-    bio: "I love my life",
+    bio: "Experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
+Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
+I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
     )
   file = URI.open('https://i2.wp.com/www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg')
   worker_user02.avatar.attach(io: file, filename: "worker02_photo.jpg", content_type: "image/jpg")
@@ -92,7 +94,7 @@ puts "Creating 5 users..."
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "21999001",
-    bio: "I've been a recreation worker since 2015. I studied Terapeutic art and I'm also a professional actor.",
+    bio: "Experience leading preschool and childrens activities. I have some previous skills and knowledge in a program area such as; arts & crafts, games, sports, dance.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
   worker_user05.avatar.attach(io: file, filename: "worker05_photo.jpg", content_type: "image/jpg")
@@ -111,7 +113,8 @@ puts "Creating 5 users..."
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "21999001",
-    bio: "I've been a recreation worker since 2015.",
+    bio: "Experience planning and instructing preschool and children's programs. Formal training/certification in related area an asset.Skills in a variety of program areas i.e. music, art, sports, games.
+Current Emergency First Aid certification as recognized by the SUS.",
     )
   file = URI.open('https://images.unsplash.com/photo-1441622915984-05d13dfb3d8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
   worker_user06.avatar.attach(io: file, filename: "worker06_photo.jpg", content_type: "image/jpg")

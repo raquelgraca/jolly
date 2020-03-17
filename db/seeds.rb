@@ -310,20 +310,20 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space05 = PlaySpace.find_by(name: "Sky of diamonds")
   play_space06 = PlaySpace.find_by(name: "Floresta Encantada")
   play_space07 = PlaySpace.find_by(name: "Trenzinho da Alegria")
-  time_1 = DateTime.now + 2.hours
-  time_2 = DateTime.now + 4.hours
-  time_3 = DateTime.now + 1.hours
-  time_4 = DateTime.now + 3.hours
-  time_5 = DateTime.now + 5.hours
-  time_6 = DateTime.now + 7.hours
-  time_7 = DateTime.now + 1.hours
-  time_8 = DateTime.now + 3.hours
-  time_9 = DateTime.now + 4.hours
-  time_10 = DateTime.now + 6.hours
-  time_11 = DateTime.now + 5.hours
-  time_12 = DateTime.now + 7.hours
-  time_13 = DateTime.now + 8.hours
-  time_14 = DateTime.now + 10.hours
+  time_1 = DateTime.new(2020,3,18,16,30,00)
+  time_2 = DateTime.new(2020,3,18,18,30,00)
+  time_3 = DateTime.new(2020,3,18,14,00,00)
+  time_4 = DateTime.new(2020,3,18,16,00,00)
+  time_5 = DateTime.new(2020,3,19,14,15,00)
+  time_6 = DateTime.new(2020,3,19,16,15,00)
+  time_7 = DateTime.new(2020,3,19,17,45,00)
+  time_8 = DateTime.new(2020,3,19,19,45,00)
+  time_9 = DateTime.new(2020,3,19,9,00,00)
+  time_10 = DateTime.new(2020,3,19,11,00,00)
+  time_11 = DateTime.new(2020,3,20,14,00,00)
+  time_12 = DateTime.new(2020,3,20,16,00,00)
+  time_13 = DateTime.new(2020,3,20,16,30,00)
+  time_14 = DateTime.new(2020,3,20,18,30,00)
 
   puts "Creating 8 Appointments...+++++++++++++++++++++++++++++++++++++"
   appointment_1 = Appointment.create!(

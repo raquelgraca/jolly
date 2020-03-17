@@ -442,7 +442,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     appointment_id: appointment_6.id,
     )
 
-  file13 = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583936835/oUGCDS3XsudgX31m3L4fPkmr.jpg')
+  file13 = URI.open('https://images.unsplash.com/photo-1453749024858-4bca89bd9edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1307&q=80')
   play_session07.photo.attach(io: file13, filename: "play_session04", content_type: "image/jpg")
   play_session07.save!
 

@@ -49,7 +49,7 @@ class PlaySessionsController < ApplicationController
       @play_session.edit
       redirect_to edit_play_sessions_path(@play_session)
     else
-      puts "Sorry but it's to late."
+      puts "Sorry but it's too late."
     end
   end
 

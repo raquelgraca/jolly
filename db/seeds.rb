@@ -2,7 +2,7 @@ require "open-uri"
 
 User.destroy_all
 
-puts "Creating 5 users..."
+puts "Creating 7 users..."
   parent_user01 = User.new(
     first_name: "Raquel",
     last_name: "Graça",
@@ -21,6 +21,44 @@ puts "Creating 5 users..."
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
   parent_user01.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
   parent_user01.save!
+
+  parent_user02 = User.new(
+    first_name: "Ivan",
+    last_name: "Santos",
+    email: "ivan@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "parent",
+    street: "Rua das Palmeiras",
+    street_number: "20",
+    neighbourhood: 'Catete',
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "21200021",
+    bio: "I love to be a mother",
+    )
+  file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
+  parent_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
+  parent_user02.save!
+
+  parent_user03 = User.new(
+    first_name: "Francisca",
+    last_name: "Silva",
+    email: "franca@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "parent",
+    street: "Rua das Palmeiras",
+    street_number: "20",
+    neighbourhood: 'Catete',
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "21200021",
+    bio: "I love to be a mother",
+    )
+  file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
+  parent_user03.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
+  parent_user03.save!
 
   worker_user02 = User.new(
     first_name: "Juana",
@@ -421,7 +459,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     play_session06 = PlaySession.new(
     name: "Jump class",
     description: "Improve your balance and have fun in a super elastic playground.",
-    requirements: "Aged 8-11",
+    requirements: "Children aged between 8-16 and bring their own sports clothing, as well as towel. Please state any injuries or other physical limitations of your child in the comment section when making a booking.",
     worker_fee_per_kid_cents: 1100,
     user_id: worker_user06.id,
     status: "pending",
@@ -545,28 +583,28 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   puts "Creating 4 reviews+++++++++++++++++++++"
 
     review01 = Review.create!(
-      content: "My child had an amazing time! The class was very well organized and prepared.",
+      content: "My child had an amazing time! The class was very organized and well-prepared.",
       stars: 5,
-      reviewer_id: parent_user01.id,
-      reviewee_id: worker_user02.id,
+      reviewer_id: parent_user02.id,
+      reviewee_id: worker_user06.id,
       )
 
     review02 = Review.create!(
-      content: "Nice ammenities and the recreational worker is very professional and carefull with all the kids.",
-      stars: 4,
-      reviewer_id: parent_user01.id,
-      reviewee_id: worker_user04.id,
+      content: "He seems to connect with the kids. Jose returned home with a great mood. He Jose returned home. He deserves 5 stars!",
+      stars: 5,
+      reviewer_id: owner_user03.id,
+      reviewee_id: worker_user06.id,
       )
 
     review03 = Review.create!(
       content: "He caught everyone's attention by telling incredible stories",
       stars: 4,
-      reviewer_id: parent_user01.id,
-      reviewee_id: worker_user05.id,
+      reviewer_id: parent_user03.id,
+      reviewee_id: worker_user06.id,
       )
 
     review04 = Review.create!(
-      content: "Lovely work of this recreation. 5 deserved stars!",
+      content: "Juan left a great impression. He certainly knows how to entertain the kids and keep them off their mobile phones.",
       stars: 5,
       reviewer_id: parent_user01.id,
       reviewee_id: worker_user06.id,

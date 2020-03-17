@@ -10,10 +10,10 @@
         </div>
         <div class="card-infos">
           <div class="card-details">
-            <p><i class="far fa-clock p-2"></i>  &nbsp; &nbsp;  <%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
-            <p><i class="fas fa-child p-2"></i> Booked for: <%= booking.name_of_kid %></p>
-            <p><i class="fas fa-money-check-alt p-2"></i> Payment status: <%= booking.status %></p>
-            <p><i class="far fa-check-circle p-2"></i> Session status: <%= booking.play_session.status %></p>
+            <p><i class="far fa-clock p-2"></i> &nbsp;<%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
+            <p><i class="fas fa-child p-2"></i> &nbsp; &nbsp;Booked for: <%= booking.name_of_kid %></p>
+            <p><i class="fas fa-money-check-alt p-2"></i> Payment: <%= booking.status %></p>
+            <p><i class="far fa-check-circle p-2"></i> &nbsp; Session: <%= booking.play_session.status %></p>
           </div>
           <div class= "text-right pb-2">
               <%= link_to "View", booking_path(booking.id), class:"button_2"%>

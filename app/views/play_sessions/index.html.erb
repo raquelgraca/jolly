@@ -19,8 +19,8 @@
           </div>
             <div class="card-infos">
               <div class="card-details">
-                <p> <i class="far fa-clock"></i>  &nbsp; &nbsp;  <%= play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
-                <p>  <i class="fas fa-map-pin"></i>  &nbsp; &nbsp;  <%= play_session.appointment.play_space.neighbourhood %> </p>
+                <p> <i class="far fa-clock"></i>  &nbsp;  <%= play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
+                <p>  <i class="fas fa-map-pin"></i>  &nbsp; &nbsp; &nbsp;  <%= play_session.appointment.play_space.neighbourhood %> </p>
               </div>
               <%= cl_image_tag play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
               <h4> R$<%= play_session.sum_fees %></h4>

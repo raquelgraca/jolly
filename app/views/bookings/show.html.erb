@@ -3,18 +3,18 @@
     <i class="fas fa-calendar-check"></i>
     <div class="info-box">
       <br>
-      <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> <%= @booking.user.last_name.capitalize %> </h2>
       <br>
-      <% if @booking.status == "pending" %>
-        <button id="pay" class="button_1"> Proceed to payment </button>
-      <% elsif @booking.status == "cancelled" %>
-        <h1 class="text-center"> Booking cancelled </h1>
-      <% else %>
-        <h1 class="text-center"> Booking confirmed - Ready to play! </h1>
-      <% end %>
-      <div class="info-booking">
-        <p> Payment Status: <%= @booking.status %></p>
-        <p> Provided by: <%= @booking.play_session.user.first_name %> </p>
+      <h2 class="text-center"> Dear <%= @booking.user.first_name.capitalize %> <%= @booking.user.last_name.capitalize %> </h2>
+      <p class="text-center"> Payment Status: <%= @booking.status %></p>
+      <div class="text-center">
+        <% if @booking.status == "pending" %>
+          <button id="pay" class="button_1"> Proceed to payment </button>
+        <% elsif @booking.status == "cancelled" %>
+          <h1 class="text-center"> Booking cancelled </h1>
+        <% else %>
+          <h1 class="text-center"> Booking confirmed - Ready to play! </h1>
+        <% end %>
+      </div>
         <%= link_to play_session_path(@booking.play_session), {:style=>"text-decoration: none; color: black;"} do %>
         <div class="card my-4" >
           <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path @booking.play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
@@ -28,11 +28,11 @@
               <%= cl_image_tag @booking.play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
               <h4> R$ <%= @booking.play_session.sum_fees %></h4>
             </div>
-        </div>
       <% end %>
     </div>
   </div>
 </div>
+
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>

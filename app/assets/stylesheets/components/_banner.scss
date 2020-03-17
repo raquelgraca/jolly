@@ -4,7 +4,8 @@
   padding: 220px 0;
   height: 800px;
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584046280/homeimg.jpg');
-
+  display: flex;
+  justify-content: space-around;
 }
 
 .container-banner {
@@ -14,8 +15,9 @@
 }
 
 .banner-button {
-  display: flex;
   justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
 
 .banner h1 {
@@ -40,8 +42,8 @@
 .button_home {
   background: #9A50A2;
   color: white;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 5px;

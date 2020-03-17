@@ -22,7 +22,7 @@ puts "Creating 5 users..."
   parent_user01.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
   parent_user01.save!
 
-    worker_user02 = User.new(
+  worker_user02 = User.new(
     first_name: "Juana",
     last_name: "Miranda",
     email: "juana@email.com",
@@ -38,7 +38,7 @@ puts "Creating 5 users..."
     bio: "I love my life",
     )
   file = URI.open('https://i2.wp.com/www.sardiniauniqueproperties.com/wp-content/uploads/2015/10/Square-Profile-Pic-1-1.jpg')
-  worker_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
+  worker_user02.avatar.attach(io: file, filename: "worker02_photo.jpg", content_type: "image/jpg")
   worker_user02.save!
 
   owner_user03 = User.new(
@@ -57,10 +57,29 @@ puts "Creating 5 users..."
     bio: "My place is very cool!",
     )
   file = URI.open('https://janecanblogdotcom.files.wordpress.com/2014/09/ashley-square-profile.jpg')
-  owner_user03.avatar.attach(io: file, filename: "owner_photo.jpg", content_type: "image/jpg")
+  owner_user03.avatar.attach(io: file, filename: "owner03_photo.jpg", content_type: "image/jpg")
   owner_user03.save!
 
   worker_user04 = User.new(
+    first_name: "Emilie",
+    last_name: "Tuxi",
+    email: "emilie_t@email.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "play space owner",
+    street: "Rua Banbina",
+    street_number: "23",
+    neighbourhood: "Botafogo",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    zip_code: "2150021",
+    bio: "My place is very cool!",
+    )
+  file = URI.open('https://janecanblogdotcom.files.wordpress.com/2014/09/ashley-square-profile.jpg')
+  worker_user04.avatar.attach(io: file, filename: "worker_user04_photo.jpg", content_type: "image/jpg")
+  worker_user04.save!
+
+  worker_user05 = User.new(
     first_name: "Pedro Henrique",
     last_name: "Souza",
     email: "pedro_s@email.com",
@@ -76,10 +95,10 @@ puts "Creating 5 users..."
     bio: "I've been a recreation worker since 2015. I studied Terapeutic art and I'm also a professional actor.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
-  worker_user04.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
-  worker_user04.save!
+  worker_user05.avatar.attach(io: file, filename: "worker05_photo.jpg", content_type: "image/jpg")
+  worker_user05.save!
 
-  worker_user05 = User.new(
+  worker_user06 = User.new(
     first_name: "Juan",
     last_name: "Souza",
     email: "juan_s@email.com",
@@ -94,9 +113,10 @@ puts "Creating 5 users..."
     zip_code: "21999001",
     bio: "I've been a recreation worker since 2015.",
     )
-  file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
-  worker_user05.avatar.attach(io: file, filename: "worker_photo.jpg", content_type: "image/jpg")
-  worker_user05.save!
+  file = URI.open('https://images.unsplash.com/photo-1441622915984-05d13dfb3d8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+  worker_user06.avatar.attach(io: file, filename: "worker06_photo.jpg", content_type: "image/jpg")
+  worker_user06.save!
+
 
   puts "Finished!"
 
@@ -236,18 +256,18 @@ puts "Creating 8 Playspaces..."
   play_space07.photos.attach(io: file18, filename: "space07_3.jpg", content_type: "image/jpg")
   play_space07.save!
 
-  puts "Finished!"
+  puts "Finished!========================================="
 
   Appointment.destroy_all
 
   play_space_1 = PlaySpace.find_by(name: "Big and Tiny")
   play_space_2 = PlaySpace.find_by(name: "Kids Island")
-  time_1 = DateTime.now + 24.hours
-  time_2 = DateTime.now + 26.hours
-  time_3 = DateTime.now + 36.hours
-  time_4 = DateTime.now + 38.hours
+  time_1 = DateTime.now + 2.hours
+  time_2 = 1.day.from_now
+  time_3 = DateTime.now + 1.houts
+  time_4 = DateTime.now + 0.5.hours
 
-  puts "Creating 4 Appointments..."
+  puts "Creating 4 Appointments...+++++++++++++++++++++++++++++++++++++"
   appointment_1 = Appointment.create!(
     minimum_capacity: 5,
     maximum_capacity: 7,
@@ -396,14 +416,14 @@ puts "Creating 8 Playspaces..."
     user_id: parent.id,
     )
 
-  puts "Finished!"
+  puts "Finished!============================================="
 
   Review.destroy_all
 
-  puts "Creating 4 reviews"
+  puts "Creating 4 reviews++++++++++++++++++++++++++++"
 
     review01 = Review.create!(
-      content: "Such a great place",
+      content: "My child had an amazing time! The class was very well organized and prepared.",
       stars: 5,
       reviewer_id: parent_user01.id,
       reviewee_id: worker_user03.id,
@@ -430,7 +450,7 @@ puts "Creating 8 Playspaces..."
       reviewee_id: worker_user03.id,
       )
 
-  puts "Finished!"
+  puts "Finished!================================"
 
 
 

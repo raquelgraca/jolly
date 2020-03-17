@@ -94,7 +94,9 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     city: "Rio de Janeiro",
     state: "RJ",
     zip_code: "2150021",
-    bio: "My place is very cool!",
+    bio: "I have 10 years of experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
+Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
+I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-06.jpg')
   owner_user03.avatar.attach(io: file, filename: "owner03_photo.jpg", content_type: "image/jpg")
@@ -480,7 +482,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     appointment_id: appointment_6.id,
     )
 
-  file13 = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584134616/j6ftsMwDnewLLAqYxVPNpLMH.jpg')
+  file13 = URI.open('https://images.unsplash.com/photo-1453749024858-4bca89bd9edc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1307&q=80')
   play_session07.photo.attach(io: file13, filename: "play_session04", content_type: "image/jpg")
   play_session07.save!
 

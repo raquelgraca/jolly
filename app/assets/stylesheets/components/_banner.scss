@@ -41,7 +41,7 @@
 
 .button_home {
   background: #9A50A2;
-  color: white;
+  color: white !important;
   padding-left: 60px;
   padding-right: 60px;
   padding-top: 20px;
@@ -51,3 +51,7 @@
   text-decoration: none;
 }
 
+.button_home:hover {
+  color: white !important;
+  text-decoration: none;
+}

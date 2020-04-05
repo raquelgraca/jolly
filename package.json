@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "4.2.2",
-    "acorn": "6.4.1",
+    "acorn": "^6.4.1",
     "bootstrap": "^4.4.1",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :play_spaces, dependent: :destroy
   has_many :play_sessions, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :kids, dependent: :destroy
 
   ROLE = ['parent', 'recreation worker', 'play space owner']
   NEIGHBOURHOOD = ["Arpoador", "Botafogo", "Catete", "Copacabana", "Cosme Velho", "Flamengo", "Gávea" ,"Glória", "Humaitá", "Ipanema", "Jardim Botanico", "Lagoa", "Laranjeiras", "Leblon", "Leme", "Santa Teresa", "São Conrado", "Urca"]

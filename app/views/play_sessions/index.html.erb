@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
-    <h1> Find a play session for your kid:</h1>
+    <h1> <%= t(".title") %></h1>
     <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
     <%= f.input :neighbourhood, required: false, collection: PlaySpace::NEIGHBOURHOOD, prompt: :translate %>
     <div class="bottom d-flex justify-content-center align-items-center">

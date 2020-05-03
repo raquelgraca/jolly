@@ -1,6 +1,6 @@
 en:
   banner:
-    title: "Find a play session at Jolly!"
+    title_html: 'Find a play session at <strong>Jolly</strong>!'
     subt: "Let your kid play with friends in a surpervised and safe playspace!"
     bt: "Book now"
   home:
@@ -26,4 +26,7 @@ en:
     card-3-p: "Expand office/place incomes"
     card-3-p2: "Networking with professional recreation workers"
     card-3-p3: "Easy way to reveal underused space"
+  play_sessions:
+    index:
+      title: "Find a play session for your kid:"
 

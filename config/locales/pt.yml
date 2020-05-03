@@ -1,6 +1,6 @@
 pt:
   banner:
-    title: "Encontre uma sessão recreativa no Jolly!"
+    title_html: "Encontre uma sessão recreativa no <strong>Jolly</strong>!"
     subt: "Deixe seu filho brincar com os amigos em ambientes seguros e supervisionados"
     bt: "Agende agora"
   home:
@@ -26,3 +26,21 @@ pt:
     card-3-p: "Aumente a receita do seu espaço"
     card-3-p2: "Acesse a rede de recreadores profissionais"
     card-3-p3: "Dê fim aos espaços subutilizados"
+  play_sessions:
+    index:
+      title: "Encontre uma sessão recreativa:"
+  activerecord:
+    models:
+      play_session: "Sessões recrativas"
+      play_space: "Lugares recreativos"
+      booking: "Agendamento"
+    attributes:
+      play_session:
+        date_and_start_time: "Data e hora de início"
+      play_space:
+        neighbourhood: "Bairro"
+      booking:
+        name_of_kid: "Nome da criança"
+        gender_of_kid: "Gênero"
+        age_of_kid: "Idade"
+        comment: "Observação"

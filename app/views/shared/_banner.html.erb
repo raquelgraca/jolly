@@ -1,11 +1,11 @@
 <div class="banner">
   <div class="container-banner">
-    <h1>Find a play session at <strong>Jolly</strong>!</h1>
+    <h1> <%= t("banner.title") %> </h1>
     <br>
-    <p>Let your kid play with friends in a surpervised and safe playspace!</p>
+    <p><%= t("banner.subt") %></p>
     <br>
     <div class="banner-button">
-      <%= link_to "Book now", play_sessions_path, class: "button_home" %>
+      <%= link_to t("banner.bt"), play_sessions_path, class: "button_home" %>
     </div>
   </div>
 </div>

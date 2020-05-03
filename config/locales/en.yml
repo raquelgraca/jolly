@@ -1,33 +1,29 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  banner:
+    title: "Find a play session at Jolly!"
+    subt: "Let your kid play with friends in a surpervised and safe playspace!"
+    bt: "Book now"
+  home:
+    phrase: "Enabling fun and social after-school activities for kids"
+    ft-title-1: "Search for play sessions"
+    ft-description-1: "Filter activities by date or location."
+    ft-title-2: "Check details"
+    ft-description-2: "See photos, reviews, curriculum and ratings from spaces and recreation workers."
+    ft-title-3: "Book a play session"
+    ft-description-3: "The recreation worker will receive your booking confirmation."
+    ft-title-4: "Pay online"
+    ft-description-4: "Using credit card or Bank slip. If something happens, you can cancel your booking 2 days before it happens."
+    network-title: "Join the Jolly Network!"
+    card-1: "Children’s guardian/parent"
+    card-1-p: "Several play sessions"
+    card-1-p2: "Recreation worker verified"
+    card-1-p3: "Low cost activities"
+    card-2: "Recreation worker"
+    card-2-p: "Extra freelance jobs"
+    card-2-p2: "Several location oportunities"
+    card-2-p3: "Rewarding class experience"
+    card-3: "Play space owner"
+    card-3-p: "Expand office/place incomes"
+    card-3-p2: "Networking with professional recreation workers"
+    card-3-p3: "Easy way to reveal underused space"
+

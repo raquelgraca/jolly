@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :paths => 'users'
 
-  scope '(:locale)', locale: /pt|es/ do
+  scope '(:locale)', locale: /en|pt|es/ do
 
     resources :users, only: [:show] do
       resources :reviews, only: [:new, :create]

@@ -4,6 +4,8 @@ pt:
     subt: "Deixe seu filho brincar com os amigos em ambientes seguros e supervisionados"
     bt: "Agende agora"
   home:
+    login: Entrar
+    sign_up: Cadastre-se
     phrase: "Permitindo atividades divertidas e sociais depois da escola para crianças"
     ft-title-1: "Procure um sessão recreativa"
     ft-description-1: "Filtre a atividade por data ou local."
@@ -29,16 +31,27 @@ pt:
   play_sessions:
     index:
       title: "Encontre uma sessão recreativa:"
+    show:
+      require: "Os requisitos para essa sessão recreativa são: "
+      provided: "Oferecida por:"
+      no_review: 'Não possui avaliações'
+      reviews: 'Avaliações:'
+      view_reviews: "Ver avaliações"
+  booking:
+    new:
+      title_booking: "Forneça detalhes para realizar seu agendamento"
+      bt_booking: Confirme a sua reserva
   activerecord:
     models:
       play_session: "Sessões recrativas"
       play_space: "Lugares recreativos"
       booking: "Agendamento"
+      search: "Pesquisa"
     attributes:
-      play_session:
+      search:
         date_and_start_time: "Data e hora de início"
-      play_space:
         neighbourhood: "Bairro"
+      play_space:
       booking:
         name_of_kid: "Nome da criança"
         gender_of_kid: "Gênero"

@@ -1,4 +1,14 @@
 en:
+  navbar:
+    new_play_space: New Play Space
+    my_play_spaces: My Play Spaces
+    avai_appoint: Available Appointments
+    my_play_sessions: My Playsessions
+    play_sessions: Play Sessions
+    my_bookings: My Bookings
+    log_out: Log Out
+    login: Login
+    sign_up: Sign-up
   banner:
     title_html: 'Find a play session at <strong>Jolly</strong>!'
     subt: "Let your kid play with friends in a surpervised and safe playspace!"
@@ -31,6 +41,8 @@ en:
   play_sessions:
     index:
       title: "Find a play session for your kid:"
+      filter: "filter"
+      reset: "reset"
     show:
       require: "The requirements for this play session are: "
       provided: "Provided by:"
@@ -41,4 +53,20 @@ en:
     new:
       title_booking: "Provide details for your booking"
       bt_booking: "Confirm your Booking"
-
+      choose_age: "Choose an age"
+      placeholder: "Tell us more about your kid, such as allergies, restrictions or any important info for the recreation worker."
+    index:
+      new_booking: New Booking
+      booked_for: "Booked for: "
+      payment: "Payment: "
+      session_status: "Session: "
+      view: View
+      edit: Edit
+  appointment:
+    index:
+      min_cap: "Minimum capacity:"
+      max_cap: "Maximum capacity:"
+      start_time: "Start time:"
+      end_time: "End time:"
+      fee_kid: "Fee per kid:"
+      btn: "Offer a play session on this appointment"

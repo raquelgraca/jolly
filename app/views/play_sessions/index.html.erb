@@ -4,8 +4,8 @@
     <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
     <%= f.input :neighbourhood, required: false, collection: PlaySpace::NEIGHBOURHOOD, prompt: :translate %>
     <div class="bottom d-flex justify-content-center align-items-center">
-      <%= f.submit "filter", class: "button_1" %>
-      <%= link_to "reset", play_sessions_path, class: "button_2" %>
+      <%= f.submit t(".filter"), class: "button_1" %>
+      <%= link_to t(".reset"), play_sessions_path, class: "button_2" %>
     </div>
   <% end %>
 

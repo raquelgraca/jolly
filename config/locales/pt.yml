@@ -1,4 +1,14 @@
 pt:
+  navbar:
+    new_play_space: Novo espaço
+    my_play_spaces: Meus espaços
+    avai_appoint: Agenda disponível
+    my_play_sessions: Minhas sessões
+    play_sessions: Sessões recreativas
+    my_bookings: Meus agendamentnos
+    log_out: Sair
+    login: Entrar
+    sign_up: Cadastre-se
   banner:
     title_html: "Encontre uma sessão recreativa no <strong>Jolly</strong>!"
     subt: "Deixe seu filho brincar com os amigos em ambientes seguros e supervisionados"
@@ -31,6 +41,8 @@ pt:
   play_sessions:
     index:
       title: "Encontre uma sessão recreativa:"
+      filter: "aplicar filtro"
+      reset: "limpar"
     show:
       require: "Os requisitos para essa sessão recreativa são: "
       provided: "Oferecida por:"
@@ -41,6 +53,23 @@ pt:
     new:
       title_booking: "Forneça detalhes para realizar seu agendamento"
       bt_booking: Confirme a sua reserva
+      choose_age: "Selecione a idade"
+      placeholder: "Conte um pouco mais sobre seu filho ou filha, por exemplo: alergias, restrinções ou qualquer informação que julgar importante para o recreador."
+    index:
+      new_booking: Novo agendamento
+      booked_for: "Agendado para: "
+      payment: "Pagamento:"
+      session_status: "Status da sessão: "
+      view: Ver
+      edit: Editar
+  appointment:
+      index:
+        min_cap: "Capacidade mínima:"
+        max_cap: "Capacidade máxima:"
+        start_time: "Início:"
+        end_time: "Término:"
+        fee_kid: "Comissão por criança:"
+        btn: "Ofereça uma sessão para esse espaço"
   activerecord:
     models:
       play_session: "Sessões recrativas"
@@ -48,10 +77,10 @@ pt:
       booking: "Agendamento"
       search: "Pesquisa"
     attributes:
-      search:
-        date_and_start_time: "Data e hora de início"
-        neighbourhood: "Bairro"
+      play_session:
+        index:
       play_space:
+        neighbourhood: "Bairro"
       booking:
         name_of_kid: "Nome da criança"
         gender_of_kid: "Gênero"

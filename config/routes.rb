@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'addresses/new'
+  get 'addresses/create'
+  get 'addresses/show'
+  get 'addresses/index'
+  get 'addresses/edit'
+  get 'addresses/update'
+  get 'addresses/delete'
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
   devise_for :users, :paths => 'users'

@@ -1,14 +1,16 @@
 <div class="top-page">
   <%= image_tag "Jolly-07.png", class: "logo" %>
   <div class="top-links">
-    <%= link_to "Login", new_user_session_path, class: "login button_3" %>
-    <%= link_to "Sign up", new_user_registration_path, class: "login button_2" %>
+    <%= link_to t("home.login"), new_user_session_path, class: "login button_3" %>
+    <%= link_to t("home.sign_up"), new_user_registration_path, class: "login button_2" %>
+    <%= link_to 'English', root_path(locale: :en), class: "button_3 p-2" %>
+    <%= link_to 'Português', root_path(locale: :pt), class: "button_3" %>
   </div>
 </div>
 
   <%= render 'shared/banner' %>
 <div class="top-phrase">
-  <h2>Enabling fun and social after-school activities for kids</h2>
+  <%= t("home.phrase") %>
 </div>
 
 <div class="middle-block">
@@ -17,53 +19,53 @@
       <div class="icon-img">
         <%= image_tag('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584068212/ilustracao-de-crianca-com-lupa_29937-1089_scyuv3.jpg', width: 150)%>
       </div>
-      <h4 class="features-topic">Search for play sessions</h4>
-      <p class="features-description">Filter activities by date or location.</p>
+      <h4 class="features-topic"><%= t("home.ft-title-1") %></h4>
+      <p class="features-description"><%= t("home.ft-description-1") %></p>
     </div>
     <div class="icon icon-2">
       <div class="icon-img">
         <%= image_tag('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584068371/20551208_ullv2p.jpg', width:150)%>
       </div>
-      <h4 class="features-topic">Check details</h4>
-      <p class="features-description">See photos, reviews, curriculum and ratings from spaces and recreation workers.</p>
+      <h4 class="features-topic"><%= t("home.ft-title-2") %></h4>
+      <p class="features-description"><%= t("home.ft-description-2") %></p>
     </div>
     <div class="icon icon-3">
       <div class="icon-img">
         <%= image_tag('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584068427/22907967_oz8i8j.jpg', width: 120) %>
       </div>
-      <h4 class="features-topic">Book a play session</h4>
-      <p class="features-description">The recreation worker will receive your booking confirmation.</p>
+      <h4 class="features-topic"><%= t("home.ft-title-3") %></h4>
+      <p class="features-description"><%= t("home.ft-description-3") %></p>
     </div>
      <div class="icon icon-4">
       <div class="icon-img">
         <%= image_tag('https://res.cloudinary.com/dxvk3qixb/image/upload/v1584068324/22773511_bqbudk.jpg', width:100) %>
       </div>
-      <h4 class="features-topic">Pay online</h4>
-      <p class="features-description">Using credit card or Bank slip. If something happens, you can cancel your booking 2 days before it happens.</p>
+      <h4 class="features-topic"><%= t("home.ft-title-4") %></h4>
+      <p class="features-description"><%= t("home.ft-description-4") %></p>
     </div>
   </div>
 </div>
 
 <div class="network">
-    <h2>Join the Jolly Network!</h2>
+    <h2> <%= t("home.network-title") %> </h2>
     <div class="network-cards">
       <div class="network-card">
-        <h4>Children’s guardian/parent</h4>
-          <p>Several play sessions</p>
-          <p>Recreation worker verified</p>
-          <p>Low cost activities</p>
+        <h4> <%= t("home.card-1") %></h4>
+          <p><%= t("home.card-1-p") %></p>
+          <p><%= t("home.card-1-p2") %></p>
+          <p><%= t("home.card-1-p3") %></p>
         </div>
       <div class="network-card">
-        <h4>Recreation worker</h4>
-          <p>Extra freelance jobs</p>
-          <p>Several location oportunities</p>
-          <p>Rewarding class experience</p>
+        <h4> <%= t("home.card-2") %></h4>
+          <p><%= t("home.card-2-p") %></p>
+          <p><%= t("home.card-2-p2") %></p>
+          <p><%= t("home.card-2-p3") %></p>
         </div>
       <div class="network-card">
-        <h4>Play space owner</h4>
-          <p>Expand office/place incomes</p>
-          <p>Networking with professional recreation workers</p>
-          <p>Easy way to reveal underused space</p>
+        <h4> <%= t("home.card-3") %></h4>
+          <p><%= t("home.card-3-p") %></p>
+          <p><%= t("home.card-3-p2") %></p>
+          <p><%= t("home.card-3-p3") %></p>
         </div>
     </div>
   </div>

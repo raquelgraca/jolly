@@ -1,6 +1,6 @@
 <div class="container">
   <div class= "text-center m-4">
-    <%= link_to "New Booking", play_sessions_path, class: "button_1"  %>
+    <%= link_to t("booking.index.new_booking"), play_sessions_path, class: "button_1"  %>
   </div>
   <div class="cards">
     <% @bookings.each do |booking| %>
@@ -11,15 +11,15 @@
         <div class="card-infos">
           <div class="card-details">
             <p><i class="far fa-clock p-2"></i> &nbsp;<%= booking.play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
-            <p><i class="fas fa-child p-2"></i> &nbsp; &nbsp;Booked for: <%= booking.name_of_kid %></p>
-            <p><i class="fas fa-money-check-alt p-2"></i> Payment: <%= booking.status %></p>
-            <p><i class="far fa-check-circle p-2"></i> &nbsp; Session: <%= booking.play_session.status %></p>
+            <p><i class="fas fa-child p-2"></i> &nbsp; <%=t("booking.index.booked_for")%> <%= booking.name_of_kid %></p>
+            <p><i class="fas fa-money-check-alt p-2"></i><%=t("booking.index.payment")%> <%= booking.status %></p>
+            <p><i class="far fa-check-circle p-2"></i><%=t("booking.index.session_status")%> <%= booking.play_session.status %></p>
           </div>
           <div class= "text-right pb-2">
-              <%= link_to "View", booking_path(booking.id), class:"button_2"%>
+              <%= link_to t("booking.index.view"), booking_path(booking.id), class:"button_2"%>
               <br>
               <br>
-              <%= link_to "Edit", edit_booking_path(booking.id), class:"button_2" %>
+              <%= link_to t("booking.index.edit"), edit_booking_path(booking.id), class:"button_2" %>
           </div>
         </div>
       </div>

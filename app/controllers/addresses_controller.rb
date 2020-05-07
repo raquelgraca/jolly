@@ -19,9 +19,9 @@ class AddressesController < ApplicationController
 
     if @address.save
       if @address.address_holder_type == "User"
-        redirect_to user_path(@address.address_holder.id))
+        redirect_to user_path(@address.address_holder.id)
       else
-        redirect_to play_space_path(@address.address_holder.id))
+        redirect_to play_space_path(@address.address_holder.id)
       end
     else
       render :new
@@ -39,7 +39,7 @@ class AddressesController < ApplicationController
     authorize @address
     if @address.save
       if @address.address_holder_type == "User"
-        redirect_to user_path(@address.address_holder.id))
+        redirect_to user_path(@address.address_holder.id)
       else
         redirect_to play_space_path(@address.address_holder.id)
       end

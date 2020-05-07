@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
 
   resources :users, only: [:show] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:index, :new, :create]
     resources :addresses, only: [:index, :new, :create]
   end
 
   resources :addresses, only: [:edit, :update, :delete]
 
-  resources :reviews, only: [:show, :edit, :update]
+  resources :reviews, only: [:edit, :update]
 
   resources :play_spaces do
     resources :appointments, only: [:new, :create]

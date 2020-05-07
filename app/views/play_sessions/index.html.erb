@@ -2,7 +2,7 @@
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
     <h1> Find a play session for your kid:</h1>
     <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
-    <%= f.input :neighbourhood, required: false, collection: PlaySpace::NEIGHBOURHOOD, prompt: :translate %>
+    <%= f.input :neighbourhood, required: false, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
     <div class="bottom d-flex justify-content-center align-items-center">
       <%= f.submit "filter", class: "button_1" %>
       <%= link_to "reset", play_sessions_path, class: "button_2" %>
@@ -20,7 +20,7 @@
             <div class="card-infos">
               <div class="card-details">
                 <p> <i class="far fa-clock"></i>  &nbsp;  <%= play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
-                <p>  <i class="fas fa-map-pin"></i>  &nbsp; &nbsp; &nbsp;  <%= play_session.appointment.play_space.neighbourhood %> </p>
+                <p>  <i class="fas fa-map-pin"></i>  &nbsp; &nbsp; &nbsp;  <%= play_session.appointment.play_space.address.neighbourhood %> </p>
               </div>
               <%= cl_image_tag play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
               <h4> R$<%= play_session.sum_fees %></h4>

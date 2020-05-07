@@ -6,16 +6,16 @@
     <% end %>
     </div>
   </div>
-    <h2 class="text-center mt-4"> <%= @play_space.name.capitalize %> </h2>
+    <h2 class="text-center mt-4"> <%= @play_space.address.name.capitalize %> </h2>
     <div class="info-playspace">
-      <p><%= @play_space.street %>,<%= @play_space.street_number %> - <%= @play_space.neighbourhood %></p>
-      <p><%= @play_space.city %>-<%= @play_space.state %></p>
-      <p><%= @play_space.zip_code %></p>
+      <p><%= @play_space.address.street %>,<%= @play_space.address.street_number %> - <%= @play_space.address.neighbourhood %></p>
+      <p><%= @play_space.address.city %>-<%= @play_space.address.state %></p>
+      <p><%= @play_space.address.zip_code %></p>
       <p class="facilities-playspace"><%= @play_space.facilities %></p>
     </div>
 </div>
     <div class="text-center links">
-      <%= link_to "Edit", play_space_path(@play_space.id), class: "btn" %>
+      <%= link_to "Edit", edit_play_space_path(@play_space.id), class: "btn" %>
       <%= link_to "Delete", play_space_path(@play_space.id), method: :delete, remote: true, class: "btn" %>
       <%= link_to "New appointment", new_play_space_appointment_path(@play_space.id), class: "btn"  %>
     </div>

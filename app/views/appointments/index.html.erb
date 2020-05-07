@@ -2,7 +2,7 @@
   <div  class="card-columns">
     <% @appointments.each do |appointment|%>
       <div class="card" >
-        <h2> <%= appointment.play_space.name.capitalize %> </h2>
+        <h2> <%= appointment.play_space.address.name.capitalize %> </h2>
         <p> Minimum capacity: <%= appointment.minimum_capacity %> <p>
         <p> Maximum capacity: <%= appointment.maximum_capacity %> </p>
         <p> Start time: <%= appointment.start_time %></p>

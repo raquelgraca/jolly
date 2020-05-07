@@ -4,9 +4,9 @@
   <%= f.input :name, placeholder: "Please describe this address."%>
   <%= f.input :street %>
   <%= f.input :street_number %>
-  <%= f.input :neighbourhood %>
-  <%= f.input :city %>
-  <%= f.input :state %>
+  <%= f.input :neighbourhood, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
+  <%= f.input :city, collection: Address::CITY, prompt: :translate %>
+  <%= f.input :state, collection: Address::STATE, prompt: :translate%>
   <%= f.input :zip_code %>
   <% if params[:action] == "edit" %>
     <%= f.submit "Update #{@address.name}" %>

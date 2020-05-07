@@ -11,7 +11,7 @@ scope '(:locale)', locale: /en|pt|es/ do
     resources :addresses, only: [:index, :new, :create]
   end
 
-  resources :addresses, only: [:edit, :update, :delete]
+  resources :addresses, only: [:edit, :update, :destroy]
 
   resources :reviews, only: [:edit, :update]
 

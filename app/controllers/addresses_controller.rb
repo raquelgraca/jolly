@@ -49,8 +49,14 @@ class AddressesController < ApplicationController
   end
 
   def destroy
+    @address = Address.find(params[:id])
     @address.destroy
-    redirect_to @address.address_holder.class.downcase_path(@address.address_holder.id)
+
+    if @address.address_holder_type == "User"
+      redirect_to user_path(@address.address_holder.id)
+    else
+      redirect_to play_space_path(@address.address_holder.id)
+    end
   end
 
 

@@ -3,14 +3,12 @@
     <% @appointments.each do |appointment|%>
       <div class="card" >
         <h2> <%= appointment.play_space.address.name.capitalize %> </h2>
-        <p> Minimum capacity: <%= appointment.minimum_capacity %> <p>
-        <p> Maximum capacity: <%= appointment.maximum_capacity %> </p>
-        <p> Start time: <%= appointment.start_time %></p>
-        <p> End time: <%= appointment.start_time %></p>
-        <p> Fee per kid: <%= humanized_money_with_symbol(appointment.owner_fee_per_kid_cents) %></p>
-
-        <%= link_to 'Offer a play session on this appointment', new_appointment_play_session_path(appointment.id), class: "btn btn-secondary" %>
-
+        <p> <%= t("appointment.index.min_cap") %> <%= appointment.minimum_capacity %> <p>
+        <p> <%= t("appointment.index.max_cap") %> <%= appointment.maximum_capacity %> </p>
+        <p> <%= t("appointment.index.start_time") %> <%= appointment.start_time %></p>
+        <p> <%= t("appointment.index.end_time") %> <%= appointment.start_time %></p>
+        <p> <%= t("appointment.index.fee_kid") %> <%= humanized_money_with_symbol(appointment.owner_fee_per_kid_cents) %></p>
+        <%= link_to t("appointment.index.btn"), new_appointment_play_session_path(appointment.id), class: "btn btn-secondary" %>
       </div>
     <% end %>
   </div>

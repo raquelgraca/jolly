@@ -1,33 +1,72 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  navbar:
+    new_play_space: New Play Space
+    my_play_spaces: My Play Spaces
+    avai_appoint: Available Appointments
+    my_play_sessions: My Playsessions
+    play_sessions: Play Sessions
+    my_bookings: My Bookings
+    log_out: Log Out
+    login: Login
+    sign_up: Sign-up
+  banner:
+    title_html: 'Find a play session at <strong>Jolly</strong>!'
+    subt: "Let your kid play with friends in a surpervised and safe playspace!"
+    bt: "Book now"
+  home:
+    login: Login
+    sign_up: Sign-up
+    phrase: "Enabling fun and social after-school activities for kids"
+    ft-title-1: "Search for play sessions"
+    ft-description-1: "Filter activities by date or location."
+    ft-title-2: "Check details"
+    ft-description-2: "See photos, reviews, curriculum and ratings from spaces and recreation workers."
+    ft-title-3: "Book a play session"
+    ft-description-3: "The recreation worker will receive your booking confirmation."
+    ft-title-4: "Pay online"
+    ft-description-4: "Using credit card or Bank slip. If something happens, you can cancel your booking 2 days before it happens."
+    network-title: "Join the Jolly Network!"
+    card-1: "Children’s guardian/parent"
+    card-1-p: "Several play sessions"
+    card-1-p2: "Recreation worker verified"
+    card-1-p3: "Low cost activities"
+    card-2: "Recreation worker"
+    card-2-p: "Extra freelance jobs"
+    card-2-p2: "Several location oportunities"
+    card-2-p3: "Rewarding class experience"
+    card-3: "Play space owner"
+    card-3-p: "Expand office/place incomes"
+    card-3-p2: "Networking with professional recreation workers"
+    card-3-p3: "Easy way to reveal underused space"
+  play_sessions:
+    index:
+      title: "Find a play session for your kid:"
+      filter: "filter"
+      reset: "reset"
+    show:
+      require: "The requirements for this play session are: "
+      provided: "Provided by:"
+      no_review: 'Has no reviews yet!'
+      reviews: 'Reviews'
+      view_reviews: "View reviews"
+  booking:
+    new:
+      title_booking: "Provide details for your booking"
+      bt_booking: "Confirm your Booking"
+      choose_age: "Choose an age"
+      placeholder: "Tell us more about your kid, such as allergies, restrictions or any important info for the recreation worker."
+    index:
+      new_booking: New Booking
+      booked_for: "Booked for: "
+      payment: "Payment: "
+      session_status: "Session: "
+      view: View
+      edit: Edit
+  appointment:
+    index:
+      min_cap: "Minimum capacity:"
+      max_cap: "Maximum capacity:"
+      start_time: "Start time:"
+      end_time: "End time:"
+      fee_kid: "Fee per kid:"
+      btn: "Offer a play session on this appointment"

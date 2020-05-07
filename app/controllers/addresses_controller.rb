@@ -5,13 +5,16 @@ class AddressesController < ApplicationController
 
   def new
     @address_holder = set_address_holder
-    @address = @address_holder.address.new
+    @address = Address.new
+    @address.address_holder = @address_holder
+
     authorize @address
   end
 
   def create
     @address_holder = set_address_holder
-    @address = @address_holder.addresses.new(address_params)
+    @address = Addresses.new(address_params)
+    @address.address_holder = @address_holder
     authorize @address
 
     if @address.save

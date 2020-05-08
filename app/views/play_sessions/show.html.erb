@@ -23,7 +23,7 @@
         <i class="far fa-star"></i>
       <% end %> </p>
     <% end %>
-    <%= link_to t(".view_reviews"), user_path(@play_session.user.id), class:"button_2"%>
+    <%= link_to t(".view_reviews"), user_reviews_path(@play_session.user.id), class:"button_2"%>
   </div>
   <div class="info-box p-4">
     <p> <i class="far fa-clock"></i> &nbsp; <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>

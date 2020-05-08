@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
+
+  root to: 'pages#home'
+
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
-  devise_for :users, :paths => 'users'
+  devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
 
   scope '(:locale)', locale: /en|pt|es/ do
 
+    root to: 'pages#home'
+
     resources :users, only: [:show] do
       resources :reviews, only: [:new, :create]
+      resources :addresses, only: [:index, :new, :create]
     end
+
+    resources :addresses, only: [:edit, :update, :delete]
 
     resources :reviews, only: [:show, :edit, :update]
 
-
-    root to: 'pages#home'
-
-
     resources :play_spaces do
       resources :appointments, only: [:new, :create]
+      resources :addresses, only: [:index, :new, :create]
     end
 
     resources :appointments, except: [:new, :create] do

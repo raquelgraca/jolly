@@ -16,6 +16,11 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
+      <%= f.input :role, required: true, collection: User::ROLE, prompt: :translate %>
+      <%= f.input :first_name, required: true %>
+      <%= f.input :last_name, required: true %>
+      <%= f.input :bio %>
+      <%= f.input :avatar, as: :file, required: true %>
     </div>
 
     <div class="form-actions">

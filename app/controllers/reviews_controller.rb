@@ -1,6 +1,11 @@
 class ReviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_reviewee, only: [:new, :create]
+
+  def index
+    @reviewee = User.find(params[:user_id])
+    @reviews = Review.where(reviewee = params[:id])
+  end
 
   def new
     @review = Review.new

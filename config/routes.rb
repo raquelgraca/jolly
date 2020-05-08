@@ -1,42 +1,40 @@
 Rails.application.routes.draw do
 
+scope '(:locale)', locale: /en|pt|es/ do
+
   root to: 'pages#home'
 
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
   devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
 
-  scope '(:locale)', locale: /en|pt|es/ do
+  resources :users, only: [:show] do
+    resources :reviews, only: [:index, :new, :create]
+    resources :addresses, only: [:index, :new, :create]
+  end
 
-    root to: 'pages#home'
+  resources :addresses, only: [:edit, :update, :destroy]
 
-    resources :users, only: [:show] do
-      resources :reviews, only: [:new, :create]
-      resources :addresses, only: [:index, :new, :create]
-    end
+  resources :reviews, only: [:edit, :update]
 
-    resources :addresses, only: [:edit, :update, :delete]
+  resources :play_spaces do
+    resources :appointments, only: [:new, :create]
+    resources :addresses, only: [:index, :new, :create]
+  end
 
-    resources :reviews, only: [:show, :edit, :update]
+  resources :appointments, except: [:new, :create] do
+    resources :play_sessions, only: [:new, :create]
+  end
 
-    resources :play_spaces do
-      resources :appointments, only: [:new, :create]
-      resources :addresses, only: [:index, :new, :create]
-    end
+  resources :play_sessions, except: [:new, :create] do
+    resources :bookings, only: [:new, :create]
+  end
 
-    resources :appointments, except: [:new, :create] do
-      resources :play_sessions, only: [:new, :create]
-    end
+  resources :bookings, except: [:new, :create]
 
-    resources :play_sessions, except: [:new, :create] do
-      resources :bookings, only: [:new, :create]
-    end
-
-    resources :bookings, except: [:new, :create]
-
-    resources :orders, only: [:show, :create] do
-      resources :payments, only: [:new]
-    end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new]
+  end
 
   end
 

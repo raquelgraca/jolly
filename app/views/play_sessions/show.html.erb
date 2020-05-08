@@ -27,7 +27,7 @@
   </div>
   <div class="info-box p-4">
     <p> <i class="far fa-clock"></i> &nbsp; <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>
-    <p> <i class="fas fa-map-pin"></i> &nbsp; &nbsp; &nbsp; <%= @play_session.appointment.play_space.street %> <%= @play_session.appointment.play_space.street_number %> in <%= @play_session.appointment.play_space.neighbourhood %> </p>
+    <p> <i class="fas fa-map-pin"></i> &nbsp; &nbsp; &nbsp; <%= @play_session.appointment.play_space.address.street %> <%= @play_session.appointment.play_space.address.street_number %> in <%= @play_session.appointment.play_space.address.neighbourhood %> </p>
     <p> <i class="fas fa-dollar-sign"></i> &nbsp; &nbsp; &nbsp; R$ <%= @play_session.sum_fees %></p>
     <p> <i class="fas fa-child"></i> &nbsp; &nbsp;  <%= @play_session.appointment.minimum_capacity %> - <%= @play_session.appointment.maximum_capacity %> kids </p>
   </div>

@@ -13,12 +13,16 @@ class AddressesController < ApplicationController
 
   def create
     @address_holder = set_address_holder
-    @address = Addresses.new(address_params)
+    @address = Address.new(address_params)
     @address.address_holder = @address_holder
     authorize @address
 
     if @address.save
-      redirect_to @address_holder.class.downcase_path(@address_holder.id)
+      if @address.address_holder_type == "User"
+        redirect_to user_path(@address.address_holder.id)
+      else
+        redirect_to play_space_path(@address.address_holder.id)
+      end
     else
       render :new
     end
@@ -34,15 +38,25 @@ class AddressesController < ApplicationController
     @address.update(address_params)
     authorize @address
     if @address.save
-      redirect_to @address.address_holder.class.downcase_path(@address.address_holder.id)
+      if @address.address_holder_type == "User"
+        redirect_to user_path(@address.address_holder.id)
+      else
+        redirect_to play_space_path(@address.address_holder.id)
+      end
     else
       render :edit
     end
   end
 
   def destroy
+    @address = Address.find(params[:id])
     @address.destroy
-    redirect_to @address.address_holder.class.downcase_path(@address.address_holder.id)
+
+    if @address.address_holder_type == "User"
+      redirect_to user_path(@address.address_holder.id)
+    else
+      redirect_to play_space_path(@address.address_holder.id)
+    end
   end
 
 

@@ -19,7 +19,7 @@ class PlaySpacesController < ApplicationController
     @play_space.user = current_user
     authorize @play_space
     if @play_space.save
-      redirect_to play_spaces_path
+      redirect_to new_play_space_address_path(@play_space.id)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class PlaySpacesController < ApplicationController
   def update
     @play_space.update(play_space_params)
     if @play_space.save
-      redirect_to play_spaces_path
+      redirect_to edit_address_path(@play_space.address.id)
     else
       render :edit
     end

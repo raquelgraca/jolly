@@ -33,7 +33,7 @@
           </li>
         <% end %>
           <li>
-            <%= link_to "Profile",edit_user_registration_path, class: "user-section nav-link" %>
+            <%= link_to "Profile",user_path(current_user.id), class: "user-section nav-link" %>
           </li>
           <li>
             <%= link_to t("navbar.log_out"), destroy_user_session_path, method: :delete, class: "user-section nav-link" %>

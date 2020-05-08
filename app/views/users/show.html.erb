@@ -1,8 +1,13 @@
 <div class="container">
   <div class="d-flex justify-content-between p-4">
     <div>
-      <h2> Provided by: <%= @user.first_name %> </h2>
-      <p> <%= @user.bio %> </p>
+      <%= cl_image_tag @user.avatar.key, class: "avatar-bordered" %>
+
+      <h2> Name: <%= @user.first_name %> <%= @user.last_name %> </h2>
+      <p> Bio: <%= @user.bio %> </p>
+      <%= link_to "Edit", edit_user_registration_path, class:"button_2" %>
+       <br>
+        <br>
       <% if @user.average_stars.negative? %>
         <p> Has no reviews yet </p>
       <% else %>
@@ -15,32 +20,24 @@
         <% end %></p>
       <% end %>
     </div>
-    <%= cl_image_tag @user.avatar.key, class:"avatar-bordered" %>
   </div>
   <div class="p-4">
-    <h3> These are <%= @user.first_name %>'s reviews </h3>
+    <h3> These are your addresses </h3>
       <br>
-       <%= link_to "Add a review", new_user_review_path(@user.id), class:"button_2"%>
+       <%= link_to "Add an address", new_user_address_path(@user.id), class:"button_2"%>
        <br>
         <br>
     <div class ="cards">
-      <% @user.received_reviews.each do |review| %>
+      <% @addresses.each do |address| %>
         <div class="card p-4">
-            <p> <%= review.reviewer.first_name %> rated <%= review.stars %> stars on <%= review.created_at.strftime("%d/%m/%Y - %H:%M") %> </p>
+            <h4> <%= address.name %>  %> </h4>
             <br>
-            <p>
-            <% review.stars.times do  %>
-               <i class="fas fa-star"></i>
-            <% end %>
-            <% review.blank_stars.times do %>
-              <i class="far fa-star"></i>
-            <% end %> </p>
+            <p><%= address.street %>,<%= address.street_number %> - <%= address.neighbourhood %></p>
+            <p><%= address.city %>-<%= address.state %></p>
+            <p><%= address.zip_code %></p>
             <br>
-            <p> <%= review.content %> </p>
-            <% if review.reviewer == current_user %>
-              <br>
-              <p> <%= link_to "Edit", edit_review_path(review.id), class:"button_2"%> </p>
-            <% end %>
+            <p> <%= link_to "Edit", edit_address_path(address.id), class:"button_2"%> </p>
+            <%= link_to "Delete", address_path(address.id), method: :delete, class:"button_2"%>
         </div>
       <% end %>
     </div>

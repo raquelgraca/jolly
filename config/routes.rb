@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
-  get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
-  devise_for :users, :paths => 'users'
-
-  resources :users, only: [:show] do
-    resources :reviews, only: [:new, :create]
-  end
-
-  resources :reviews, only: [:show, :edit, :update]
-
+scope '(:locale)', locale: /en|pt|es/ do
 
   root to: 'pages#home'
 
+  get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
+
+  devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
+
+  resources :users, only: [:show] do
+    resources :reviews, only: [:index, :new, :create]
+    resources :addresses, only: [:index, :new, :create]
+  end
+
+  resources :addresses, only: [:edit, :update, :destroy]
+
+  resources :reviews, only: [:edit, :update]
 
   resources :play_spaces do
     resources :appointments, only: [:new, :create]
+    resources :addresses, only: [:index, :new, :create]
   end
 
   resources :appointments, except: [:new, :create] do
@@ -31,8 +36,9 @@ Rails.application.routes.draw do
     resources :payments, only: [:new]
   end
 
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
+  end
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

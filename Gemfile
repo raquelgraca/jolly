@@ -43,7 +43,6 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 
-
 #multi-language resource
 gem 'rails-i18n', '5.0.3'
 gem 'devise-i18n', '~> 1.2'

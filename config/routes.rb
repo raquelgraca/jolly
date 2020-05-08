@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
+devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
+
 scope '(:locale)', locale: /en|pt|es/ do
 
   root to: 'pages#home'
 
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
-
-  devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
 
   resources :users, only: [:show] do
     resources :reviews, only: [:index, :new, :create]

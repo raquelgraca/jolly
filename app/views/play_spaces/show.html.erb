@@ -15,8 +15,8 @@
     </div>
 </div>
     <div class="text-center links">
-      <%= link_to "Edit", edit_play_space_path(@play_space.id), class: "btn" %>
-      <%= link_to "Delete", play_space_path(@play_space.id), method: :delete, remote: true, class: "btn" %>
-      <%= link_to "New appointment", new_play_space_appointment_path(@play_space.id), class: "btn"  %>
+      <%= link_to t(".edit"), edit_play_space_path(@play_space.id), class: "btn" %>
+      <%= link_to t(".delete"), play_space_path(@play_space.id), method: :delete, remote: true, class: "btn" %>
+      <%= link_to t(".new_appointment"), new_play_space_appointment_path(@play_space.id), class: "btn"  %>
     </div>
 

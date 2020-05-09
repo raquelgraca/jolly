@@ -9,8 +9,8 @@
   <%= f.input :state, collection: Address::STATE, prompt: :translate%>
   <%= f.input :zip_code %>
   <% if params[:action] == "edit" %>
-    <%= f.submit "Update #{@address.name}" %>
+    <%= f.submit t(".update") {@address.name} %>
   <% else %>
-    <%= f.submit "Add this address" %>
+    <%= f.submit t(".add_address") %>
   <% end %>
 <% end %>

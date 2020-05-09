@@ -70,3 +70,14 @@ en:
       end_time: "End time:"
       fee_kid: "Fee per kid:"
       btn: "Offer a play session on this appointment"
+  play_spaces:
+      new:
+        title: "Add A New PlaySpace"
+        cancel: "Cancel"
+      form:
+        update: Update
+        addplayspace: Add Play Space
+      show:
+        edit: Edit
+        delete: Delete
+        new_appointment: New appointment

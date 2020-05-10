@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="d-flex justify-content-between p-4">
+    <div>
+      <h2> Provided by: <%= @reviewee.first_name %> </h2>
+      <p> <%= @reviewee.bio %> </p>
+      <% if @reviewee.average_stars.negative? %>
+        <p> Has no reviews yet </p>
+      <% else %>
+        <h4> Rating: <%= @reviewee.average_stars %> stars </h4>
+        <p><% @reviewee.average_stars.times do  %>
+           <i class="fas fa-star"></i>
+        <% end %>
+        <% @reviewee.blank_stars.times do %>
+          <i class="far fa-star"></i>
+        <% end %></p>
+      <% end %>
+    </div>
+    <%= cl_image_tag @reviewee.avatar.key, class:"avatar-bordered" %>
+  </div>
+  <div class="p-4">
+    <h3> These are <%= @reviewee.first_name %>'s reviews </h3>
+      <br>
+       <%= link_to "Add a review", new_user_review_path(@reviewee.id), class:"button_2"%>
+       <br>
+        <br>
+    <div class ="cards">
+      <% @reviews.each do |review| %>
+        <div class="card p-4">
+            <p> <%= review.reviewer.first_name %> rated <%= review.stars %> stars on <%= review.created_at.strftime("%d/%m/%Y - %H:%M") %> </p>
+            <br>
+            <p>
+            <% review.stars.times do  %>
+               <i class="fas fa-star"></i>
+            <% end %>
+            <% review.blank_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %> </p>
+            <br>
+            <p> <%= review.content %> </p>
+            <% if review.reviewer == current_user %>
+              <br>
+              <p> <%= link_to "Edit", edit_review_path(review.id), class:"button_2"%> </p>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,13 +1,13 @@
 <div class="container m-6">
 
-  <h2> Provide details for your booking </h2>
+  <h2> <%= t("booking.new.title_booking") %> </h2>
   <%= simple_form_for [@play_session, @booking] do |f| %>
     <%= f.error_notification %>
     <%= f.input :name_of_kid %>
     <%= f.input :gender_of_kid, as: :radio_buttons, collection: Booking::GENDER, wrapper: :vertical_collection_inline %>
-    <%= f.input :age_of_kid, collection: 4..17, prompt: "Choose an age"%>
-    <%= f.input :comment, placeholder: "Tell us more about your kid, such as allergies, restrictions or any important info for the recreation worker." %>
-    <%= f.submit "Confirm your Booking", id:"pay", class: "button_1"%>
+    <%= f.input :age_of_kid, collection: 4..17, prompt: t("booking.new.choose_age")%>
+    <%= f.input :comment, placeholder: t("booking.new.placeholder") %>
+    <%= f.submit t("booking.new.bt_booking"), id:"pay", class: "button_1"%>
   <% end %>
   <br>
   <br>

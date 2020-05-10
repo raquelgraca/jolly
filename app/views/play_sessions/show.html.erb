@@ -3,19 +3,19 @@
 <div class="p-4">
   <h1 class="text-center pt-2"> <%= @play_session.name.capitalize %> </h1>
   <h2 class="text-center pt-2" ><%= @play_session.description %></h2>
-  <p class="text-justify p-4"> The requirements for this play session are: <%= @play_session.requirements %></p>
+  <p class="text-justify p-4"> <%= t("play_sessions.show.require")  %><%= @play_session.requirements %></p>
   <div class="d-flex justify-content-between p-4">
     <div>
-      <h2 class="pr-4"> Provided by: <%= @play_session.user.first_name %> </h2>
+      <h2 class="pr-4"> <%= t("play_sessions.show.provided") %> <%= @play_session.user.first_name %> </h2>
       <p class="pr-4"> <%= @play_session.user.bio %> </p>
     </div>
     <%= cl_image_tag @play_session.user.avatar.key, class:"avatar-bordered" %>
   </div>
   <div class="p-4">
     <% if @play_session.user.average_stars.negative? %>
-      <p> Has no reviews yet </p>
+      <p> <%= t("play_sessions.show.no_review") %> </p>
     <% else %>
-      <h4> Rating: <%= @play_session.user.average_stars %> stars </h4>
+      <h4> <%= t("play_sessions.show.reviews") %> <%= @play_session.user.average_stars %> </h4>
       <p> <% @play_session.user.average_stars.times do  %>
          <i class="fas fa-star"></i>
       <% end %>
@@ -23,11 +23,11 @@
         <i class="far fa-star"></i>
       <% end %> </p>
     <% end %>
-    <%= link_to "View reviews", user_path(@play_session.user.id), class:"button_2"%>
+    <%= link_to t(".view_reviews"), user_reviews_path(@play_session.user.id), class:"button_2"%>
   </div>
   <div class="info-box p-4">
     <p> <i class="far fa-clock"></i> &nbsp; <%= @play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> - <%= @play_session.appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>
-    <p> <i class="fas fa-map-pin"></i> &nbsp; &nbsp; &nbsp; <%= @play_session.appointment.play_space.street %> <%= @play_session.appointment.play_space.street_number %> in <%= @play_session.appointment.play_space.neighbourhood %> </p>
+    <p> <i class="fas fa-map-pin"></i> &nbsp; &nbsp; &nbsp; <%= @play_session.appointment.play_space.address.street %> <%= @play_session.appointment.play_space.address.street_number %> in <%= @play_session.appointment.play_space.address.neighbourhood %> </p>
     <p> <i class="fas fa-dollar-sign"></i> &nbsp; &nbsp; &nbsp; R$ <%= @play_session.sum_fees %></p>
     <p> <i class="fas fa-child"></i> &nbsp; &nbsp;  <%= @play_session.appointment.minimum_capacity %> - <%= @play_session.appointment.maximum_capacity %> kids </p>
   </div>

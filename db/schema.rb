@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_133850) do
-
+ActiveRecord::Schema.define(version: 2020_05_06_141227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +33,21 @@ ActiveRecord::Schema.define(version: 2020_05_01_133850) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "street_number"
+    t.string "neighbourhood"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "address_holder_type"
+    t.bigint "address_holder_id"
+    t.index ["address_holder_type", "address_holder_id"], name: "index_addresses_on_address_holder_type_and_address_holder_id"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -94,13 +108,6 @@ ActiveRecord::Schema.define(version: 2020_05_01_133850) do
 
   create_table "play_spaces", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "name"
-    t.string "street"
-    t.string "street_number"
-    t.string "neighbourhood"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
     t.text "facilities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -129,12 +136,6 @@ ActiveRecord::Schema.define(version: 2020_05_01_133850) do
     t.string "role"
     t.string "first_name"
     t.string "last_name"
-    t.string "street"
-    t.string "street_number"
-    t.string "neighbourhood"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
     t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

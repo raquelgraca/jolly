@@ -35,11 +35,11 @@
           </a>
         </div>
       </div>
-    <h2 class="text-center mt-4"> <%= play_space.name.capitalize %> </h2>
+    <h2 class="text-center mt-4"> <%= play_space.address.name.capitalize %> </h2>
     <div class="card-infos">
       <div class="info-playspace">
-        <p><i class="fas fa-map-pin"></i><%= play_space.street %>,<%= play_space.street_number %> - <%= play_space.neighbourhood %></p>
-        <p> <%= play_space.city %> - <%= play_space.state %> <%= play_space.zip_code %> </p>
+        <p><i class="fas fa-map-pin"></i><%= play_space.address.street %>,<%= play_space.address.street_number %> - <%= play_space.address.neighbourhood %></p>
+        <p> <%= play_space.address.city %> - <%= play_space.address.state %> <%= play_space.address.zip_code %> </p>
         <p class="facilities-playspace"><i class="fas fa-info-circle"></i><%= play_space.facilities %></p>
         <br>
           <%= link_to 'Offer this play space', new_play_space_appointment_path(play_space.id), class: "button_1"%>

@@ -1,6 +1,6 @@
 <div class="container m-6">
-<h1>Create an appointment for <%= @play_space.address.name %></h1>
-<p>This appointment will be available for recreation workers offer playsessions in your space.</p>
+<h1> <%= t("appointment.new.title") %> <%= @play_space.address.name %></h1>
+<p> <%= t("appointment.new.description") %> </p>
 <%= simple_form_for [@play_space, @appointment] do |f| %>
   <%= f.error_notification %>
 
@@ -8,7 +8,7 @@
   <%= f.input :end_time %>
   <%= f.input :minimum_capacity %>
   <%= f.input :maximum_capacity %>
-  <%= f.input :owner_fee_per_kid_cents, label: 'Your fee per kid' %>
-  <%= f.submit "Submit" %>
+  <%= f.input :owner_fee_per_kid_cents, label: t("appointment.new.label") %>
+  <%= f.submit t("appointment.new.submit") %>
 <% end %>
 </div>

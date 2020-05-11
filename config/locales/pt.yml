@@ -74,6 +74,20 @@ pt:
         end_time: "Término:"
         fee_kid: "Comissão por criança:"
         btn: "Ofereça uma sessão para esse espaço"
+      new:
+        title: "Crie um agendamento para"
+        description: "Esse agendamento ficará disponível para recreadores criarem sessões recreativas em seu espaço."
+        label: "Sua comissão por criança"
+        submit: Criar
+      show:
+        title: "Agendamento disponível para"
+        min_cap: "Capacidade mínima:"
+        max_cap: "Capacidade máxima:"
+        start_time: "Início:"
+        end_time: "Término:"
+        fee_kid: "Comissão por criança:"
+        edit: Editar
+        delete: Deletar
   play_spaces:
       new:
         title: "Adicione um novo Espaço Recreativo"
@@ -85,10 +99,11 @@ pt:
         edit: Editar
         delete: Deletar
         new_appointment: Nova agenda
-
   addresses:
     form:
       update: Atualizar
+      add_address: Adicionar espaço
+      placeholder: Por favor nomeie o endereço
   activerecord:
     models:
       play_session: "Sessões recrativas"
@@ -97,6 +112,7 @@ pt:
       search: "Pesquisa"
       user: Usuário
       address: "Endereço"
+      appointment: "Agendamento"
     attributes:
       play_session:
         index:
@@ -142,3 +158,9 @@ pt:
         city: Cidade
         state: Estado
         zip_code: CEP
+      appointment:
+        start_time: Horário de início
+        end_time: Horário de término
+        minimum_capacity: Capacidade mínima
+        maximum_capacity: Capacidade máxima
+        owner_fee_per_kid_cents: Comissão por criança

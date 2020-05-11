@@ -1,17 +1,17 @@
 <div class="container m-6">
   <div class="card p-4">
-    <h2 class="text-center"> Available appointment for <%= @appointment.play_space.address.name.capitalize %> </h2>
-      <p> Minimum capacity: <%= @appointment.minimum_capacity %>
-      <p> Maximum capacity: <%= @appointment.maximum_capacity %> </p>
-      <p> Start time: <%= @appointment.start_time %></p>
-      <p> End time: <%= @appointment.end_time %></p>
-      <p> Fee per kid: <%= humanized_money_with_symbol(@appointment.owner_fee_per_kid_cents) %></p>
+    <h2 class="text-center"> <%= t("appointment.show.title") %> <%= @appointment.play_space.address.name.capitalize %> </h2>
+      <p> <%= t("appointment.show.min_cap") %> <%= @appointment.minimum_capacity %>
+      <p> <%= t("appointment.show.max_cap") %> <%= @appointment.maximum_capacity %> </p>
+      <p> <%= t("appointment.show.start_time") %> <%= @appointment.start_time.strftime("%d/%m/%Y - %H:%M") %></p>
+      <p> <%= t("appointment.show.end_time") %> <%= @appointment.end_time.strftime("%d/%m/%Y - %H:%M") %></p>
+      <p> <%= t("appointment.show.fee_kid") %> <%= humanized_money_with_symbol(@appointment.owner_fee_per_kid_cents) %></p>
 
     </div>
 </div>
 
 <div class="text-center links">
-      <%= link_to "Edit", appointment_path(@appointment.id), class: "btn" %>
-      <%= link_to "Delete", appointment_path(@appointment.id), method: :delete, remote: true, class: "btn" %>
+      <%= link_to t("appointment.show.edit"), appointment_path(@appointment.id), class: "btn" %>
+      <%= link_to t("appointment.show.delete"), appointment_path(@appointment.id), method: :delete, remote: true, class: "btn" %>
 </div>
 

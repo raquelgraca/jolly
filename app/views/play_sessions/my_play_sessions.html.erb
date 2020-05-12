@@ -13,8 +13,8 @@
         <p>Total fee per kid: R$ <%= play_session.sum_fees %> </p>
       </div>
       <div class="links">
-        <%= link_to "Edit", play_session_path(play_session.id), class: "btn" %>
-        <%= link_to "Delete", play_session_path(play_session.id), method: :delete, remote: true, class: "btn" %>
+        <%= link_to "Edit", edit_play_session_path(play_session.id), class: "btn" %>
+        <%= link_to "Delete", play_session_path(play_session.id), method: :delete, class: "btn" %>
       </div>
     </div>
   <% end %>

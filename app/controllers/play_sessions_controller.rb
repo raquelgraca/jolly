@@ -79,7 +79,7 @@ class PlaySessionsController < ApplicationController
   private
 
   def play_session_params
-    params.require(:play_session).permit(:name, :description, :requirements, :photo)
+    params.require(:play_session).permit(:name, :description, :requirements, :photo, :worker_fee_per_kid_cents)
   end
 
   def set_play_session

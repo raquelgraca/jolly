@@ -1,4 +1,8 @@
 pt:
+  users:
+    registrations:
+      new:
+        sign_up: Cadastre-se
   navbar:
     new_play_space: Novo espaço
     my_play_spaces: Meus espaços
@@ -70,19 +74,93 @@ pt:
         end_time: "Término:"
         fee_kid: "Comissão por criança:"
         btn: "Ofereça uma sessão para esse espaço"
+      new:
+        title: "Crie um agendamento para"
+        description: "Esse agendamento ficará disponível para recreadores criarem sessões recreativas em seu espaço."
+        label: "Sua comissão por criança"
+        submit: Criar
+      show:
+        title: "Agendamento disponível para"
+        min_cap: "Capacidade mínima:"
+        max_cap: "Capacidade máxima:"
+        start_time: "Início:"
+        end_time: "Término:"
+        fee_kid: "Comissão por criança:"
+        edit: Editar
+        delete: Deletar
+  play_spaces:
+      new:
+        title: "Adicione um novo Espaço Recreativo"
+        cancel: "Cancelar"
+      form:
+        update: Atualizar
+        addplayspace: "Adicionar Espaço"
+      show:
+        edit: Editar
+        delete: Deletar
+        new_appointment: Nova agenda
+  addresses:
+    form:
+      update: Atualizar
+      add_address: Adicionar espaço
+      placeholder: Por favor nomeie o endereço
   activerecord:
     models:
       play_session: "Sessões recrativas"
-      play_space: "Lugares recreativos"
+      play_space: "Espaços recreativos"
       booking: "Agendamento"
       search: "Pesquisa"
+      user: Usuário
+      address: "Endereço"
+      appointment: "Agendamento"
     attributes:
       play_session:
         index:
       play_space:
+        facilities: "Infraestrutura"
+        photos: "Fotos"
         neighbourhood: "Bairro"
       booking:
         name_of_kid: "Nome da criança"
         gender_of_kid: "Gênero"
         age_of_kid: "Idade"
         comment: "Observação"
+      user:
+        sign-up: Cadastre-se
+        confirmation_sent_at: Confirmação enviada em
+        confirmation_token: Token de confirmação
+        confirmed_at: Confirmado em
+        created_at: Criado em
+        current_password: Senha atual
+        current_sign_in_at: Atualmente logado em
+        current_sign_in_ip: IP do acesso atual
+        email: E-mail
+        encrypted_password: Senha criptografada
+        failed_attempts: Tentativas sem sucesso
+        last_sign_in_at: Último acesso em
+        last_sign_in_ip: Último IP de acesso
+        locked_at: Bloqueado em
+        password: Senha
+        password_confirmation: Confirme sua senha
+        remember_created_at: Lembrar criado em
+        remember_me: Lembre-se de mim
+        reset_password_sent_at: Resetar senha enviado em
+        reset_password_token: Resetar token de senha
+        sign_in_count: Contagem de acessos
+        unconfirmed_email: E-mail não confirmado
+        unlock_token: Token de desbloqueio
+        updated_at: Atualizado em
+      address:
+        name: Nome do endereço
+        street: Endereço
+        street_number: Número
+        neighbourhood: Bairro
+        city: Cidade
+        state: Estado
+        zip_code: CEP
+      appointment:
+        start_time: Horário de início
+        end_time: Horário de término
+        minimum_capacity: Capacidade mínima
+        maximum_capacity: Capacidade máxima
+        owner_fee_per_kid_cents: Comissão por criança

@@ -1,9 +1,9 @@
 <div class="container m-6">
-  <h1 class="text-center">Add A New PlaySpace</h1>
+  <h1 class="text-center"><%= t(".title") %></h1>
 
 <%= render 'form', play_space: @play_space %>
 
-<%= link_to 'Cancel', play_spaces_path %>
+<%= link_to t(".cancel"), play_spaces_path %>
 
 
 </div>

@@ -3,9 +3,9 @@
   <%= f.input :facilities %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <% if params[:action] == "edit" %>
-    <%= f.submit "Update #{@play_space.address.name}" %>
+    <%= f.submit t(".update") {@play_space.address.name} %>
   <% else %>
-    <%= f.submit "Add this play space" %>
+    <%= f.submit t(".addplayspace"), class: "mb-4" %>
   <% end %>
 <% end %>
 

@@ -1,7 +1,7 @@
 <%= simple_form_for [@address_holder, @address] do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :name, placeholder: "Please describe this address."%>
+  <%= f.input :name, placeholder: t(".placeholder")%>
   <%= f.input :street %>
   <%= f.input :street_number %>
   <%= f.input :neighbourhood, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
@@ -9,8 +9,8 @@
   <%= f.input :state, collection: Address::STATE, prompt: :translate%>
   <%= f.input :zip_code %>
   <% if params[:action] == "edit" %>
-    <%= f.submit "Update #{@address.name}" %>
+    <%= f.submit t(".update") {@address.name} %>
   <% else %>
-    <%= f.submit "Add this address" %>
+    <%= f.submit t(".add_address") %>
   <% end %>
 <% end %>

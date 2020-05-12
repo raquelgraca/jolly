@@ -70,3 +70,33 @@ en:
       end_time: "End time:"
       fee_kid: "Fee per kid:"
       btn: "Offer a play session on this appointment"
+    new:
+      title: "Create an appointment for"
+      description: "This appointment will be available for recreation workers offer playsessions in your space."
+      label: "Your fee per kid"
+      submit: Submit
+    show:
+      title: Available appointment for
+      min_cap: "Minimum capacity:"
+      max_cap: "Maximum capacity:"
+      start_time: "Start time:"
+      end_time: "End time:"
+      fee_kid: "Fee per kid:"
+      edit: Edit
+      delete: Delete
+  play_spaces:
+      new:
+        title: "Add A New PlaySpace"
+        cancel: "Cancel"
+      form:
+        update: Update
+        addplayspace: Add Play Space
+      show:
+        edit: Edit
+        delete: Delete
+        new_appointment: New appointment
+  addresses:
+    form:
+      update: Update
+      add_address: Add space
+      placeholder: Please describe this address

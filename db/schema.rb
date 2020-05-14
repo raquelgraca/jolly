@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_141227) do
+ActiveRecord::Schema.define(version: 2020_05_14_133340) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_06_141227) do
     t.string "name"
     t.string "address_holder_type"
     t.bigint "address_holder_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["address_holder_type", "address_holder_id"], name: "index_addresses_on_address_holder_type_and_address_holder_id"
   end
 

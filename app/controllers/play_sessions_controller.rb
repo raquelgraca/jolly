@@ -14,11 +14,11 @@ class PlaySessionsController < ApplicationController
       end
 
       if params[:search][:neighbourhood].present?
-        @play_sessions = @play_sessions.joins(appointment: :play_space).where(play_spaces: {neighbourhood: params[:search][:neighbourhood]})
+        @play_sessions = @play_sessions.joins(appointment: [play_space: :address]).where(addresses: {neighbourhood: params[:search][:neighbourhood]})
       end
     end
 
-    @markers = @play_sessions.map do |play_session|
+    @markers = @play_sessions.filter_map do |play_session|
       unless play_session.appointment.play_space.address.latitude == nil
         {
           lat: play_session.appointment.play_space.address.latitude,

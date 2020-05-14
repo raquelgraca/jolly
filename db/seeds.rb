@@ -128,14 +128,14 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file2 = URI.open('https://redtricom.files.wordpress.com/2018/08/shop-and-lounge-area-big-and-tiny.jpg?w=605')
   play_space01.photos.attach(io: file, filename: "space01_1.jpg", content_type: "image/jpg")
   play_space01.photos.attach(io: file2, filename: "space01_2.jpg", content_type: "image/jpg")
-  play_space01.address = Address.new(name: "Big and Tiny",
+  play_space01.save!
+  play_space01.address = Address.create(name: "Big and Tiny",
                                       street: "Ladeira da Glória",
                                       street_number: "26",
                                       neighbourhood: "Glória",
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "22211-120")
-  play_space01.save!
 
   play_space02 = PlaySpace.new(
     facilities: "Special place for little kids",
@@ -145,23 +145,22 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file4 = URI.open('https://redtricom.files.wordpress.com/2013/09/kids-island-sand.jpg')
   play_space02.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
   play_space02.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
-  play_space02.address = Address.new(name: "Kids Island",
-                                      street: "R. Ferreira Viana",
+  play_space02.save!
+  play_space02.address = Address.create(name: "Kids Island",
+                                      street: "Rua Ferreira Viana",
                                       street_number: "81",
                                       neighbourhood: "Flamengo",
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "22210-040")
-  play_space02.save!
 
   play_space03 = PlaySpace.new(
     facilities: "Inclusive playspaces for children with disability",
     user_id: owner.id
     )
   file5 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
-  file6 = URI.open('https://powerplaykids.com/wp-content/uploads/2020/01/20191025_134720-768x576.jpg')
   play_space03.photos.attach(io: file5, filename: "space03_1.jpg", content_type: "image/jpg")
-  play_space03.photos.attach(io: file6, filename: "space03_2.jpg", content_type: "image/jpg")
+  play_space03.save!
   play_space03.address = Address.new(name: "Fun Time",
                                       street: "Rua Conde de Baependi",
                                       street_number: "62",
@@ -169,7 +168,6 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "22231-140")
-  play_space03.save!
 
   play_space04 = PlaySpace.new(
     facilities: "Playspace indoor for teenagers",
@@ -182,14 +180,14 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space04.photos.attach(io: file7, filename: "space04_1.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file8, filename: "space04_2.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file9, filename: "space04_3.jpg", content_type: "image/jpg")
-  play_space04.address = Address.new(name: "Power Play Kids",
-                                      street: "Av. Infante Dom Henrique",
+  play_space04.save!
+  play_space04.address = Address.create(name: "Power Play Kids",
+                                      street: "Avenida Infante Dom Henrique",
                                       street_number: "85",
                                       neighbourhood: "Parque do Flamengo",
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "20021-140")
-  play_space04.save!
 
   play_space05 = PlaySpace.new(
     facilities: "Playspace indoor for teenagers",
@@ -202,14 +200,14 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space05.photos.attach(io: file10, filename: "space05_1.jpg", content_type: "image/jpg")
   play_space05.photos.attach(io: file11, filename: "space05_2.jpg", content_type: "image/jpg")
   play_space05.photos.attach(io: file12, filename: "space05_3.jpg", content_type: "image/jpg")
-  play_space05.address = Address.new(name: "Sky of diamonds",
-                                      street: "R. Voluntários da Pátria",
+  play_space05.save!
+  play_space05.address = Address.create(name: "Sky of diamonds",
+                                      street: "Rua Voluntários da Pátria",
                                       street_number: "170",
                                       neighbourhood: "Botafogo",
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "22270-000")
-  play_space05.save!
 
   play_space06 = PlaySpace.new(
     facilities: "Playspace indoor for teenagers",
@@ -222,14 +220,14 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space06.photos.attach(io: file13, filename: "space06_1.jpg", content_type: "image/jpg")
   play_space06.photos.attach(io: file14, filename: "space06_2.jpg", content_type: "image/jpg")
   play_space06.photos.attach(io: file15, filename: "space06_3.jpg", content_type: "image/jpg")
-  play_space06.address = Address.new(name: "Floresta Encantada",
-                                      street: "R. Vinícius de Moraes",
+  play_space06.save!
+  play_space06.address = Address.create(name: "Floresta Encantada",
+                                      street: "Rua Vinícius de Moraes",
                                       street_number: "49",
                                       neighbourhood: "Ipanema",
                                       city: "Rio de Janeiro",
                                       state:"RJ",
                                       zip_code: "22411-010")
-  play_space06.save!
 
   play_space07 = PlaySpace.new(
     facilities: "Playspace indoor for teenagers",
@@ -242,26 +240,19 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space07.photos.attach(io: file16, filename: "space07_1.jpg", content_type: "image/jpg")
   play_space07.photos.attach(io: file17, filename: "space07_2.jpg", content_type: "image/jpg")
   play_space07.photos.attach(io: file18, filename: "space07_3.jpg", content_type: "image/jpg")
-  play_space0.address = Address.new(name: "Trenzinho da Alegria",
-                                    street: "R. Itapera",
+  play_space07.save!
+  play_space07.address = Address.create(name: "Trenzinho da Alegria",
+                                    street: "Rua Itapera",
                                     street_number: "500",
                                     neighbourhood: "Irajá",
                                     city: "Rio de Janeiro",
                                     state:"RJ",
                                     zip_code: "21230-500")
-  play_space07.save!
 
   puts "Finished!========================================="
 
   Appointment.destroy_all
 
-  play_space01 = PlaySpace.find_by(address.name: "Big and Tiny")
-  play_space02 = PlaySpace.find_by(address.name: "Kids Island")
-  play_space03 = PlaySpace.find_by(address.name: "Fun Time")
-  play_space04 = PlaySpace.find_by(address.name: "Power Play Kids")
-  play_space05 = PlaySpace.find_by(address.name: "Sky of diamonds")
-  play_space06 = PlaySpace.find_by(address.name: "Floresta Encantada")
-  play_space07 = PlaySpace.find_by(address.name: "Trenzinho da Alegria")
   time_1 = DateTime.new(2020,6,18,16,30,00)
   time_2 = DateTime.new(2020,6,18,18,30,00)
   time_3 = DateTime.new(2020,6,18,14,00,00)

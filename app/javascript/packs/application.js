@@ -10,3 +10,9 @@ flatpickr(".datepicker", {
   minTime: "08:00",
   maxTime: "22:00"
 })
+
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})

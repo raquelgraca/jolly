@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
   geocoded_by :full_address
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode
 
   belongs_to :address_holder, polymorphic: true
 

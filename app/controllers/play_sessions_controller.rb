@@ -18,6 +18,13 @@ class PlaySessionsController < ApplicationController
       end
     end
 
+    @markers = @play_sessions.map do |play_session|
+      {
+        lat: play_session.appointment.play_space.address.latitude,
+        lng: play_session.appointment.play_space.address.longitude
+      }
+    end
+
   @play_sessions
   end
 

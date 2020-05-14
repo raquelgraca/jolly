@@ -1,6 +1,7 @@
 require "open-uri"
 
 User.destroy_all
+Address.destroy_all
 
 puts "Creating 7 users..."
   parent_user01 = User.new(
@@ -10,12 +11,6 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    street: "Rua das Palmeiras",
-    street_number: "20",
-    neighbourhood: 'Catete',
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21200021",
     bio: "I love to be a mother",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
@@ -29,12 +24,6 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    street: "Rua das Palmeiras",
-    street_number: "20",
-    neighbourhood: 'Catete',
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21200021",
     bio: "I love to be a mother",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
@@ -48,12 +37,6 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    street: "Rua das Palmeiras",
-    street_number: "20",
-    neighbourhood: 'Catete',
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21200021",
     bio: "I love to be a mother",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
@@ -67,15 +50,9 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "recreation worker",
-    street: "Rua das Palmeiras",
-    street_number: "20",
-    neighbourhood: 'Catete',
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21200021",
     bio: "I have 10 years of experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
-Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
-I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
+          Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
+          I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
     )
   file = URI.open('https://weddinghacker.com.br/wp-content/uploads/2017/05/opulent-profile-square-02.jpg')
   worker_user02.avatar.attach(io: file, filename: "worker02_photo.jpg", content_type: "image/jpg")
@@ -88,15 +65,9 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     password: "123456",
     password_confirmation: "123456",
     role: "play space owner",
-    street: "Rua Banbina",
-    street_number: "23",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "2150021",
     bio: "I have 10 years of experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
-Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
-I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
+          Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
+          I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-06.jpg')
   owner_user03.avatar.attach(io: file, filename: "owner03_photo.jpg", content_type: "image/jpg")
@@ -109,12 +80,6 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     password: "123456",
     password_confirmation: "123456",
     role: "recreation worker",
-    street: "Rua Banbina",
-    street_number: "23",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "2150021",
     bio: "My place is very cool!",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-01.jpg')
@@ -128,12 +93,6 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     password: "123456",
     password_confirmation: "123456",
     role: "recreation worker",
-    street: "Rua Bela",
-    street_number: "200",
-    neighbourhood: "Flamengo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21999001",
     bio: "Experience leading preschool and childrens activities. I have some previous skills and knowledge in a program area such as; arts & crafts, games, sports, dance.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-07.jpg')
@@ -147,14 +106,8 @@ I have a certification in Parks and Recreation Rio de Janeiro's Principles of He
     password: "123456",
     password_confirmation: "123456",
     role: "recreation worker",
-    street: "Rua Bela",
-    street_number: "200",
-    neighbourhood: "Flamengo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "21999001",
     bio: "Experience planning and instructing preschool and children's programs. Formal training/certification in related area an asset.Skills in a variety of program areas i.e. music, art, sports, games.
-Current Emergency First Aid certification as recognized by the SUS.",
+          Current Emergency First Aid certification as recognized by the SUS.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-04.jpg')
   worker_user06.avatar.attach(io: file, filename: "worker06_photo.jpg", content_type: "image/jpg")
@@ -164,18 +117,10 @@ Current Emergency First Aid certification as recognized by the SUS.",
   puts "Finished!==============================================="
 
 PlaySpace.destroy_all
-
 owner = User.find_by(role: "play space owner")
 
 puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space01 = PlaySpace.new(
-    name: "Big and Tiny",
-    street: "Rua da diversão",
-    street_number: "46",
-    neighbourhood: "Flamengo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "27000210",
     facilities: "Natural playground",
     user_id: owner.id
     )
@@ -183,16 +128,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file2 = URI.open('https://redtricom.files.wordpress.com/2018/08/shop-and-lounge-area-big-and-tiny.jpg?w=605')
   play_space01.photos.attach(io: file, filename: "space01_1.jpg", content_type: "image/jpg")
   play_space01.photos.attach(io: file2, filename: "space01_2.jpg", content_type: "image/jpg")
+  play_space01.address = Address.new(name: "Big and Tiny",
+                                      street: "Ladeira da Glória",
+                                      street_number: "26",
+                                      neighbourhood: "Glória",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "22211-120")
   play_space01.save!
 
   play_space02 = PlaySpace.new(
-    name: "Kids Island",
-    street: "Rua da risada",
-    street_number: "98",
-    neighbourhood: "Copacabana",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "99008675",
     facilities: "Special place for little kids",
     user_id: owner.id
     )
@@ -200,16 +145,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file4 = URI.open('https://redtricom.files.wordpress.com/2013/09/kids-island-sand.jpg')
   play_space02.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
   play_space02.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
+  play_space02.address = Address.new(name: "Kids Island",
+                                      street: "R. Ferreira Viana",
+                                      street_number: "81",
+                                      neighbourhood: "Flamengo",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "22210-040")
   play_space02.save!
 
   play_space03 = PlaySpace.new(
-    name: "Fun Time",
-    street: "Rua da Felicidade",
-    street_number: "22",
-    neighbourhood: "Catete",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "20210021",
     facilities: "Inclusive playspaces for children with disability",
     user_id: owner.id
     )
@@ -217,16 +162,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file6 = URI.open('https://powerplaykids.com/wp-content/uploads/2020/01/20191025_134720-768x576.jpg')
   play_space03.photos.attach(io: file5, filename: "space03_1.jpg", content_type: "image/jpg")
   play_space03.photos.attach(io: file6, filename: "space03_2.jpg", content_type: "image/jpg")
+  play_space03.address = Address.new(name: "Fun Time",
+                                      street: "Rua Conde de Baependi",
+                                      street_number: "62",
+                                      neighbourhood: "Laranjeiras",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "22231-140")
   play_space03.save!
 
   play_space04 = PlaySpace.new(
-    name: "Power Play Kids",
-    street: "Rua da Alegria",
-    street_number: "32",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "220003021",
     facilities: "Playspace indoor for teenagers",
     user_id: owner.id
     )
@@ -237,16 +182,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space04.photos.attach(io: file7, filename: "space04_1.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file8, filename: "space04_2.jpg", content_type: "image/jpg")
   play_space04.photos.attach(io: file9, filename: "space04_3.jpg", content_type: "image/jpg")
+  play_space04.address = Address.new(name: "Power Play Kids",
+                                      street: "Av. Infante Dom Henrique",
+                                      street_number: "85",
+                                      neighbourhood: "Parque do Flamengo",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "20021-140")
   play_space04.save!
 
   play_space05 = PlaySpace.new(
-    name: "Sky of diamonds",
-    street: "Rua da Alegria",
-    street_number: "32",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "220003021",
     facilities: "Playspace indoor for teenagers",
     user_id: owner.id
     )
@@ -257,16 +202,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space05.photos.attach(io: file10, filename: "space05_1.jpg", content_type: "image/jpg")
   play_space05.photos.attach(io: file11, filename: "space05_2.jpg", content_type: "image/jpg")
   play_space05.photos.attach(io: file12, filename: "space05_3.jpg", content_type: "image/jpg")
+  play_space05.address = Address.new(name: "Sky of diamonds",
+                                      street: "R. Voluntários da Pátria",
+                                      street_number: "170",
+                                      neighbourhood: "Botafogo",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "22270-000")
   play_space05.save!
 
   play_space06 = PlaySpace.new(
-    name: "Floresta Encantada",
-    street: "Rua da Alegria",
-    street_number: "32",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "220003021",
     facilities: "Playspace indoor for teenagers",
     user_id: owner.id
     )
@@ -277,16 +222,16 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space06.photos.attach(io: file13, filename: "space06_1.jpg", content_type: "image/jpg")
   play_space06.photos.attach(io: file14, filename: "space06_2.jpg", content_type: "image/jpg")
   play_space06.photos.attach(io: file15, filename: "space06_3.jpg", content_type: "image/jpg")
+  play_space06.address = Address.new(name: "Floresta Encantada",
+                                      street: "R. Vinícius de Moraes",
+                                      street_number: "49",
+                                      neighbourhood: "Ipanema",
+                                      city: "Rio de Janeiro",
+                                      state:"RJ",
+                                      zip_code: "22411-010")
   play_space06.save!
 
   play_space07 = PlaySpace.new(
-    name: "Trenzinho da Alegria",
-    street: "Rua da Alegria",
-    street_number: "32",
-    neighbourhood: "Botafogo",
-    city: "Rio de Janeiro",
-    state: "RJ",
-    zip_code: "220003021",
     facilities: "Playspace indoor for teenagers",
     user_id: owner.id
     )
@@ -297,19 +242,26 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space07.photos.attach(io: file16, filename: "space07_1.jpg", content_type: "image/jpg")
   play_space07.photos.attach(io: file17, filename: "space07_2.jpg", content_type: "image/jpg")
   play_space07.photos.attach(io: file18, filename: "space07_3.jpg", content_type: "image/jpg")
+  play_space0.address = Address.new(name: "Trenzinho da Alegria",
+                                    street: "R. Itapera",
+                                    street_number: "500",
+                                    neighbourhood: "Irajá",
+                                    city: "Rio de Janeiro",
+                                    state:"RJ",
+                                    zip_code: "21230-500")
   play_space07.save!
 
   puts "Finished!========================================="
 
   Appointment.destroy_all
 
-  play_space01 = PlaySpace.find_by(name: "Big and Tiny")
-  play_space02 = PlaySpace.find_by(name: "Kids Island")
-  play_space03 = PlaySpace.find_by(name: "Fun Time")
-  play_space04 = PlaySpace.find_by(name: "Power Play Kids")
-  play_space05 = PlaySpace.find_by(name: "Sky of diamonds")
-  play_space06 = PlaySpace.find_by(name: "Floresta Encantada")
-  play_space07 = PlaySpace.find_by(name: "Trenzinho da Alegria")
+  play_space01 = PlaySpace.find_by(address.name: "Big and Tiny")
+  play_space02 = PlaySpace.find_by(address.name: "Kids Island")
+  play_space03 = PlaySpace.find_by(address.name: "Fun Time")
+  play_space04 = PlaySpace.find_by(address.name: "Power Play Kids")
+  play_space05 = PlaySpace.find_by(address.name: "Sky of diamonds")
+  play_space06 = PlaySpace.find_by(address.name: "Floresta Encantada")
+  play_space07 = PlaySpace.find_by(address.name: "Trenzinho da Alegria")
   time_1 = DateTime.new(2020,6,18,16,30,00)
   time_2 = DateTime.new(2020,6,18,18,30,00)
   time_3 = DateTime.new(2020,6,18,14,00,00)

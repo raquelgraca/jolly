@@ -5,7 +5,7 @@ gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
-gem 'rails', '5.2.4.1'
+gem 'rails', '6.0.3'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -39,12 +39,12 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.12.0'
 
 #for adding price and currency
-gem 'money-rails'
+gem 'money-rails', '~>1.12'
 gem 'stripe'
 gem 'stripe_event'
 
 #multi-language resource
-gem 'rails-i18n', '5.0.3'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n', '~> 1.2'
 
 # To convert addresses into coordinates

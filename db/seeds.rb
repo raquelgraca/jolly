@@ -161,7 +161,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   file5 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
   play_space03.photos.attach(io: file5, filename: "space03_1.jpg", content_type: "image/jpg")
   play_space03.save!
-  play_space03.address = Address.new(name: "Fun Time",
+  play_space03.address = Address.create(name: "Fun Time",
                                       street: "Rua Conde de Baependi",
                                       street_number: "62",
                                       neighbourhood: "Laranjeiras",
@@ -222,7 +222,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space06.photos.attach(io: file15, filename: "space06_3.jpg", content_type: "image/jpg")
   play_space06.save!
   play_space06.address = Address.create(name: "Floresta Encantada",
-                                      street: "Rua Vinícius de Moraes",
+                                      street: "R. Vinícius de Moraes",
                                       street_number: "49",
                                       neighbourhood: "Ipanema",
                                       city: "Rio de Janeiro",

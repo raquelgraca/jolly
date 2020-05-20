@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  geocoded_by :full_address
+  geocoded_by :address
   after_validation :geocode
 
   belongs_to :address_holder, polymorphic: true
@@ -16,7 +16,13 @@ class Address < ApplicationRecord
   validates :state, presence: true, inclusion: { in: STATE }
   validates :zip_code, presence: true
 
-  def full_address
+  def address
+    # if street[0..1] == "R."
+    #   street = street.sub("R.", "Rua")
+    # elsif street[0..2] == "Av."
+    #   street = street.sub("Av.", "Avenida")
+    # end
     street + ", " + street_number + " - " + neighbourhood + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
   end
+
 end

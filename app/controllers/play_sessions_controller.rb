@@ -54,9 +54,8 @@ class PlaySessionsController < ApplicationController
   end
 
   def edit
-    if play_session.appointment.start_time - 3.hours > DateTime.now
-      @play_session.edit
-      redirect_to edit_play_sessions_path(@play_session)
+    if @play_session.appointment.start_time - 3.hours > DateTime.now
+      set_play_session
     else
       puts "Sorry but it's too late."
     end
@@ -65,16 +64,16 @@ class PlaySessionsController < ApplicationController
   def update
     @play_session.update(play_session_params)
     if @play_session.save
-      redirect_to my_play_sessions_play_sessions_path
+      redirect_to my_play_sessions_path
     else
       render :edit
     end
   end
 
   def destroy
-    if play_session.created_at - 15.minutes > DateTime.now
+    if @play_session.created_at - 60.minutes > DateTime.now
     @play_session.destroy
-    redirect_to my_play_sessions_play_sessions_path
+    redirect_to my_play_sessions_path
     else
       puts "Sorry it's to late but you can still edit your booking."
     end
@@ -88,7 +87,7 @@ class PlaySessionsController < ApplicationController
   private
 
   def play_session_params
-    params.require(:play_session).permit(:name, :description, :requirements, :photo)
+    params.require(:play_session).permit(:name, :description, :requirements, :photo, :worker_fee_per_kid_cents)
   end
 
   def set_play_session

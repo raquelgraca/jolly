@@ -1,6 +1,33 @@
 class Address < ApplicationRecord
-  geocoded_by :address
   after_validation :geocode
+
+  geocoded_by :address do |object, results|
+    if results.present?
+     object.latitude = results.first.latitude
+     object.longitude = results.first.longitude
+    else
+      geocoded_by :alternative_address_1 do |object, results|
+        if results.present?
+         object.latitude = results.first.latitude
+         object.longitude = results.first.longitude
+        else
+          geocoded_by :alternative_address_2 do |object, results|
+            if results.present?
+             object.latitude = results.first.latitude
+             object.longitude = results.first.longitude
+            else
+              geocoded_by :hood do |object, results|
+                if results.present?
+                 object.latitude = results.first.latitude
+                 object.longitude = results.first.longitude
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 
   belongs_to :address_holder, polymorphic: true
 
@@ -21,8 +48,37 @@ class Address < ApplicationRecord
       manipulated_street = street.gsub("R.", "Rua")
     elsif street[0..2] == "Av."
       manipulated_street = street.gsub("Av.", "Avenida")
+    else
+      manipulated_street = street
     end
     manipulated_street + ", " + street_number + " - " + neighbourhood + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
+  end
+
+
+  def alternative_address_1
+        if street[0..1] == "R."
+      manipulated_street = street.gsub("R.", "Rua")
+    elsif street[0..2] == "Av."
+      manipulated_street = street.gsub("Av.", "Avenida")
+    else
+      manipulated_street = street
+    end
+    manipulated_street + ", " + street_number + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
+  end
+
+  def alternative_address_2
+        if street[0..1] == "R."
+      manipulated_street = street.gsub("R.", "Rua")
+    elsif street[0..2] == "Av."
+      manipulated_street = street.gsub("Av.", "Avenida")
+    else
+      manipulated_street = street
+    end
+    manipulated_street + " - " + neighbourhood + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
+  end
+
+  def hood
+    neighbourhood + ", " + city + " - " + state + ", Brasil"
   end
 
 end

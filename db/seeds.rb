@@ -243,7 +243,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_space07.save!
   play_space07.address = Address.create(name: "Trenzinho da Alegria",
                                     street: "Rua Itapera",
-                                    street_number: "500",
+                                    street_number: "1",
                                     neighbourhood: "Irajá",
                                     city: "Rio de Janeiro",
                                     state:"RJ",

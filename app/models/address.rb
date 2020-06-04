@@ -17,12 +17,12 @@ class Address < ApplicationRecord
   validates :zip_code, presence: true
 
   def address
-    # if street[0..1] == "R."
-    #   street = street.sub("R.", "Rua")
-    # elsif street[0..2] == "Av."
-    #   street = street.sub("Av.", "Avenida")
-    # end
-    street + ", " + street_number + " - " + neighbourhood + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
+    if street[0..1] == "R."
+      manipulated_street = street.gsub("R.", "Rua")
+    elsif street[0..2] == "Av."
+      manipulated_street = street.gsub("Av.", "Avenida")
+    end
+    manipulated_street + ", " + street_number + " - " + neighbourhood + ", " + city + " - " + state + ", " + zip_code + ", Brasil"
   end
 
 end

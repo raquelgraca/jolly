@@ -2,7 +2,11 @@
   <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
     <h1> <%= t(".title") %></h1>
     <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
-    <%= f.input :neighbourhood, required: false, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
+    <% if user_signed_in? %>
+      <%= f.input :proximity, required: false, collection: [1, 2, 5, 10, 20], prompt: :translate %>
+    <% else %>
+      <%= f.input :neighbourhood, required: false, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
+    <% end %>
     <div class="bottom d-flex justify-content-center align-items-center">
       <%= f.submit t(".filter"), class: "button_1" %>
       <%= link_to t(".reset"), play_sessions_path, class: "button_2" %>

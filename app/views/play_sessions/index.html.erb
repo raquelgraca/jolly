@@ -1,32 +1,30 @@
-<div class="container mt-4">
-  <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
-    <h1> <%= t(".title") %></h1>
-    <%= f.input :date_and_start_time, required: false, as: :string, input_html: { class: "datepicker" } %>
-    <% if user_signed_in? %>
-      <%= f.input :proximity, required: false, collection: [1, 2, 5, 10, 20], prompt: :translate %>
-    <% else %>
-      <%= f.input :neighbourhood, required: false, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
-    <% end %>
-    <div class="bottom d-flex justify-content-center align-items-center">
-      <%= f.submit t(".filter"), class: "button_1" %>
-      <%= link_to t(".reset"), play_sessions_path, class: "button_2" %>
+<div class = "main-container">
+  <div class="p-4">
+    <div class="p-4">
+      <%= simple_form_for :search, url: play_sessions_path, method: "GET" do |f| %>
+        <h1> <%= t(".title") %></h1>
+        <div class="d-flex justify-content-around">
+          <%= f.input :date_and_start_time, label: t(".date_and_start_time"), required: false, as: :string, input_html: { class: "datepicker" } %>
+          <% if user_signed_in? %>
+            <%= f.input :proximity, required: false, as: :range, input_html: { value: "5", min: "1", max: "20", oninput: "outputUpdate(value)" } %>
+            <output for="proximity" id="proximity">5</output> km
+            <% else %>
+            <%= f.input :neighbourhood, label: t(".neighbourhood"), required: false, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
+          <% end %>
+        </div>
+        <div class="bottom d-flex justify-content-center align-items-center">
+          <%= f.submit t(".filter"), class: "button_1" %>
+          <%= link_to t(".reset"), play_sessions_path, class: "button_2" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-    <p> <%= @markers %> </p>
-
     <div class ="cards">
       <% @play_sessions.each do |play_session| %>
         <%= link_to play_session_path(play_session), {:style=>"text-decoration: none; color: black;"} do %>
-        <div class="card" >
-          <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
-            <h2> <%= play_session.name.capitalize %> </h2>
-          </div>
+          <div class="card" >
+            <div class="card-header", style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.3)), url(<%= cl_image_path play_session.photo.key %>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+              <h2> <%= play_session.name.capitalize %> </h2>
+            </div>
             <div class="card-infos">
               <div class="card-details">
                 <p> <i class="far fa-clock"></i>  &nbsp;  <%= play_session.appointment.start_time.strftime("%d/%m/%Y - %H:%M") %> </p>
@@ -35,10 +33,22 @@
               <%= cl_image_tag play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
               <h4> R$<%= play_session.sum_fees %></h4>
             </div>
-        </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  <br>
-  <br>
+
+
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
+
+<script>
+  function outputUpdate(proximity) {
+    document.querySelector('#proximity').value = proximity;
+  }
+</script>

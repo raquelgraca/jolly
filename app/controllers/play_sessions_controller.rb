@@ -18,7 +18,7 @@ class PlaySessionsController < ApplicationController
       end
 
       if params[:search][:proximity].present?
-        @addresses = Address.near([current_user.addresses.first.latitude, current_user.addresses.first.longitude], params[:search][:proximity])
+        @addresses = Address.near([current_user.addresses.first.latitude, current_user.addresses.first.longitude], (params[:search][:proximity]).to_i)
         @addresses_id = @addresses.map{|address| address.id}
         @play_sessions = @play_sessions.joins(appointment: [play_space: :address]).where(addresses: {id: @addresses_id})
       end

@@ -6,6 +6,9 @@
         <div class="d-flex justify-content-around">
           <%= f.input :date_and_start_time, label: t(".date_and_start_time"), required: false, as: :string, input_html: { class: "datepicker" } %>
           <% if user_signed_in? %>
+            <% if @user_addresses.length > 1 %>
+              <%= f.input :address, required: false, collection: @user_addresses, input_html: { value: @default_address} %>
+            <% end %>
             <%= f.input :proximity, required: false, as: :range, input_html: { value: "5", min: "1", max: "20", oninput: "outputUpdate(value)" } %>
             <output for="proximity" id="proximity">5</output> km
             <% else %>

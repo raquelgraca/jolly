@@ -47,6 +47,8 @@ pt:
       title: "Encontre uma sessão recreativa:"
       filter: "aplicar filtro"
       reset: "limpar"
+      date_and_start_time: "Data e hora de início"
+      neighbourhood: "Bairro"
     show:
       require: "Os requisitos para essa sessão recreativa são: "
       provided: "Oferecida por:"

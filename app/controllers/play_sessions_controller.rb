@@ -21,7 +21,6 @@ class PlaySessionsController < ApplicationController
       end
 
       if params[:search][:proximity].present?
-
         if params[:search][:address].present?
           @selected_address = Address.find(params[:search][:address])
           @addresses = Address.near([@selected_address.latitude, @selected_address.longitude], (params[:search][:proximity]).to_i)

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :play_spaces, dependent: :destroy
   has_many :play_sessions, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :kids, dependent: :destroy
 
   has_many :addresses, as: :address_holder, dependent: :destroy
   ROLE = ['parent', 'recreation worker', 'play space owner']

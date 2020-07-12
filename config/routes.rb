@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+scope '(:locale)', locale: /en|pt|es/ do
 devise_for :users, :paths => 'users', controllers: {registrations: 'users/registrations'}
 
-scope '(:locale)', locale: /en|pt|es/ do
-
   root to: 'pages#home'
+
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
 
   get "my_play_sessions", to: "play_sessions#my_play_sessions", as: :my_play_sessions
 
@@ -41,6 +47,8 @@ scope '(:locale)', locale: /en|pt|es/ do
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
 end
 
 

@@ -49,3 +49,7 @@ gem 'devise-i18n', '~> 1.2'
 
 # To convert addresses into coordinates
 gem 'geocoder'
+
+#background jobs
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'

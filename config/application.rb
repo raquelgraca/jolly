@@ -16,11 +16,18 @@ module Jolly
     # Initialize configuration defaults for originally generated Rails version.
     config.autoloader = :classic
 
+    # When assigning to a collection of attachments declared via `has_many_attached`, replace existing
+    # attachments instead of appending. Use #attach to add new attachments without replacing existing ones.
+    Rails.application.config.active_storage.replace_on_assign_to_many = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.i18n.default_locale = :pt
+
+    #sidekiq
+    config.active_job.queue_adapter = :sidekiq
 
   end
 end

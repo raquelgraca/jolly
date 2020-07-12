@@ -7,9 +7,10 @@ class PlaySessionsController < ApplicationController
 
   def index
     @play_sessions = policy_scope(PlaySession).joins(:appointment).where("appointments.start_time > ?", DateTime.now).order("appointments.start_time asc")
-
-    @default_address = current_user.addresses.first
-    @user_addresses = current_user.addresses
+    if user_signed_in?
+      @default_address = current_user.addresses.first
+      @user_addresses = current_user.addresses
+    end
 
     if params[:search].present?
       if params[:search][:date_and_start_time].present?

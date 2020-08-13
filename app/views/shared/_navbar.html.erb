@@ -45,15 +45,16 @@
         <li class="nav-item active">
           <%= link_to t("navbar.sign_up"), new_user_registration_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'English', root_path(locale: :en), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Português', root_path(locale: :pt), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to 'Español', root_path(locale: :es), class: "nav-link" %>
-      </li>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-language"></i>      
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %>
+            <%= link_to 'Español', root_path(locale: :es), class: "dropdown-item" %>
+            <%= link_to 'Português', root_path(locale: :pt), class: "dropdown-item" %>
+        </div>
+      </div>
       <% end %>
     </ul>
   </div>

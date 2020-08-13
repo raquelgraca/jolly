@@ -3,9 +3,16 @@
   <div class="top-links">
     <%= link_to t("home.login"), new_user_session_path, class: "login button_3" %>
     <%= link_to t("home.sign_up"), new_user_registration_path, class: "login button_2" %>
-    <%= link_to 'English', root_path(locale: :en), class: "button_3 p-2" %>
-    <%= link_to 'Español', root_path(locale: :es), class: "button_3 p-2" %>
-    <%= link_to 'Português', root_path(locale: :pt), class: "button_3" %>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-language"></i>      
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %>
+          <%= link_to 'Español', root_path(locale: :es), class: "dropdown-item" %>
+          <%= link_to 'Português', root_path(locale: :pt), class: "dropdown-item" %>
+      </div>
+    </div>
   </div>
 </div>
 

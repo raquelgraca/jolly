@@ -5,12 +5,18 @@
     <%= link_to t("home.sign_up"), new_user_registration_path, class: "login button_2" %>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-language"></i>      
+      <i class="fas fa-language"> <%= I18n.locale.to_s %></i>      
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %>
-          <%= link_to 'Español', root_path(locale: :es), class: "dropdown-item" %>
-          <%= link_to 'Português', root_path(locale: :pt), class: "dropdown-item" %>
+      <% unless I18n.locale == :en %>
+        <%= link_to 'English', url_for(locale: 'en'), class: "dropdown-item" %>
+      <% end %>
+      <% unless I18n.locale == :es %>
+          <%= link_to 'Español', url_for(locale: 'es'), class: "dropdown-item" %>
+      <% end %>
+      <% unless I18n.locale == :pt %>
+          <%= link_to 'Português', url_for(locale: 'pt'), class: "dropdown-item" %>
+      <% end %>
       </div>
     </div>
   </div>

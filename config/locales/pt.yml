@@ -9,7 +9,7 @@ pt:
     avai_appoint: Agenda disponível
     my_play_sessions: Minhas sessões
     play_sessions: Sessões recreativas
-    my_bookings: Meus agendamentnos
+    my_bookings: Meus agendamentos
     log_out: Sair
     login: Entrar
     sign_up: Cadastre-se
@@ -21,7 +21,7 @@ pt:
     login: Entrar
     sign_up: Cadastre-se
     phrase: "Permitindo atividades divertidas e sociais depois da escola para crianças"
-    ft-title-1: "Procure um sessão recreativa"
+    ft-title-1: "Procure uma sessão recreativa"
     ft-description-1: "Filtre a atividade por data ou local."
     ft-title-2: "Confira os detalhes"
     ft-description-2: "Veja fotos, descrição, currículo e  avaliações dos espaços e dos recreadores."
@@ -60,7 +60,7 @@ pt:
       title_booking: "Forneça detalhes para realizar seu agendamento"
       bt_booking: Confirme a sua reserva
       choose_age: "Selecione a idade"
-      placeholder: "Conte um pouco mais sobre seu filho ou filha, por exemplo: alergias, restrinções ou qualquer informação que julgar importante para o recreador."
+      placeholder: "Conte um pouco mais sobre a criança, por exemplo: alergias, restrinções ou qualquer informação que julgar importante para o recreador."
     index:
       new_booking: Novo agendamento
       booked_for: "Agendado para: "
@@ -105,10 +105,10 @@ pt:
     form:
       update: Atualizar
       add_address: Adicionar espaço
-      placeholder: Por favor nomeie o endereço
+      placeholder: Por favor registre o endereço
   activerecord:
     models:
-      play_session: "Sessões recrativas"
+      play_session: "Sessões recreativas"
       play_space: "Espaços recreativos"
       booking: "Agendamento"
       search: "Pesquisa"
@@ -144,9 +144,9 @@ pt:
         locked_at: Bloqueado em
         password: Senha
         password_confirmation: Confirme sua senha
-        remember_created_at: Lembrar criado em
+        remember_created_at: Lembrar data de criação
         remember_me: Lembre-se de mim
-        reset_password_sent_at: Resetar senha enviado em
+        reset_password_sent_at: Resetar senha enviada em
         reset_password_token: Resetar token de senha
         sign_in_count: Contagem de acessos
         unconfirmed_email: E-mail não confirmado

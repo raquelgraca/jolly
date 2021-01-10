@@ -26,7 +26,7 @@
                 <p>  <i class="fas fa-map-pin"></i> &nbsp; &nbsp; &nbsp;   <%= @booking.play_session.appointment.play_space.address.neighbourhood %> </p>
               </div>
               <%= cl_image_tag @booking.play_session.user.avatar.key, class: "play-session-provider-avatar-bordered" %>
-              <h4> R$ <%= @booking.play_session.sum_fees %></h4>
+              <h4> R$ <%= @booking.play_session.sum_fees_cents %></h4>
             </div>
       <% end %>
     </div>

@@ -138,8 +138,8 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     facilities: "Special place for little kids",
     user_id: owner.id
     )
-  file3 = URI.open('https://redtricom.files.wordpress.com/2017/11/img_0730.jpg?w=605&h=454')
-  file4 = URI.open('https://redtricom.files.wordpress.com/2013/09/kids-island-sand.jpg')
+  file3 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
+  file4 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
   play_space02.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
   play_space02.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
   play_space02.save!

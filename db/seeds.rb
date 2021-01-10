@@ -121,8 +121,8 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     facilities: "Natural playground",
     user_id: owner.id
     )
-  file = URI.open('https://redtricom.files.wordpress.com/2018/02/bigandtiny.jpg?w=1000&h=664')
-  file2 = URI.open('https://redtricom.files.wordpress.com/2018/08/shop-and-lounge-area-big-and-tiny.jpg?w=605')
+  file = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
+  file2 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
   play_space01.photos.attach(io: file, filename: "space01_1.jpg", content_type: "image/jpg")
   play_space01.photos.attach(io: file2, filename: "space01_2.jpg", content_type: "image/jpg")
   play_space01.save!

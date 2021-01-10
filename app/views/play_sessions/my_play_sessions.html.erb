@@ -10,7 +10,7 @@
         <p>Requirements: <%= play_session.requirements %></p>
         <p>Status: <%= play_session.status %></p>
         <p>Your fee per kid: <%= humanized_money_with_symbol(play_session.worker_fee_per_kid_cents) %></p>
-        <p>Total fee per kid: R$ <%= play_session.sum_fees_cents %> </p>
+        <p>Total fee per kid: R$ <%= play_session.sum_fees %> </p>
       </div>
       <div class="links">
         <%= link_to "Edit", edit_play_session_path(play_session.id), class: "btn" %>

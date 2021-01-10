@@ -11,7 +11,7 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    bio: "I love to be a mother",
+    bio: "Mãe de coração.",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
   parent_user01.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
@@ -24,7 +24,7 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    bio: "I love to be a mother",
+    bio: "Fui pai aos 18 anos e aprendi a ser homem.",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
   parent_user02.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
@@ -37,7 +37,7 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "parent",
-    bio: "I love to be a mother",
+    bio: "Tenho 2 filhos e acredito na pedagogia do afeto",
     )
   file = URI.open('https://res.cloudinary.com/dxvk3qixb/image/upload/v1583937288/1NtBUkgPbZQsuXyVj4GzfASm.jpg')
   parent_user03.avatar.attach(io: file, filename: "parent_photo.jpg", content_type: "image/jpg")
@@ -65,9 +65,7 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "play space owner",
-    bio: "I have 10 years of experience working with youth populations representing the range of diverse communities in Rio de Janeiro.
-          Knowledge of and experience working with diverse communities and equity-seeking groups (ie Women, People with Disabilities, GLBT, Race and Ethnic groups).
-          I have a certification in Parks and Recreation Rio de Janeiro's Principles of Healthy Child Development.",
+    bio: "Tenho 10 anos de experiência trabalhando com adolescentes e jovens de diversas comunidades do Rio de Janeiro.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-06.jpg')
   owner_user03.avatar.attach(io: file, filename: "owner03_photo.jpg", content_type: "image/jpg")
@@ -106,8 +104,7 @@ puts "Creating 7 users..."
     password: "123456",
     password_confirmation: "123456",
     role: "recreation worker",
-    bio: "Experience planning and instructing preschool and children's programs. Formal training/certification in related area an asset.Skills in a variety of program areas i.e. music, art, sports, games.
-          Current Emergency First Aid certification as recognized by the SUS.",
+    bio: "Experiência em planejamento e instrução de programas pré-escolares e infantis. Treinamento / certificação formal em uma área relacionada um ativo. Habilidades em uma variedade de áreas, por exemplo, música, arte, esportes, jogos.",
     )
   file = URI.open('https://oficinadainteligencia.com.br/wp-content/uploads/2019/07/opulent-profile-square-04.jpg')
   worker_user06.avatar.attach(io: file, filename: "worker06_photo.jpg", content_type: "image/jpg")
@@ -124,8 +121,8 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     facilities: "Natural playground",
     user_id: owner.id
     )
-  file = URI.open('https://redtricom.files.wordpress.com/2018/02/bigandtiny.jpg?w=1000&h=664')
-  file2 = URI.open('https://redtricom.files.wordpress.com/2018/08/shop-and-lounge-area-big-and-tiny.jpg?w=605')
+  file = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
+  file2 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
   play_space01.photos.attach(io: file, filename: "space01_1.jpg", content_type: "image/jpg")
   play_space01.photos.attach(io: file2, filename: "space01_2.jpg", content_type: "image/jpg")
   play_space01.save!
@@ -141,8 +138,8 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
     facilities: "Special place for little kids",
     user_id: owner.id
     )
-  file3 = URI.open('https://redtricom.files.wordpress.com/2017/11/img_0730.jpg?w=605&h=454')
-  file4 = URI.open('https://redtricom.files.wordpress.com/2013/09/kids-island-sand.jpg')
+  file3 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
+  file4 = URI.open('https://media.timeout.com/images/105158871/750/422/image.jpg')
   play_space02.photos.attach(io: file3, filename: "space02_1.jpg", content_type: "image/jpg")
   play_space02.photos.attach(io: file4, filename: "space02_2.jpg", content_type: "image/jpg")
   play_space02.save!
@@ -253,20 +250,20 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
 
   Appointment.destroy_all
 
-  time_1 = DateTime.new(2020,10,18,16,30,00)
-  time_2 = DateTime.new(2020,10,18,18,30,00)
-  time_3 = DateTime.new(2020,10,18,14,00,00)
-  time_4 = DateTime.new(2020,10,18,16,00,00)
-  time_5 = DateTime.new(2020,10,19,14,15,00)
-  time_6 = DateTime.new(2020,10,20,16,15,00)
-  time_7 = DateTime.new(2020,10,20,17,45,00)
-  time_8 = DateTime.new(2020,10,20,20,45,00)
-  time_9 = DateTime.new(2020,10,20,9,00,00)
-  time_10 = DateTime.new(2020,10,20,11,00,00)
-  time_11 = DateTime.new(2020,10,20,14,00,00)
-  time_12 = DateTime.new(2020,10,20,16,00,00)
-  time_13 = DateTime.new(2020,10,20,16,30,00)
-  time_14 = DateTime.new(2020,10,20,18,30,00)
+  time_1 = DateTime.new(2021,04,18,16,30,00)
+  time_2 = DateTime.new(2021,04,18,18,30,00)
+  time_3 = DateTime.new(2021,04,18,14,00,00)
+  time_4 = DateTime.new(2021,04,18,16,00,00)
+  time_5 = DateTime.new(2021,04,19,14,15,00)
+  time_6 = DateTime.new(2021,04,20,16,15,00)
+  time_7 = DateTime.new(2021,04,20,17,45,00)
+  time_8 = DateTime.new(2021,04,20,20,45,00)
+  time_9 = DateTime.new(2021,04,20,9,00,00)
+  time_10 = DateTime.new(2021,04,20,11,00,00)
+  time_11 = DateTime.new(2021,04,20,14,00,00)
+  time_12 = DateTime.new(2021,04,20,16,00,00)
+  time_13 = DateTime.new(2021,04,20,16,30,00)
+  time_14 = DateTime.new(2021,04,20,18,30,00)
 
   puts "Creating 8 Appointments...+++++++++++++++++++++++++++++++++++++"
   appointment_1 = Appointment.create!(
@@ -343,7 +340,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   puts "Creating 08 Play_sessions...++++++++++++++++++++++++++++"
 
     play_session01 = PlaySession.new(
-    name: "Afternoon Reading",
+    name: "Contação de história com chá da tarde",
     description: "Afternoon reading for under 10s",
     requirements: "Under 10",
     worker_fee_per_kid_cents: 1200,
@@ -358,7 +355,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
 
 
     play_session02 = PlaySession.new(
-    name: "Tuesday Swimming",
+    name: "Natação divertida",
     description: "Two hours supervised swimming",
     requirements: "Armbands needed",
     worker_fee_per_kid_cents: 1400,
@@ -372,7 +369,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_session02.save!
 
     play_session03 = PlaySession.new(
-    name: "Creative Arts Play",
+    name: "Sessão de criatividade",
     description: "Colouring, clay play, drawings",
     requirements: "Aged 4 - 11",
     worker_fee_per_kid_cents: 1500,
@@ -388,7 +385,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
 
 
     play_session04 = PlaySession.new(
-    name: "Toy and object play",
+    name: "Brinquedos e jogos da época da vovó",
     description: "Group session with a variety of toys",
     requirements: "Aged 4-11",
     worker_fee_per_kid_cents: 900,
@@ -416,7 +413,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_session06.save!
 
     play_session07 = PlaySession.new(
-    name: "Painting Session",
+    name: "Pintura livre",
     description: "Children of all ages love to paint! From the simplest painting with a brush or hands to more elaborate spin art, marble painting, and painting a fort.",
     requirements: "Aged 08-12",
     worker_fee_per_kid_cents: 1600,
@@ -445,8 +442,8 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
 
 
   play_session09 = PlaySession.new(
-    name: "Managing Emotions",
-    description: "Mental health literacy and emotional self-regulation",
+    name: "Aprendendo com as emoções",
+    description: "Dar nome aos sentimentos demonstra que eles existem, que todos os sentem e que podem ser expressos, desde que da forma adequada. Participe dessa conversa leve e aberta sobre emoções com exercícios práticos e teatrais para adolescentes.",
     requirements: "Aged 12-15",
     worker_fee_per_kid_cents: 1250,
     user_id: worker_user06.id,
@@ -459,7 +456,7 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
   play_session09.save!
 
   play_session10 = PlaySession.new(
-    name: "Playground session",
+    name: "Sessão Playground",
     description: "Group session at one of the largest playgrounds in Rio.",
     requirements: "Aged 9-11",
     worker_fee_per_kid_cents: 1000,

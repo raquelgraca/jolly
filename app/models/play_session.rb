@@ -10,9 +10,9 @@ class PlaySession < ApplicationRecord
   validate :photo_presence
   monetize :worker_fee_per_kid_cents
   validates :worker_fee_per_kid_cents, presence: true
+  monetize :sum_fees_cents
 
-
-  def sum_fees
+  def sum_fees_cents
     worker_fee_per_kid_cents + appointment.owner_fee_per_kid_cents
   end
 

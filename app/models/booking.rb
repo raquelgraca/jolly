@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :play_session
   belongs_to :user
   monetize :sum_fee_cents
-  before_save :sum_fees
+  before_save :sum_fees_cents
 
   validates :name_of_kid, presence: true
   validates :gender_of_kid , presence: true
@@ -12,7 +12,7 @@ class Booking < ApplicationRecord
 
   GENDER = [ 'F', 'M', 'Other']
 
-  def sum_fees
+  def sum_fees_cents
     self.sum_fee_cents = self.play_session.worker_fee_per_kid_cents + self.play_session.appointment.owner_fee_per_kid_cents
   end
 

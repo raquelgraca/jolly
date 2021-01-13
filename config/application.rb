@@ -29,7 +29,7 @@ module Jolly
     #sidekiq
     config.active_job.queue_adapter = :sidekiq
     
-    config.active_storage.queue = :low_priority
+    # config.active_storage.queue = :low_priority
 
 
   end

@@ -1,0 +1,169 @@
+es:
+    users:
+      registrations:
+        new:
+          sign_up: Registrese
+    navbar:
+      new_play_space: Nuevo espacio
+      my_play_spaces: Mis espacios
+      avai_appoint: Agenda disponible
+      my_play_sessions: Mis sesiones
+      play_sessions: Sesiones recreativas
+      my_bookings: Mis agendamientos
+      log_out: Salir
+      login: Entrar
+      sign_up: Registrese
+    banner:
+      title_html: "Encuentre una sesión recreativa en <strong>Jolly</strong>!"
+      subt: "Deje su hijo jugar con los amigos en ambientes seguros y supervisados"
+      bt: "Agende ahora"
+    home:
+      login: Entrar
+      sign_up: Registrese
+      phrase: "Permitiendo actividades divertidas y sociales para chicos después de la escuela."
+      ft-title-1: "Busque una sesión recreativa"
+      ft-description-1: "Filtre la actividad por fecha y local"
+      ft-title-2: "Revise los detalles"
+      ft-description-2: "Vea fotos, descripción, curriculum y puntuación de los espacios y de los recreadores"
+      ft-title-3: "Agende una sesión"
+      ft-description-3: "El recreador ira a recibir su confirmación de agendamiento."
+      ft-title-4: "Pague online"
+      ft-description-4: "Usando tarjeta de credito o recibo bancário. Caso precise, usted puede desmarcar con 2 días de antecedencia."
+      network-title: "Participe de la red Jolly!"
+      card-1: "Padres y responsables"
+      card-1-p: "Diversas sesiones recreativas"
+      card-1-p2: "Recreadores certificados"
+      card-1-p3: "Actividades de bajo costo"
+      card-2: "Recreadores"
+      card-2-p: "Renda extra como freelancer"
+      card-2-p2: "Diversas oportunidades y locales"
+      card-2-p3: "Recompensadoras experiências de clases"
+      card-3: "Dueños de espacios"
+      card-3-p: "Aumente los ingresos de su espacio"
+      card-3-p2: "Accese a la red de recreadores profesionales"
+      card-3-p3: "Acabe con los espacios poco utilizados"
+    play_sessions:
+      index:
+        title: "Encuentre  una sesión recreativa:"
+        filter: "aplicar filtro"
+        reset: "limpiar"
+        date_and_start_time: "Fecha y hora de início"
+        neighbourhood: "Barrio"
+      show:
+        require: "Los requisitos para esa sesión recreativa son: "
+        provided: "Ofrecida por:"
+        no_review: 'No tiene puntuación'
+        reviews: 'Puntuación:'
+        view_reviews: "Ver puntuación"
+    booking:
+      new:
+        title_booking: "Coloque detalles para realizar su agendamiento"
+        bt_booking: Confirme su reserva
+        choose_age: "Seleccione la edad"
+        placeholder: "Cuente un poco más sobre la criatura, por ejemplo: alergias, restricciones o qualquier información que sea importante para el recreador."
+      index:
+        new_booking: Nuevo agendamiento
+        booked_for: "Agendado para: "
+        payment: "Pagamento:"
+        session_status: "Status de la sesión: "
+        view: Ver
+        edit: Editar
+    appointment:
+        index:
+          min_cap: "Capacidad mínima:"
+          max_cap: "Capacidad máxima:"
+          start_time: "Início:"
+          end_time: "Fin:"
+          fee_kid: "Comisión por criatura:"
+          btn: "Proponga una sesión para ese espacio"
+        new:
+          title: "Crie un agendamiento para"
+          description: "Ese agendamiento quedará disponible para que los recreadores creen sesiones recreativas en su espacio."
+          label: "Su comisión por criatura"
+          submit: Crear
+        show:
+          title: "Agendamiento disponible para"
+          min_cap: "Capacidad mínima:"
+          max_cap: "Capacidad máxima:"
+          start_time: "Início:"
+          end_time: "Fin:"
+          fee_kid: "Comisión por criatura:"
+          edit: Editar
+          delete: Borrar
+    play_spaces:
+        new:
+          title: "Agregue un nuevo Espacio Recreativo"
+          cancel: "Cancelar"
+        form:
+          update: Actualizar
+          addplayspace: "Agregar Espacio"
+        show:
+          edit: Editar
+          delete: Borrar
+          new_appointment: Nueva agenda
+    addresses:
+      form:
+        update: Actualizar
+        add_address: Agregar espacio
+        placeholder: Por favor registre la dirección
+    activerecord:
+      models:
+        play_session: "Sesiones recreativas"
+        play_space: "Espacios recreativos"
+        booking: "Agendamiento"
+        search: "Busqueda"
+        user: Usuário
+        address: "Dirección"
+        appointment: "Agendamiento"
+      attributes:
+        play_session:
+          index:
+        play_space:
+          facilities: "Infraestructura"
+          photos: "Fotos"
+          neighbourhood: "Barrio"
+        booking:
+          name_of_kid: "Nombre de la criatura"
+          gender_of_kid: "Género"
+          age_of_kid: "Edad"
+          comment: "Observación"
+        user:
+          sign-up: Registrese
+          confirmation_sent_at: confirmación enviada en
+          confirmation_token: Token de confirmación
+          confirmed_at: Confirmado en
+          created_at: Criado en
+          current_password: Seña actual
+          current_sign_in_at: Actualmente logado en
+          current_sign_in_ip: IP de acceso actual
+          email: E-mail
+          encrypted_password: Seña criptografada
+          failed_attempts: Intentos sin exito
+          last_sign_in_at: Último acceso en
+          last_sign_in_ip: Último IP de acceso
+          locked_at: Bloqueado en
+          password: Seña
+          password_confirmation: Confirme su seña
+          remember_created_at: Recordar fecha de creación
+          remember_me: Acuerdese de mi
+          reset_password_sent_at: Resetear seña enviada en
+          reset_password_token: Resetear token de seña
+          sign_in_count: Cuenta total de accesos
+          unconfirmed_email: E-mail no confirmado
+          unlock_token: Token de desbloqueo
+          updated_at: Actualizado en
+        address:
+          name: Nombre de la dirección
+          street: Dirección
+          street_number: Número
+          neighbourhood: Barrio
+          city: Ciudad
+          state: Provincia
+          zip_code: Codigo Postal
+        appointment:
+          start_time: Horário de início
+          end_time: Horário de fin
+          minimum_capacity: Capacidad mínima
+          maximum_capacity: Capacidad máxima
+          owner_fee_per_kid_cents: Comisión por criatura
+  

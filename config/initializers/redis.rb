@@ -1,4 +1,4 @@
-$redis = Redis.new
+$redis = Resque.redis = Redis.new
 
 url = ENV["REDISCLOUD_URL"]
 
@@ -10,5 +10,5 @@ if url
   Sidekiq.configure_client do |config|
     config.redis = { url: url }
   end
-  $redis = Redis.new(:url => url)
+  $redis = Resque.redis = Redis.new(:url => url)
 end

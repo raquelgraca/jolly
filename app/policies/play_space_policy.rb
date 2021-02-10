@@ -6,7 +6,7 @@ class PlaySpacePolicy < ApplicationPolicy
   end
 
   def create?
-    user.role == 'play space owner'
+    user.role == 'play space owner' || 'recreation worker'
   end
 
   def index?

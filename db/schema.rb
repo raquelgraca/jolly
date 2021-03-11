@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_002326) do
+ActiveRecord::Schema.define(version: 2021_03_11_202819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,12 @@ ActiveRecord::Schema.define(version: 2020_06_28_002326) do
     t.text "facilities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "street"
+    t.string "street_number"
+    t.string "neighbourhood"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.index ["user_id"], name: "index_play_spaces_on_user_id"
   end
 

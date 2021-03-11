@@ -1,5 +1,12 @@
 <%= simple_form_for(@play_space) do |f| %>
   <%= f.error_notification %>
+  <%= f.input :name, placeholder: t(".placeholder")%>
+  <%= f.input :street %>
+  <%= f.input :street_number %>
+  <%= f.input :neighbourhood, collection: Address::NEIGHBOURHOOD, prompt: :translate %>
+  <%= f.input :city, collection: Address::CITY, prompt: :translate %>
+  <%= f.input :state, collection: Address::STATE, prompt: :translate%>
+  <%= f.input :zip_code %>
   <%= f.input :facilities %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <% if params[:action] == "edit" %>

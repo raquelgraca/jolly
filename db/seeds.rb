@@ -250,20 +250,20 @@ puts "Creating 8 Playspaces...+++++++++++++++++++++++++++++"
 
   Appointment.destroy_all
 
-  time_1 = DateTime.new(2021,08,18,16,30,00)
-  time_2 = DateTime.new(2021,08,18,18,30,00)
-  time_3 = DateTime.new(2021,08,18,14,00,00)
-  time_4 = DateTime.new(2021,08,18,16,00,00)
-  time_5 = DateTime.new(2021,08,19,14,15,00)
-  time_6 = DateTime.new(2021,08,20,16,15,00)
-  time_7 = DateTime.new(2021,08,20,17,45,00)
-  time_8 = DateTime.new(2021,08,20,20,45,00)
-  time_9 = DateTime.new(2021,08,20,9,00,00)
-  time_10 = DateTime.new(2021,08,20,11,00,00)
-  time_11 = DateTime.new(2021,08,20,14,00,00)
-  time_12 = DateTime.new(2021,08,20,16,00,00)
-  time_13 = DateTime.new(2021,08,20,16,30,00)
-  time_14 = DateTime.new(2021,08,20,18,30,00)
+  time_1 = DateTime.new(2021,8,18,16,30,00)
+  time_2 = DateTime.new(2021,8,18,18,30,00)
+  time_3 = DateTime.new(2021,8,18,14,00,00)
+  time_4 = DateTime.new(2021,8,18,16,00,00)
+  time_5 = DateTime.new(2021,8,19,14,15,00)
+  time_6 = DateTime.new(2021,8,20,16,15,00)
+  time_7 = DateTime.new(2021,8,20,17,45,00)
+  time_8 = DateTime.new(2021,8,20,20,45,00)
+  time_9 = DateTime.new(2021,8,20,9,00,00)
+  time_10 = DateTime.new(2021,8,20,11,00,00)
+  time_11 = DateTime.new(2021,8,20,14,00,00)
+  time_12 = DateTime.new(2021,8,20,16,00,00)
+  time_13 = DateTime.new(2021,8,20,16,30,00)
+  time_14 = DateTime.new(2021,8,20,18,30,00)
 
   puts "Creating 8 Appointments...+++++++++++++++++++++++++++++++++++++"
   appointment_1 = Appointment.create!(

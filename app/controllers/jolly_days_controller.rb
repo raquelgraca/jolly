@@ -1,2 +1,3 @@
 class JollyDaysController < ApplicationController
+
 end

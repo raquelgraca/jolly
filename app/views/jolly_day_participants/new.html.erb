@@ -1,0 +1,16 @@
+<div class="container m-6">
+  <h1>Jolly Day</h1>
+  <p>Bio of Marcello and description of day</p>
+  <%= simple_form_for JollyDayParticipant.new do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :child_name %>
+    <%= f.input :child_age %>
+    <%= f.input :email_address %>
+    <%= f.input :phone_number %>
+    <%= f.input :newsletter_signup, :input_html => { :checked => false } %>
+    <%= f.submit "Hora de Brincar!" %>
+  <% end %>
+  <p>Info about Jolly</p>
+</div>

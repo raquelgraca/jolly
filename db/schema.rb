@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_202819) do
+ActiveRecord::Schema.define(version: 2021_06_18_171704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,31 @@ ActiveRecord::Schema.define(version: 2021_03_11_202819) do
     t.string "checkout_session_id"
     t.index ["play_session_id"], name: "index_bookings_on_play_session_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "jolly_day_participants", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "child_name"
+    t.integer "child_age"
+    t.string "email_address"
+    t.string "phone_number"
+    t.boolean "newsletter_signup"
+    t.bigint "jolly_day_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jolly_day_id"], name: "index_jolly_day_participants_on_jolly_day_id"
+  end
+
+  create_table "jolly_days", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "maximum_capacity"
+    t.integer "minimum_age"
+    t.integer "maximum_age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "kids", force: :cascade do |t|
@@ -155,6 +180,7 @@ ActiveRecord::Schema.define(version: 2021_03_11_202819) do
   add_foreign_key "appointments", "play_spaces"
   add_foreign_key "bookings", "play_sessions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "jolly_day_participants", "jolly_days"
   add_foreign_key "play_sessions", "appointments"
   add_foreign_key "play_sessions", "users"
   add_foreign_key "play_spaces", "users"

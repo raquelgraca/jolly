@@ -1,0 +1,2 @@
+class JollyDayParticipantsController < ApplicationController
+end

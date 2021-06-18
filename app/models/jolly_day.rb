@@ -1,0 +1,2 @@
+class JollyDay < ApplicationRecord
+end

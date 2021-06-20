@@ -1,16 +1,26 @@
+<% @jolly_day = JollyDay.find(1) %>
 <div class="container m-6">
   <h1>Jolly Day</h1>
-  <p>Bio of Marcello and description of day</p>
-  <%= simple_form_for JollyDayParticipant.new do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :child_name %>
-    <%= f.input :child_age %>
-    <%= f.input :email_address %>
-    <%= f.input :phone_number %>
-    <%= f.input :newsletter_signup, :input_html => { :checked => false } %>
-    <%= f.submit "Hora de Brincar!" %>
+  <p>Bio of Marcello and description of day.</p>
+  <p>Name: <%= @jolly_day.name %></p>
+  <p>Starts at: <%= @jolly_day.start %></p>
+  <p>Ends at: <%= @jolly_day.end %></p>
+  <p>Minimum age: <%= @jolly_day.minimum_age %></p>
+  <p> Maximum age: <%= @jolly_day.maximum_age %></p>
+  <% if @jolly_day.jolly_day_participants.size < @jolly_day.maximum_capacity %>
+    <%= simple_form_for @jolly_day_participant do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :child_name %>
+      <%= f.input :child_age , input_html: { min:@jolly_day.minimum_age , max: @jolly_day.maximum_age}%>
+      <%= f.input :email_address %>
+      <%= f.input :phone_number %>
+      <%= f.input :newsletter_signup, input_html: { checked: false } %>
+      <%= f.submit "Hora de Brincar!" %>
+    <% end %>
+  <% else %>
+    Unfortunately, there are no more spots available for this Jolly Day.
   <% end %>
   <p>Info about Jolly</p>
 </div>

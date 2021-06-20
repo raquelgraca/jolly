@@ -7,5 +7,4 @@ class JollyDayParticipant < ApplicationRecord
   validates :child_age, presence: true
   validates :email_address, presence: true
   validates :phone_number, presence: true
-  validates :newsletter_signup, presence: true
 end

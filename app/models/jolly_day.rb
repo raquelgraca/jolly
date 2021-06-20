@@ -1,4 +1,6 @@
 class JollyDay < ApplicationRecord
+  has_many :jolly_day_participants
+
   validates :name, presence: true
   validates :start, presence: true
   validates :end, presence: true

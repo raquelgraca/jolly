@@ -1,12 +1,26 @@
 <% @jolly_day = JollyDay.find(1) %>
 <div class="container m-6">
   <h1>Jolly Day</h1>
-  <p>Bio of Marcello and description of day.</p>
-  <p>Name: <%= @jolly_day.name %></p>
-  <p>Starts at: <%= @jolly_day.start %></p>
-  <p>Ends at: <%= @jolly_day.end %></p>
-  <p>Minimum age: <%= @jolly_day.minimum_age %></p>
-  <p> Maximum age: <%= @jolly_day.maximum_age %></p>
+  <div>
+     <h3>É hora de brincar!</h3>
+     <p>Encontre experiências divertidas e educativas oferecidas por profissionais em recreação infantil no seu condomínio.</p>
+     <p>Acreditamos que brincar é essencial para a infância e o desenvolvimento integral do ser humano. 
+      Durante a pandemia, muitas crianças ficaram confinadas e tiveram efeitos psicológicos negativos. 
+      A Jolly surge nesse cenário para oferecer opções seguras, divertidas e educativas de recreação.</p> 
+      </p>
+  </div>
+  <div>
+    <h3> O que é o Jolly Day?</h3>
+    <p>Um evento de recreação profissional, elaborado especialmente para o seu condomínio, e totalmente gratuito.</p>
+    <p>Objetivo: Oferecer um dia lúdico para crianças entre 5 e 14 anos de idade e apresentar nossa plataforma para os pais</p>
+  <p><b>Sobre a Hora de Brincar</b></p>
+  <p>Será oferecida pela Criarte. Marcelo é professor de ed. física e recreador há 10 anos. Criador de esportes alternativos que já foi destaque em
+  diversos programas televisos e jornais.</p>
+  <p>Tema: <%= @jolly_day.name %></p>
+  <p>Começa às: <%= @jolly_day.start %></p>
+  <p>Termina às: <%= @jolly_day.end %></p>
+  <p>Idade mínima: <%= @jolly_day.minimum_age %></p>
+  <p> Idade máxima: <%= @jolly_day.maximum_age %></p>
   <% if @jolly_day.jolly_day_participants.size < @jolly_day.maximum_capacity %>
     <%= simple_form_for @jolly_day_participant do |f| %>
       <%= f.error_notification %>
@@ -20,7 +34,9 @@
       <%= f.submit "Hora de Brincar!" %>
     <% end %>
   <% else %>
-    Unfortunately, there are no more spots available for this Jolly Day.
+    Ih... estamos cheios! Esse Jolly Day tá um sucesso e a gente espera você no próximo, ok?
   <% end %>
+  </div>
+
   <p>Info about Jolly</p>
 </div>

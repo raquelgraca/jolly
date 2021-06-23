@@ -2,7 +2,7 @@
 <div class="container m-6">
   <h1>Jolly Day</h1>
   <div>
-     <h3>É hora de brincar!</h3>
+     <h3>Hora de brincar!</h3>
      <p>Encontre experiências divertidas e educativas oferecidas por profissionais em recreação infantil no seu condomínio.</p>
      <p>Acreditamos que brincar é essencial para a infância e o desenvolvimento integral do ser humano. 
       Durante a pandemia, muitas crianças ficaram confinadas e tiveram efeitos psicológicos negativos. 
@@ -14,13 +14,16 @@
     <p>Um evento de recreação profissional, elaborado especialmente para o seu condomínio, e totalmente gratuito.</p>
     <p>Objetivo: Oferecer um dia lúdico para crianças entre 5 e 14 anos de idade e apresentar nossa plataforma para os pais</p>
   <p><b>Sobre a Hora de Brincar</b></p>
-  <p>Será oferecida pela Criarte. Marcelo é professor de ed. física e recreador há 10 anos. Criador de esportes alternativos que já foi destaque em
-  diversos programas televisos e jornais.</p>
+  <p>A sessão recreativa será oferecida pelo Marcelo Soares, professor de ed. física, especializado em psicomotrocidade infantil e recreador há 10 anos. Criador de esportes alternativos que já foram destaque em
+  diversos programas televisos e jornais. Marcelo e a equipe da Criarte irão organizar as atividades de acordo com a faixa etária e interesse.</p>
   <p>Tema: <%= @jolly_day.name %></p>
   <p>Começa às: <%= @jolly_day.start %></p>
   <p>Termina às: <%= @jolly_day.end %></p>
   <p>Idade mínima: <%= @jolly_day.minimum_age %></p>
   <p> Idade máxima: <%= @jolly_day.maximum_age %></p>
+
+  <h3>Inscreva-se agora: as vagas são limitadas!</h3>
+  
   <% if @jolly_day.jolly_day_participants.size < @jolly_day.maximum_capacity %>
     <%= simple_form_for @jolly_day_participant do |f| %>
       <%= f.error_notification %>
@@ -38,5 +41,5 @@
   <% end %>
   </div>
 
-  <p>Info about Jolly</p>
+  <p>Saiba mais sobre a Jolly</p>
 </div>

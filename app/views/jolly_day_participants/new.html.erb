@@ -1,0 +1,45 @@
+<% @jolly_day = JollyDay.find(1) %>
+<div class="container m-6">
+  <h1>Jolly Day</h1>
+  <div>
+     <h3>Hora de brincar!</h3>
+     <p>Encontre experiências divertidas e educativas oferecidas por profissionais em recreação infantil no seu condomínio.</p>
+     <p>Acreditamos que brincar é essencial para a infância e o desenvolvimento integral do ser humano. 
+      Durante a pandemia, muitas crianças ficaram confinadas e tiveram efeitos psicológicos negativos. 
+      A Jolly surge nesse cenário para oferecer opções seguras, divertidas e educativas de recreação.</p> 
+      </p>
+  </div>
+  <div>
+    <h3> O que é o Jolly Day?</h3>
+    <p>Um evento de recreação profissional, elaborado especialmente para o seu condomínio, e totalmente gratuito.</p>
+    <p>Objetivo: Oferecer um dia lúdico para crianças entre 5 e 14 anos de idade e apresentar nossa plataforma para os pais</p>
+  <p><b>Sobre a Hora de Brincar</b></p>
+  <p>A sessão recreativa será oferecida pelo Marcelo Soares, professor de ed. física, especializado em psicomotrocidade infantil e recreador há 10 anos. Criador de esportes alternativos que já foram destaque em
+  diversos programas televisos e jornais. Marcelo e a equipe da Criarte irão organizar as atividades de acordo com a faixa etária e interesse.</p>
+  <p>Tema: <%= @jolly_day.name %></p>
+  <p>Começa às: <%= @jolly_day.start %></p>
+  <p>Termina às: <%= @jolly_day.end %></p>
+  <p>Idade mínima: <%= @jolly_day.minimum_age %></p>
+  <p> Idade máxima: <%= @jolly_day.maximum_age %></p>
+
+  <h3>Inscreva-se agora: as vagas são limitadas!</h3>
+  
+  <% if @jolly_day.jolly_day_participants.size < @jolly_day.maximum_capacity %>
+    <%= simple_form_for @jolly_day_participant do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :child_name %>
+      <%= f.input :child_age , input_html: { min:@jolly_day.minimum_age , max: @jolly_day.maximum_age}%>
+      <%= f.input :email_address %>
+      <%= f.input :phone_number %>
+      <%= f.input :newsletter_signup, input_html: { checked: false } %>
+      <%= f.submit "Hora de Brincar!" %>
+    <% end %>
+  <% else %>
+    Ih... estamos cheios! Esse Jolly Day tá um sucesso e a gente espera você no próximo, ok?
+  <% end %>
+  </div>
+
+  <p>Saiba mais sobre a Jolly</p>
+</div>

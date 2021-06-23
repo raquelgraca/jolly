@@ -19,7 +19,11 @@ class PlaySpacesController < ApplicationController
     @play_space.user = current_user
     authorize @play_space
     if @play_space.save
-      redirect_to new_play_space_address_path(@play_space.id)
+      if @play_space.user.role == "play space owner"
+        redirect_to play_spaces_path
+      else
+        redirect_to new_appointment_path(@play_space.id)
+      end
     else
       render :new
     end

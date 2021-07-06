@@ -17,6 +17,8 @@ gem 'webpacker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  #mailer
+  gem 'letter_opener'
 end
 
 group :development, :test do

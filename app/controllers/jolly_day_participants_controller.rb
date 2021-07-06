@@ -7,6 +7,8 @@ class JollyDayParticipantsController < ApplicationController
     @jolly_day_participant = JollyDayParticipant.new(jolly_day_participant_params)
     @jolly_day_participant.jolly_day_id = 1
     if @jolly_day_participant.save
+      mail = JollyDayParticipantMailer.with(jolly_day_participant: @jolly_day_participant).confirmation
+      mail.deliver_now
       redirect_to jolly_day_participant_path(@jolly_day_participant.id)
     else
       render :new

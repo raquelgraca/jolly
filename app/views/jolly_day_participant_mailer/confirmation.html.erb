@@ -1,5 +1,7 @@
-<h1>JollyDayParticipant#confirmation</h1>
+<h1>Hora de brincar!</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/jolly_day_participant_mailer/confirmation.html.erb
+  Dear <%= @jolly_day_participant.first_name %>, thank you for signing up to our Jolly Day!
+
+  <%= @jolly_day_participant.jolly_day.name %>
 </p>

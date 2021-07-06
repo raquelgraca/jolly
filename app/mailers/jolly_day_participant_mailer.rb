@@ -1,13 +1,6 @@
 class JollyDayParticipantMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.jolly_day_participant_mailer.confirmation.subject
-  #
   def confirmation
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @jolly_day_participant = params[:jolly_day_participant]
+    mail(to: @jolly_day_participant.email_address, subject: 'Thank you for signing up to our Jolly Day')
   end
 end

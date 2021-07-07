@@ -10,8 +10,22 @@ body {
 }
 
 h1 {
-  font-family: "Comfortaa", cursive;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700 !important;
+  position: relative;
+  display: inline-block;
+  &::after {
+    width: 95%;
+    content: "";
+    height: 10%;
+    position: absolute;
+    z-index: -1;
+    left: 15%;
+    bottom: 15%;
+    background-color: #F7955D;
+  }
 }
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -24,7 +38,6 @@ h1 {
 // $my-font: "Font Name";
 
 i {
-  color: #EE862F;
   font-size: 24px;
 }
 
